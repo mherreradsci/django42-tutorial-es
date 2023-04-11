@@ -46,7 +46,3 @@ $ source ve_py38_django42/bin/activate
 (ve_py38_django42)$ deactivate
 $
 ```
-
-
-
-[def]: http://127.0.0.1:8000/
