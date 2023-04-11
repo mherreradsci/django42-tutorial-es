@@ -1,6 +1,7 @@
 
 # Django 4.2 LTS Tutorial en Español
-El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero y hasta Producción
+El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción
+
 ## Propuesta de desarrollo
 La propuesta de desarrollo es crecer en capítulos que se implementaran con branches de git con la nomenclatura NN-Inicio .... NN-Termino
 
