@@ -37,9 +37,7 @@ $ source ve_py38_django42/bin/activate
 (ve_py38_django42)$ python manage.py runserver
 ```
 #### El server se ejecuta en
-[http://127.0.0.1:8000/]{:target="_blank" rel="noopener"}
-
-<a href="http://127.0.0.1:8000/" target="_blank">Opens in new tab</a>
+http://127.0.0.1:8000/
 
 ### Desactivar el ambiente virtual python
 ```
