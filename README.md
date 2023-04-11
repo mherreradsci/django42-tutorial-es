@@ -1,4 +1,3 @@
-
 # Django 4.2 LTS Tutorial en Español
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción
 
@@ -29,5 +28,20 @@ $ rm -rf ./ve_py38_django42 # Elimina el directorio completo, es decir, el ambie
 $ python -m pip install pip --upgrade
 
 $ pip install -r requirements.txt
+```
+## Ejecución
+### Activar el ambiente virtual python y ejecutar el server
+``` bash
+$ source ve_py38_django42/bin/activate
+
+(ve_py38_django42)$ python manage.py runserver
+```
+#### El server se ejecuta en
+http://127.0.0.1:8000/
+
+### Desactivar el ambiente virtual python
+```
+(ve_py38_django42)$ deactivate
+$
 ```
 
