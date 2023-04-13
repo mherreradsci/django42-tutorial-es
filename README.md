@@ -42,5 +42,4 @@ http://127.0.0.1:8000/
 ### Desactivar el ambiente virtual python
 ```
 (ve_py38_django42)$ deactivate
-$
 ```
