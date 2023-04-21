@@ -1,10 +1,12 @@
-from django.shortcuts import render
-
 from django.http import HttpResponse
 
-def index(request):
-    # dir returns list of the attributes and methods of 
-    # any object (say functions , modules, strings, lists, dictionaries etc.)
-    print('>>>>>', dir(request)) 
-    return HttpResponse("Hello, world. You're at the customers index.")
+from .models import Customer
 
+
+def index(request):
+    customer_obj = Customer.objects.get(id=2)
+
+    HTML = f'<h1>Customer code: {customer_obj.code}</h1>'
+    HTML += f'<li>Customer name: {customer_obj.name}</li>'
+    print(HTML)
+    return HttpResponse(HTML)
