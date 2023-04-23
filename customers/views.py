@@ -16,6 +16,7 @@ def index(request):
     print(HTML)
     return HttpResponse(HTML)
 
+
 def customer_list(request):
     context ={}
     context["object_list"] = Customer.objects.all()
@@ -78,7 +79,7 @@ def customer_detail1(request, pk):
 
 def customer_detail(request, pk):
     customer_obj = get_object_or_404 (Customer, pk=pk)
-    return render(request, 
+    return render(request,
                   "customers/customer_detail.html",
                   context={'data': customer_obj})
 
