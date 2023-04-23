@@ -14,7 +14,7 @@ repos:
     -   id: check-untracked-migrations
         # Optional, if specified, hook will work only on these branches
         # otherwise it will work on all branches
-        args: ["--branches", "develop", "other_branch"]
+        ## args: ["--branches", "develop", "DJ4Z2P-007-Termino"]
     -   id: check-unapplied-migrations
     -   id: check-absent-migrations
     -   id: po-location-format
