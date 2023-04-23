@@ -1,8 +1,12 @@
+{% load tz %}
 <h1>Customers - List</h1>
 <ul>
-{% for customer in object_list %}
-    <li>{{ customer.id}} - {{ customer.code}} - {{ customer.name }} - {{ customer.created_at |date }}</li>
-{% empty %}
+    {% for customer in object_list %}
+    {% comment https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date %}
+    {% endcomment %}
+    <li>{{ customer.id}} - {{ customer.code}} - {{ customer.name }} - {{ customer.created_at|date:'Y-m-d H:i:s O' }}
+    </li>
+    {% empty %}
     <li>No customers yet.</li>
-{% endfor %}
+    {% endfor %}
 </ul>
