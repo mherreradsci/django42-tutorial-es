@@ -9,28 +9,30 @@ from .models import Customer
 
 
 def index(request):
-    customer_list = Customer.objects.all().order_by('-code')
-    HTML = '<h1>Customers - List</h1>'
+    customer_list = Customer.objects.all().order_by("-code")
+    HTML = "<h1>Customers - List</h1>"
     for customer_obj in customer_list:
-        HTML += f'<li>{customer_obj.code} - {customer_obj.name}</li>'
+        HTML += f"<li>{customer_obj.code} - {customer_obj.name}</li>"
     print(HTML)
     return HttpResponse(HTML)
 
+
 def customer_list(request):
-    context ={}
+    context = {}
     context["object_list"] = Customer.objects.all()
     return render(request, "customers/customer_list.html", context)
 
+
 def customer_create(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('customers:customer-list')
+            return redirect("customers:customer-list")
     else:
         form = CustomerForm()
-    context = {'form': form}
-    return render(request, 'customers/customer_create.html', context)
+    context = {"form": form}
+    return render(request, "customers/customer_create.html", context)
 
 
 def customer_update(request, pk):
@@ -65,22 +67,27 @@ def customer_detail0(request, pk):
 
     return render(request, "customers/customer_detail.html", context)
 
+
 from django.http import Http404
+
+
 def customer_detail1(request, pk):
     # dictionary for initial data with
     # field names as keys
     try:
-        customer_obj  = Customer.objects.get(pk=pk)
+        customer_obj = Customer.objects.get(pk=pk)
     except Customer.DoesNotExist:
-        raise Http404(f'Customer id:[{pk}] no existe')
-    return render(request, "customers/customer_detail.html", context={'data': customer_obj})
+        raise Http404(f"Customer id:[{pk}] no existe")
+    return render(
+        request, "customers/customer_detail.html", context={"data": customer_obj}
+    )
 
 
 def customer_detail(request, pk):
-    customer_obj = get_object_or_404 (Customer, pk=pk)
-    return render(request, 
-                  "customers/customer_detail.html",
-                  context={'data': customer_obj})
+    customer_obj = get_object_or_404(Customer, pk=pk)
+    return render(
+        request, "customers/customer_detail.html", context={"data": customer_obj}
+    )
 
 
 def customer_delete(request, pk):
@@ -96,7 +103,7 @@ def customer_delete(request, pk):
         obj.delete()
         # after deleting redirect to
         # home page
-        url = reverse('customers:list')
+        url = reverse("customers:list")
         return HttpResponseRedirect(url)
 
     return render(request, "customers/customer_delete.html", context)
