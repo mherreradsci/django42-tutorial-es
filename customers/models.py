@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Customer(models.Model):
     code = models.CharField(unique=True, max_length=6, null=True, blank=False)
@@ -9,4 +10,4 @@ class Customer(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'customers' # 'example"."customers'
+        db_table = "customers"  # 'example"."customers'
