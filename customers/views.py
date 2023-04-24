@@ -23,6 +23,13 @@ def customer_list(request):
     return render(request, "customers/customer_list.html", context)
 
 
+from django.views.generic.list import ListView
+
+
+class CustomerListView(ListView):
+    model = Customer
+
+
 def customer_create(request):
     if request.method == "POST":
         form = CustomerForm(request.POST)
