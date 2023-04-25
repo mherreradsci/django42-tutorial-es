@@ -8,4 +8,5 @@ pycodestyle==2.10.0
 sqlparse==0.4.3
 tomli==2.0.1
 typing_extensions==4.5.0
-pre-commit
+pre-commit==3.2.2
+black==23.3.0
