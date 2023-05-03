@@ -18,7 +18,9 @@ from django.views.generic import (
 
 def index(request):
     customer_list = Customer.objects.all().order_by("-code")
+
     HTML = "<h1>Customers - List</h1>"
+
     for customer_obj in customer_list:
         HTML += f"<li>{customer_obj.code} - {customer_obj.name}</li>"
     print(HTML)
@@ -27,12 +29,29 @@ def index(request):
 
 def customer_list(request):
     context = {}
-    context["object_list"] = Customer.objects.all()
+    context["object_list"] = Customer.objects.all().order_by("-id")
+    print(f"typeof:{type(context)}\n")
+
+    print("Query:", context["object_list"].query)
+
+    print('\ncontext["object_list"]:')
+    for r in context["object_list"]:
+        print(f"{r.code} - {r.name} - {r.created_at}")
+
+    print("\nDictionary:")
+    for _, value in context.items():
+        for r in value:
+            print(f"{r.code} - {r.name or 'NoName'} - {r.get_absolute_url()}")
+
     return render(request, "customers/customer_list.html", context)
 
 
 class CustomerListView(ListView):
     model = Customer
+    fields = "__All__"
+
+    # specify name of template
+    template_name = "customers/customer_list.html"
 
     def get_queryset(self, *args, **kwargs):
         qs = super(CustomerListView, self).get_queryset(*args, **kwargs)

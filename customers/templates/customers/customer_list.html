@@ -1,12 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Django 4.2 - dj42_proj - Español{% endblock %}
+
+{% block content %}
+
 {% load tz %}
+
 <h1>Customers - List</h1>
 <ul>
     {% for customer in object_list %}
     {% comment https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date %}
     {% endcomment %}
-    <li>{{ customer.id}} - {{ customer.code}} - {{ customer.name }} - {{ customer.created_at|date:'Y-m-d H:i:s O' }}
+    <li>{{ customer.id}} -
+        <a href="{% url 'customers:customer-detail' customer.pk %}">
+            {{ customer.code }}</a> -
+        {{ customer.name }} -
+        {{ customer.created_at|date:'Y-m-d H:i:s O' }}
+        <a href="{% url 'customers:customer-update' customer.pk %}">Editar</a>
+        <a href="{% url 'customers:customer-delete' customer.pk %}">Eliminar</a>
     </li>
     {% empty %}
     <li>No customers yet.</li>
     {% endfor %}
 </ul>
+
+{% endblock %}

@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
 <h1>Customers - Detail</h1>
 <div class="main">
     <b>Code</b>: {{ object.code }}<br />
@@ -5,3 +11,5 @@
     <b>Created At</b>: {{ object.created_at }}<br />
     <b>Updated At</b>: {{ object.updated_at }}<br />
 </div>
+
+{% endblock %}
