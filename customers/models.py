@@ -15,5 +15,8 @@ class Customer(models.Model):
         managed = True
         db_table = "customers"  # 'example"."customers'
 
+    def __str__(self):
+        return self.code
+
     def get_absolute_url(self):
         return reverse("customers:customer-list")

@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
 <h1>Customers</h1>
 <form method="POST" enctype="multipart/form-data">
     <!-- Security token -->
@@ -8,3 +14,5 @@
 
     <input type="submit" value="Submit">
 </form>
+
+{% endblock %}
