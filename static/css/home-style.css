@@ -1,0 +1,78 @@
+body {
+  background-image: url("/static/imgs/IoT-Companies-101.jpg");
+  /*
+  background-image: url('https://www.mokosmart.com/wp-content/uploads/2021/07/IoT-Companies-101.jpg');
+  */
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(35, 41, 222, 0.1);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 95%;
+  z-index: 1;
+}
+
+.navbar__logo a {
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__menu li {
+  margin-left: 20px;
+}
+
+.navbar__menu li a {
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Main Content Styles */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+button {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #34a0a4;
+  color: white;
+  cursor: pointer;
+}

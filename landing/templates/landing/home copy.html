@@ -9,18 +9,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
             {% block title %}
-                Django 4.2 - dj42_proj - Español
+                Remote IoT Management
             {% endblock title %}
         </title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        {% block extrahead %}
-        {% endblock extrahead %}
+        <link rel="stylesheet" href="{% static 'css/home-style.css' %}">
     </head>
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar">
             <div class="navbar__logo">
-                <a href="{% url 'home' %}">Remote IoT Management</a>
+                <a href="#">Remote IoT Management</a>
             </div>
             <ul class="navbar__menu">
                 <li>
@@ -29,15 +27,15 @@
                 <li>
                     <a href="#">Devices</a>
                 </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
             </ul>
         </nav>
         <!-- End Navigation Bar -->
         <!-- Main Content -->
         <div class="main-content">
             {% block content %}
+            <h1>Welcome to Remote IoT Management</h1>
+            <p>Manage your IoT devices remotely with ease.</p>
+            <button>Get Started</button>
             {% endblock content %}
         </div>
         <!-- End Main Content -->
