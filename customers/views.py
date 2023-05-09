@@ -146,11 +146,11 @@ def customer_delete(request, pk):
     context = {}
 
     # fetch the object related to passed id
-    obj = get_object_or_404(Customer, pk=pk)
+    object = get_object_or_404(Customer, pk=pk)
 
     if request.method == "POST":
         # delete object
-        obj.delete()
+        object.delete()
         # after deleting redirect to
         # home page
         url = reverse("customers:list")
@@ -162,3 +162,11 @@ def customer_delete(request, pk):
 class CustomerDeleteView(DeleteView):
     model = Customer
     success_url = reverse_lazy("customers:customer-list")
+
+    def post(self, request, *args, **kwargs):
+        print(request.POST)
+        if "cancel" in request.POST:
+            url = reverse_lazy("customers:customer-list")
+            return HttpResponseRedirect(url)
+        else:
+            return super(CustomerDeleteView, self).post(request, *args, **kwargs)

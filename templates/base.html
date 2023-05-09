@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>{% block title %}Django 4.2 - dj42_proj - Español{% endblock %}</title>
-</head>
-
-<body>
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/customers">Home</a></li>
-            <li><a href="/customers/list">Clientes</a></li>
-        </ul>
-        {% endblock %}
-    </div>
-
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="description" content="Django 4.2 LTS Z2P - Español">
+        <meta name="keywords" content="HTML, CSS3">
+        <meta name="author" content="Marcelo Herrera Tejada">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}
+                Django 4.2 - dj42_proj - Español
+            {% endblock title %}
+        </title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        {% block extrahead %}
+        {% endblock extrahead %}
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="{% url 'home' %}">Remote IoT Management</a>
+            </div>
+            <ul class="navbar__menu">
+                <li>
+                    <a href="{% url 'customers:customer-list' %}">Customers</a>
+                </li>
+                <li>
+                    <a href="#">Devices</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Navigation Bar -->
+        <!-- Main Content -->
+        <div class="main-content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <!-- End Main Content -->
+    </body>
 </html>

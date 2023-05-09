@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/home-style.css' %}">
+{% endblock extrahead %}
+{% block content %}
+    <h1>Welcome to Remote IoT Management</h1>
+    <p>Manage your IoT devices remotely with ease.</p>
+    <button>Get Started</button>
+{% endblock content %}
