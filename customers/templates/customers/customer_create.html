@@ -1,18 +1,13 @@
-{% extends "base.html" %}
-
-{% block title %}{% endblock title %}
-
+{% extends "base-bs5.html" %}
+{% block title %}
+{% endblock title %}
 {% block content %}
-
-<h1>Customers</h1>
-<form method="post" enctype="multipart/form-data">
-    <!-- Security token -->
-    {% csrf_token %}
-
-    <!-- Using the formset -->
-    {{ form.as_p }}
-
-    <input type="submit" value="Submit">
-</form>
-
+    <h1>Customers - Create</h1>
+    <form method="post" enctype="multipart/form-data">
+        <!-- Security token -->
+        {% csrf_token %}
+        <!-- Using the formset -->
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
 {% endblock content %}

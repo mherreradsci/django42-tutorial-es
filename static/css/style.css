@@ -50,6 +50,7 @@ body {
   align-items: baseline;
 }
 
+
 h1 {
   font-size: 32px;
   font-weight: bold;
@@ -62,12 +63,12 @@ p {
 }
 
 button {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   padding: 10px 30px;
   border-radius: 5px;
   border: none;
-  background-color: #34a0a4;
-  color: white;
+  background-color: #5d6fd1;
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
