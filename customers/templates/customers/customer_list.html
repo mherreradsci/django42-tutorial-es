@@ -1,24 +1,55 @@
-{% extends "base.html" %}
+{% extends "base-bs5.html" %}
 {% block title %}
     Django 4.2 - dj42_proj - Español
 {% endblock title %}
 {% block content %}
-    {% load tz %}
-    <h1>Customers - List</h1>
-    <ul>
-        {% for customer in object_list %}
-            {% comment https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#date %}
-            {% endcomment %}
-            <li>
-                {{ customer.id }} -
-                <a href="{% url 'customers:customer-detail' customer.pk %}">{{ customer.code }}</a> -
-                {{ customer.name }} -
-                {{ customer.created_at|date:'Y-m-d H:i:s O' }}
-                <a href="{% url 'customers:customer-update' customer.pk %}">Editar</a>
-                <a href="{% url 'customers:customer-delete' customer.pk %}">Eliminar</a>
-            </li>
-        {% empty %}
-            <li>No customers yet.</li>
-        {% endfor %}
-    </ul>
+    <!-- Page heading -->
+    <h1 class="text-center">Customers - List</h1>
+    <!-- Table for customer information -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Customer Id</th>
+                <th scope="col">Customer Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">Update Date</th>
+                <th scope="col"></th>
+                <th scope="col">
+                    <a href="{% url 'customers:customer-create' %}">
+                        <div class="d-grid gap-2 col-8 mx-auto justify-content-md-end">
+                            <button type="button" class="btn btn-secondary btn-block">Add</button>
+                        </div>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in object_list %}
+                <tr>
+                    <td>{{ customer.id }}</td>
+                    <td>
+                        <a href="{% url 'customers:customer-detail' customer.pk %}">
+                            <button type="button" class="btn btn-link">{{ customer.code }}</button>
+                        </a>
+                    </td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.created_at|date:'Y-m-d H:i:s O' }}</td>
+                    <td>{{ customer.updated_at|date:'Y-m-d H:i:s O' }}</td>
+                    <td>
+                        <a href="{% url 'customers:customer-update' customer.pk %}">
+                            <button type="button" class="btn btn-primary">Editar</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'customers:customer-delete' customer.pk %}">
+                            <button type="button" class="btn btn-danger">Eliminar</button>
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <li>No customers yet.</li>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock content %}

@@ -1,19 +1,15 @@
-{% extends "base.html" %}
-
-{% block title %}{% endblock %}
-
+{% extends "base-bs5.html" %}
+{% block title %}{% endblock title %}
 {% block content %}
-
-<h1>Customers - Update</h1>
-<div class="main">
-    <!-- Create a Form -->
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
-        <!-- form as paragraph -->
-        {{ form.as_p }}
-        <input type="submit" value="Update">
-    </form>
-</div>
-
-{% endblock %}
+    <h1>Customers - Update</h1>
+    <div class="main">
+        <!-- Create a Form -->
+        <form method="post">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            <!-- form as paragraph -->
+            {{ form.as_p }}
+            <input type="submit" value="Update">
+        </form>
+    </div>
+{% endblock content %}
