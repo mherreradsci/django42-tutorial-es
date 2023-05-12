@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "customers.apps.CustomersConfig",
     "landing",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "dj42_proj.urls"
+LOGIN_URL = "/accounts/login/"  # Django default
+LOGIN_REDIRECT_URL = "/customers/list"
 
 TEMPLATES = [
     {

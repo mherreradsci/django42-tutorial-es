@@ -1,0 +1,18 @@
+{% extends "base-bs5.html" %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <div>
+            <form method='post'>
+                {% csrf_token %}
+                <p>Are you sure you want to logout?</p>
+                <a>
+                    <button type="submit" class="btn btn-primary">Yes, logout.</button>
+                </a>
+            </form>
+        </div>
+    {% else %}
+        <p>
+            You're not logged in. Would you like to <a href="{% url 'accounts:login' %}">login</a>?
+        </p>
+    {% endif %}
+{% endblock content %}

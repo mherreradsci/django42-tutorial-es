@@ -6,6 +6,9 @@ from django.http import HttpResponse
 from django.http import Http404
 from django.urls import reverse, reverse_lazy
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import Customer
 from django.views.generic import (
     ListView,
@@ -16,6 +19,7 @@ from django.views.generic import (
 )
 
 
+@login_required
 def index(request):
     customer_list = Customer.objects.all().order_by("-code")
 
@@ -27,6 +31,7 @@ def index(request):
     return HttpResponse(HTML)
 
 
+@login_required
 def customer_list(request):
     context = {}
     context["object_list"] = Customer.objects.all().order_by("-id")
@@ -46,7 +51,7 @@ def customer_list(request):
     return render(request, "customers/customer_list.html", context)
 
 
-class CustomerListView(ListView):
+class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     fields = "__All__"
 
@@ -59,6 +64,7 @@ class CustomerListView(ListView):
         return qs
 
 
+@login_required
 def customer_create(request):
     if request.method == "POST":
         form = CustomerForm(request.POST)
@@ -71,12 +77,13 @@ def customer_create(request):
     return render(request, "customers/customer_create.html", context)
 
 
-class CustomerCreateView(CreateView):
+class CustomerCreateView(LoginRequiredMixin, CreateView):
     model = Customer
     fields = "__all__"
     template_name_suffix = "_create"
 
 
+@login_required
 def customer_update(request, pk):
     # dictionary for initial data with
     # field names as keys
@@ -100,12 +107,13 @@ def customer_update(request, pk):
     return render(request, "customers/customer_update.html", context)
 
 
-class CustomerUpdateView(UpdateView):
+class CustomerUpdateView(LoginRequiredMixin, UpdateView):
     model = Customer
     fields = "__all__"
     template_name_suffix = "_update"
 
 
+@login_required
 def customer_detail0(request, pk):
     # dictionary for initial data with
     # field names as keys
@@ -116,6 +124,7 @@ def customer_detail0(request, pk):
     return render(request, "customers/customer_detail.html", context)
 
 
+@login_required
 def customer_detail1(request, pk):
     # dictionary for initial data with
     # field names as keys
@@ -128,6 +137,7 @@ def customer_detail1(request, pk):
     )
 
 
+@login_required
 def customer_detail(request, pk):
     customer_obj = get_object_or_404(Customer, pk=pk)
     return render(
@@ -135,11 +145,12 @@ def customer_detail(request, pk):
     )
 
 
-class CustomerDetailViev(DetailView):
+class CustomerDetailViev(LoginRequiredMixin, DetailView):
     model = Customer
     fields = "__all__"
 
 
+@login_required
 def customer_delete(request, pk):
     # dictionary for initial data with
     # field names as keys
@@ -159,7 +170,7 @@ def customer_delete(request, pk):
     return render(request, "customers/customer_delete.html", context)
 
 
-class CustomerDeleteView(DeleteView):
+class CustomerDeleteView(LoginRequiredMixin, DeleteView):
     model = Customer
     success_url = reverse_lazy("customers:customer-list")
 
