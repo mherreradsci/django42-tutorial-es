@@ -1,5 +1,6 @@
+from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.conf import settings
 
@@ -29,7 +30,7 @@ def logout_view(request):
 
 
 def register_view(request):
-    form = UserCreationForm(request.POST or None)
+    form = CustomUserCreationForm(request.POST or None)
     if form.is_valid():
         user_obj = form.save()
         return redirect("accounts:login")

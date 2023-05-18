@@ -1,9 +1,14 @@
+from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
 from django.core.exceptions import ValidationError
 
 from django.utils.translation import gettext as _
+
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class CustomAuthForm(AuthenticationForm):
@@ -25,13 +30,12 @@ class CustomAuthForm(AuthenticationForm):
     password = forms.CharField(widget=PasswordInput(attrs={"placeholder": "Password"}))
 
 
-# from django import forms
-# from django.contrib.auth.forms import AuthenticationForm
-# from django.forms.widgets import PasswordInput, TextInput
-
-
-# class CustomAuthForm(AuthenticationForm):
-#     username = forms.CharField(
-#         widget=TextInput(attrs={"class": "validate", "placeholder": "User name"})
-#     )
-#     password = forms.CharField(widget=PasswordInput(attrs={"placeholder": "Password"}))
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = UserCreationForm.Meta.fields
+        error_messages = {
+            "username": {
+                "unique": _("This account already exist. Please, try another"),
+            },
+        }
