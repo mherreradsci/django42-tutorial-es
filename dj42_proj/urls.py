@@ -23,6 +23,7 @@ urlpatterns = [
     path("", Home.as_view(), name="home"),
     path("accounts/", include("accounts.urls")),
     path("customers/", include("customers.urls")),
+    path("devices/", include("devices.urls")),
     path("admin/", admin.site.urls),
     # path("login/", login_view, name="login"),
 ]

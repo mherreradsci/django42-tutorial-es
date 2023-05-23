@@ -1,0 +1,80 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% block content %}
+    <!-- Page heading -->
+    <h1 class="text-center">Devices - List</h1>
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> {% endcomment %}
+    <!-- Table for device information -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Active</th>
+                <th scope="col">IPv4</th>
+                <th scope="col">Created By</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">Updated By</th>
+                <th scope="col">Update Date</th>
+                <th scope="col"></th>
+                <th scope="col">
+                    <a href="{% url 'devices:create' %}">
+                        <div class="gap-2 col-8 mx-auto justify-content-md-end">
+                            <button type="button" class="btn btn-secondary btn-block btn-sm">Add</button>
+                        </div>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if messages %}
+                {% for message in messages %}
+                    <div {% if message.tags %} class="alert alert-{{ message.tags }}" id="success-alert" style="opacity: 500;"{% else %} class="text-center alert alert-info alert-dismissible shadow fade show" {% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
+                        <strong>{{ message }}</strong>
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% for device in object_list %}
+                <tr>
+                    <td id="{{ device.uuid }}">
+                        <a href="#{{ device.uuid }}" title="Permalink to this item">{{ device.id }}</a>
+                    </td>
+                    <td>{{ device.code }}</td>
+                    <td>
+                        <a href="{% url 'devices:detail' device.pk %}"  title="Detail">{{ device.name }}</a>
+                    </td>
+                    <td>
+                        <input id="id_active" type="checkbox" {{ device.active|yesno:"checked," }} disabled>
+                    </td>
+                    <td>{{ device.ipv4|default_if_none:"--" }}</td>
+                    <td>{{ device.created_by|default_if_none:"--" }}</td>
+                    <td>{{ device.created_at|date:'Y-m-d H:i:s' }}</td>
+                    <td>{{ device.updated_by }}</td>
+                    <td>{{ device.updated_at|date:'Y-m-d H:i:s' }}</td>
+                    <td>
+                        <a href="{% url 'devices:update' device.pk %}">
+                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'devices:delete' device.pk %}">
+                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <li>No devices yet.</li>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> {% endcomment %}
+    {% comment %} <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> {% endcomment %}
+{% endblock content %}
