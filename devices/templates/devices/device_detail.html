@@ -1,0 +1,50 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% load static %}
+{% block content %}
+    <div class="container ">
+        <div class="card mb-4 mx-auto">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">Devices - Detail</h3>
+                        <div class="main">
+                            <b>Code</b>: {{ object.code }}
+                            <br />
+                            <b>Name</b>: {{ object.name }}
+                            <br />
+                            <b>Active</b>:
+                            <input id="id_active" type="checkbox" {{ object.active|yesno:"checked," }} disabled>
+                            <br />
+                            <b>IP V4</b>: {{ object.ipv4|default_if_none:"" }}
+                            <br />
+                            <b>IP V6</b>: {{ object.ipv6|default_if_none:"" }}
+                            <br />
+                            <b>Created By</b>: {{ object.created_by }}
+                            <br />
+                            <b>Created At</b>: {{ object.created_at }}
+                            <br />
+                            <b>Updated By</b>: {{ object.updated_by }}
+                            <br />
+                            <b>Updated At</b>: {{ object.updated_at }}
+                            <br />
+                        </div>
+                        <div class="form-buttons">
+                            <a href="{% url 'devices:list' %}#{{ object.uuid }}"
+                               class="btn btn-secondary btn-sm">Back</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'imgs/nvidia-jetson-agx-hero-d.jpg' %}"
+                         width="100%"
+                         height="100%"
+                         class="img-fluid rounded-start"
+                         alt="Xavier">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

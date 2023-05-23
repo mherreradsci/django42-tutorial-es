@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "customers.apps.CustomersConfig",
     "landing",
     "accounts",
+    "common",
+    "devices",
 ]
 
 MIDDLEWARE = [
@@ -150,3 +152,10 @@ STORAGES = {
 # Authorization for inactive users
 # https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#authorization-for-inactive-users
 AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.AllowAllUsersModelBackend"]
+
+
+# Set globally MESSAGE_LEVEL
+# https://docs.djangoproject.com/en/4.2/ref/contrib/messages/
+from django.contrib.messages import constants as message_constants
+
+MESSAGE_LEVEL = message_constants.INFO
