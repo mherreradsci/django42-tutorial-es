@@ -3,7 +3,8 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
-- [Tutorial](https://docs.djangoproject.com/es/4.2/intro/tutorial01/)
+- [Tutorial Django](https://docs.djangoproject.com/es/4.2/intro/tutorial01/)
+- [Instrucciones detalladas de para instalar Django 4.2 (Ingles)](https://github.com/django/django/blob/9d756afb07de8ef6e4d1980413979496643f1c3b/docs/intro/install.txt)
 
 ## Propuesta de desarrollo
 La propuesta de desarrollo es crecer en capítulos que se implementaran con branches de git con la nomenclatura NN-Inicio .... NN-Termino
@@ -16,8 +17,20 @@ La propuesta de desarrollo es crecer en capítulos que se implementaran con bran
 - Ubuntu 18.04
 - Visual Studio Code Versión 1.77.0
 
-## Instalación
+## Preparar ambiente (linux)
+### Crear directorio base y fuentes para el proyecto, por ejemplo:
 ```
+$ mkdir -p ~/Proyectos/d42_proj/src
+$ cd ~/Proyectos/d42_proj
+```
+### Clonar este repo
+```
+$ git clone https://github.com/mherreradsci/django42-tutorial-es.git ./src
+```
+
+### Instalación
+```
+$ cd ~/Proyectos/d42_proj
 $ python3.8 -m venv ve_py38_django42
 $ source ve_py38_django42/bin/activate
 
@@ -29,20 +42,31 @@ Python 3.8.0
 $ rm -rf ./ve_py38_django42 # Elimina el directorio completo, es decir, el ambiente virtual
 
 # Actualiza la versión de pip
-$ python -m pip install pip --upgrade
+(ve_py38_django42)$ python -m pip install pip --upgrade
 
-$ pip install -r requirements.txt
+# Instalar requerimientos
+(ve_py38_django42)$ cd src
+(ve_py38_django42)$ pip install -r requirements-dev.txt
 ```
 ## Ejecución
-### Activar el ambiente virtual python y ejecutar el server
+### Activar el ambiente virtual python y ejecutar el server (solo si está desactivado)
 ``` bash
 $ source ve_py38_django42/bin/activate
-
+```
+### Migración inicial (crea una base de datos sqlite3)
+```
+(ve_py38_django42)$ python manage.py migrate
+```
+### Crear usuario administrador
+```
+(ve_py38_django42)$ python manage.py createsuperuser # No es necesario poner un email real, por ejemplo, podría ser dadmin@example.com
+```
+### Ejecutar el servidor de desarrollo (no apto para producción)
 (ve_py38_django42)$ python manage.py runserver
 ```
 #### El server se ejecuta en
-http://127.0.0.1:8000/
-
+http://127.0.0.1:8000/ # (CTRL+C para detener)
+```
 ### Desactivar el ambiente virtual python
 ```
 (ve_py38_django42)$ deactivate
