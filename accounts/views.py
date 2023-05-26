@@ -15,7 +15,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect("customers:customer-list")
+            return redirect("customers:list")
     else:
         form = AuthenticationForm(request)
     context = {"form": form}

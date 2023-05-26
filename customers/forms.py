@@ -13,5 +13,4 @@ class CustomerForm(forms.ModelForm):
             "id",
             "code",
             "name",
-            # "created_at",
         ]

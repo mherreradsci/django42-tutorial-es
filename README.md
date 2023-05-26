@@ -64,35 +64,23 @@ $ source ve_py38_django42/bin/activate
 (ve_py38_django42)$ python manage.py createsuperuser
 ```
 ### Generar datos para probar la funcionalidad
-- Esto se puede hacer con Django Shell:
+- Esto se puede hacer con Python Shell:
 
 [Load Customers](utils/shell/load_customers.sh)
 
 [Load Devices](utils/shell/load_devices.sh)
-```
-python manage.py shell
 
->>> from devices.models import Device
->>> Device.objects.bulk_create([Device(code='CD' + str(id).zfill(4), name='Name ' + str(id).zfill(4)) for id in range(1, 21)])
->>> exit()
 
->>> from customers.models import Customer
->>> Customer.objects.bulk_create( \
-        [Customer(code='CR' + str(id).zfill(4), \
-        name='Cliente ' + str(id).zfill(4)) for id in range(1, 11)])
->>> exit()
-
-```
 ### Ejecutar el servidor de desarrollo
 ```
 (ve_py38_django42)$ python manage.py runserver
 ```
-#### Por omisión, el server se ejecuta en la siguiente URL
+#### Por omisión, el server se ejecuta en el puerto 8000 en el local host
 http://127.0.0.1:8000/
 
 #### Para terminar el server, desde la consola python
 ```
-(CTRL+C para detener)
+<CTRL+C>
 ```
 ### Desactivar el ambiente virtual python
 ```
