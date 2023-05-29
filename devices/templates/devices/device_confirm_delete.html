@@ -8,8 +8,11 @@
         <p>Are you sure you want to delete "{{ object }}"?</p>
         {{ form }}
         <div class="form-buttons">
-            <input type="submit" value="Confirm" class="btn btn-primary" />
-            <input type="submit" name="cancel" value="Cancel" class="btn btn-secondary" />
+            <input type="submit" value="Confirm" class="btn btn-primary btn-sm" />
+            <input type="submit"
+                   name="cancel"
+                   value="Cancel"
+                   class="btn btn-secondary btn-sm" />
         </div>
     </form>
 {% endblock content %}

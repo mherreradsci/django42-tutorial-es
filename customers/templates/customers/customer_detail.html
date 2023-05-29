@@ -1,15 +1,31 @@
 {% extends "base-bs5.html" %}
-
-{% block title %}{% endblock title %}
-
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
 {% block content %}
-
-<h1>Customers - Detail</h1>
-<div class="main">
-    <b>Code</b>: {{ object.code }}<br />
-    <b>Name</b>: {{ object.name }}<br />
-    <b>Created At</b>: {{ object.created_at }}<br />
-    <b>Updated At</b>: {{ object.updated_at }}<br />
-</div>
-
+    <div class="container ">
+        <div class="card mb-4 mx-auto">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">Customers - Detail</h3>
+                        <div class="main">
+                            <b>Code</b>: {{ object.code }}
+                            <br />
+                            <b>Name</b>: {{ object.name }}
+                            <br />
+                            <b>Created At</b>: {{ object.created_at }}
+                            <br />
+                            <b>Updated At</b>: {{ object.updated_at }}
+                            <br />
+                        </div>
+                        <div class="form-buttons">
+                            <a href="{% url 'customers:list' %}#{{ object.id }}"
+                               class="btn btn-secondary btn-sm">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

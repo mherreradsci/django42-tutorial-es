@@ -4,8 +4,8 @@
 {% endblock title %}
 {% block content %}
     <h2>
-        Devices -
-        {% if device %}
+        Customers -
+        {% if customer %}
             Update
         {% else %}
             Create
@@ -16,7 +16,7 @@
         {{ form.as_p }}
         <div class="form-buttons">
             <input type="submit" value="Save" class="btn btn-primary btn-sm" />
-            <a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+            <a href="{% url 'customers:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
         </div>
     </form>
 {% endblock content %}

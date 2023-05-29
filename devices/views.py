@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from .models import Device
 from django.views.generic import (
@@ -31,9 +32,7 @@ class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     success_message = 'Device "%(name)s" was created successfully'
 
     def get_initial(self):
-        #     return {,}
         initial = super(DeviceCreateView, self).get_initial()
-        print("initial", initial)
         initial["created_by"] = self.request.user
         initial["updated_by"] = self.request.user
         return initial
@@ -57,8 +56,6 @@ class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         obj.created_by = self.request.user
         obj.updated_by = self.request.user
         obj.save()
-        # messages.success(self.request, "The device was updated successfully.")
-        # messages.debug(self.request, "DeviceUpdateView")
         return super(DeviceUpdateView, self).form_valid(form)
 
 
@@ -67,16 +64,12 @@ class DeviceDetailViev(LoginRequiredMixin, DetailView):
     fields = "__all__"
 
 
-from django.contrib import messages
-
-
 class DeviceDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Device
     success_url = reverse_lazy("devices:list")
     success_message = 'Device "%(name)s" was deleted successfully'
 
     def post(self, request, *args, **kwargs):
-        print(request.POST)
         if "cancel" in request.POST:
             url = reverse_lazy("devices:list")
             return HttpResponseRedirect(url)

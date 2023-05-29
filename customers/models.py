@@ -1,7 +1,4 @@
 from django.db import models
-
-
-# Create your models here.
 from django.urls import reverse
 
 
@@ -13,10 +10,17 @@ class Customer(models.Model):
 
     class Meta:
         managed = True
+        verbose_name = "customer"
+        verbose_name_plural = "customers"
+
         db_table = "customers"  # 'example"."customers'
+        # db_table_comment = "Customers"
+        # indexes = [
+        #     models.Index(fields=["name"], name="customers_ix01"),
+        # ]
 
     def __str__(self):
         return self.code
 
     def get_absolute_url(self):
-        return reverse("customers:customer-list")
+        return reverse("customers:list")

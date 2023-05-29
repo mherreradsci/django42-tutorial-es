@@ -58,14 +58,29 @@ $ source ve_py38_django42/bin/activate
 (ve_py38_django42)$ python manage.py migrate
 ```
 ### Crear usuario administrador
+
 ```
-(ve_py38_django42)$ python manage.py createsuperuser # No es necesario poner un email real, por ejemplo, podría ser dadmin@example.com
+# Observación: No es necesario poner un email real, por ejemplo, podría ser dadmin@example.com
+(ve_py38_django42)$ python manage.py createsuperuser
 ```
-### Ejecutar el servidor de desarrollo (no apto para producción)
+### Generar datos para probar la funcionalidad
+- Esto se puede hacer con Python Shell:
+
+[Load Customers](utils/shell/load_customers.sh)
+
+[Load Devices](utils/shell/load_devices.sh)
+
+
+### Ejecutar el servidor de desarrollo
+```
 (ve_py38_django42)$ python manage.py runserver
 ```
-#### El server se ejecuta en
-http://127.0.0.1:8000/ # (CTRL+C para detener)
+#### Por omisión, el server se ejecuta en el puerto 8000 en el local host
+http://127.0.0.1:8000/
+
+#### Para terminar el server, desde la consola python
+```
+<CTRL+C>
 ```
 ### Desactivar el ambiente virtual python
 ```

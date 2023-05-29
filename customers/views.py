@@ -1,13 +1,8 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.shortcuts import redirect, render
-from .forms import CustomerForm
-from django.http import HttpResponse
-from django.http import Http404
-from django.urls import reverse, reverse_lazy
-
-from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 from .models import Customer
 from django.views.generic import (
@@ -18,45 +13,12 @@ from django.views.generic import (
     DeleteView,
 )
 
-
-@login_required
-def index(request):
-    customer_list = Customer.objects.all().order_by("-code")
-
-    HTML = "<h1>Customers - List</h1>"
-
-    for customer_obj in customer_list:
-        HTML += f"<li>{customer_obj.code} - {customer_obj.name}</li>"
-    print(HTML)
-    return HttpResponse(HTML)
-
-
-@login_required
-def customer_list(request):
-    context = {}
-    context["object_list"] = Customer.objects.all().order_by("-id")
-    print(f"typeof:{type(context)}\n")
-
-    print("Query:", context["object_list"].query)
-
-    print('\ncontext["object_list"]:')
-    for r in context["object_list"]:
-        print(f"{r.code} - {r.name} - {r.created_at}")
-
-    print("\nDictionary:")
-    for _, value in context.items():
-        for r in value:
-            print(f"{r.code} - {r.name or 'NoName'} - {r.get_absolute_url()}")
-
-    return render(request, "customers/customer_list.html", context)
+from .forms import CustomerForm
 
 
 class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     fields = "__All__"
-
-    # specify name of template
-    template_name = "customers/customer_list.html"
 
     def get_queryset(self, *args, **kwargs):
         qs = super(CustomerListView, self).get_queryset(*args, **kwargs)
@@ -64,85 +26,17 @@ class CustomerListView(LoginRequiredMixin, ListView):
         return qs
 
 
-@login_required
-def customer_create(request):
-    if request.method == "POST":
-        form = CustomerForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("customers:customer-list")
-    else:
-        form = CustomerForm()
-    context = {"form": form}
-    return render(request, "customers/customer_create.html", context)
-
-
-class CustomerCreateView(LoginRequiredMixin, CreateView):
+class CustomerCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Customer
-    fields = "__all__"
-    template_name_suffix = "_create"
+    form_class = CustomerForm
+    success_message = 'Customer "%(name)s" was created successfully'
 
 
-@login_required
-def customer_update(request, pk):
-    # dictionary for initial data with
-    # field names as keys
-    context = {}
-
-    # fetch the object related to passed id
-    obj = get_object_or_404(Customer, pk=pk)
-
-    # pass the object as instance in form
-    form = CustomerForm(request.POST or None, instance=obj)
-
-    # save the data from the form and
-    # redirect to detail_view
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/customers/" + str(pk))
-
-    # add form dictionary to context
-    context["form"] = form
-
-    return render(request, "customers/customer_update.html", context)
-
-
-class CustomerUpdateView(LoginRequiredMixin, UpdateView):
+class CustomerUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Customer
-    fields = "__all__"
-    template_name_suffix = "_update"
+    success_message = 'Customer "%(name)s" was updated successfully'
 
-
-@login_required
-def customer_detail0(request, pk):
-    # dictionary for initial data with
-    # field names as keys
-    context = {}
-    # add the dictionary during initialization
-    context["data"] = Customer.objects.get(pk=pk)
-
-    return render(request, "customers/customer_detail.html", context)
-
-
-@login_required
-def customer_detail1(request, pk):
-    # dictionary for initial data with
-    # field names as keys
-    try:
-        customer_obj = Customer.objects.get(pk=pk)
-    except Customer.DoesNotExist:
-        raise Http404(f"Customer id:[{pk}] no existe")
-    return render(
-        request, "customers/customer_detail.html", context={"data": customer_obj}
-    )
-
-
-@login_required
-def customer_detail(request, pk):
-    customer_obj = get_object_or_404(Customer, pk=pk)
-    return render(
-        request, "customers/customer_detail.html", context={"data": customer_obj}
-    )
+    form_class = CustomerForm
 
 
 class CustomerDetailViev(LoginRequiredMixin, DetailView):
@@ -150,34 +44,19 @@ class CustomerDetailViev(LoginRequiredMixin, DetailView):
     fields = "__all__"
 
 
-@login_required
-def customer_delete(request, pk):
-    # dictionary for initial data with
-    # field names as keys
-    context = {}
-
-    # fetch the object related to passed id
-    object = get_object_or_404(Customer, pk=pk)
-
-    if request.method == "POST":
-        # delete object
-        object.delete()
-        # after deleting redirect to
-        # home page
-        url = reverse("customers:list")
-        return HttpResponseRedirect(url)
-
-    return render(request, "customers/customer_delete.html", context)
-
-
-class CustomerDeleteView(LoginRequiredMixin, DeleteView):
+class CustomerDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):
     model = Customer
-    success_url = reverse_lazy("customers:customer-list")
+    success_url = reverse_lazy("customers:list")
+    success_message = 'Customer "%(name)s" was deleted successfully'
 
     def post(self, request, *args, **kwargs):
-        print(request.POST)
         if "cancel" in request.POST:
-            url = reverse_lazy("customers:customer-list")
+            url = reverse_lazy("customers:list")
             return HttpResponseRedirect(url)
         else:
             return super(CustomerDeleteView, self).post(request, *args, **kwargs)
+
+    def form_valid(self, request, *args, **kwargs):
+        obj = self.get_object()
+        messages.success(self.request, self.success_message % obj.__dict__)
+        return super(CustomerDeleteView, self).delete(request, *args, **kwargs)

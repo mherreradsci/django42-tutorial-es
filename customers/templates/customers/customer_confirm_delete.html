@@ -1,12 +1,18 @@
 {% extends "base-bs5.html" %}
 {% block title %}
+    Django 4.2 - dj42_proj - Español
 {% endblock title %}
 {% block content %}
     <form method="post">
         {% csrf_token %}
         <p>Are you sure you want to delete "{{ object }}"?</p>
         {{ form }}
-        <input type="submit" value="Confirm">
-        <input type="submit" name="cancel" value="Cancel">
+        <div class="form-buttons">
+            <input type="submit" value="Confirm" class="btn btn-primary btn-sm" />
+            <input type="submit"
+                   name="cancel"
+                   value="Cancel"
+                   class="btn btn-secondary btn-sm" />
+        </div>
     </form>
 {% endblock content %}

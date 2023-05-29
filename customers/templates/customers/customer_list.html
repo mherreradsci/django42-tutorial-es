@@ -6,7 +6,7 @@
     <!-- Page heading -->
     <h1 class="text-center">Customers - List</h1>
     <!-- Table for customer information -->
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -16,34 +16,42 @@
                 <th scope="col">Update Date</th>
                 <th scope="col"></th>
                 <th scope="col">
-                    <a href="{% url 'customers:customer-create' %}">
+                    <a href="{% url 'customers:create' %}">
                         <div class="gap-2 col-8 mx-auto justify-content-md-end">
-                            <button type="button" class="btn btn-secondary btn-block">Crear</button>
+                            <button type="button" class="btn btn-secondary btn-block btn-sm">Add</button>
                         </div>
                     </a>
                 </th>
             </tr>
         </thead>
         <tbody>
+            {% if messages %}
+                {% for message in messages %}
+                    <div {% if message.tags %} class="alert alert-{{ message.tags }}" id="success-alert" style="opacity: 500;"{% else %} class="text-center alert alert-info alert-dismissible shadow fade show" {% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
             {% for customer in object_list %}
                 <tr>
-                    <td>{{ customer.id }}</td>
-                    <td>
-                        <a href="{% url 'customers:customer-detail' customer.pk %}">
-                            <button type="button" class="btn btn-link">{{ customer.code }}</button>
-                        </a>
+                    <td id="{{ customer.id }}">
+                        <a href="#{{ customer.id }}" title="Permalink to this item">{{ customer.id }}</a>
                     </td>
-                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.code }}</td>
+                    <td>
+                        <a href="{% url 'customers:detail' customer.pk %}" title="Detail">{{ customer.name }}</a>
+                    </td>
                     <td>{{ customer.created_at|date:'Y-m-d H:i:s' }}</td>
                     <td>{{ customer.updated_at|date:'Y-m-d H:i:s' }}</td>
                     <td>
-                        <a href="{% url 'customers:customer-update' customer.pk %}">
-                            <button type="button" class="btn btn-primary">Editar</button>
+                        <a href="{% url 'customers:update' customer.pk %}">
+                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
                         </a>
                     </td>
                     <td>
-                        <a href="{% url 'customers:customer-delete' customer.pk %}">
-                            <button type="button" class="btn btn-danger">Eliminar</button>
+                        <a href="{% url 'customers:delete' customer.pk %}">
+                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
                         </a>
                     </td>
                 </tr>
