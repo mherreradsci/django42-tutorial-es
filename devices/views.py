@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-
+from django.db.models import Q
 from .models import Device
 from django.views.generic import (
     ListView,
@@ -21,9 +21,14 @@ class DeviceListView(LoginRequiredMixin, ListView):
     fields = "__All__"
 
     def get_queryset(self, *args, **kwargs):
-        qs = super(DeviceListView, self).get_queryset(*args, **kwargs)
-        qs = qs.order_by("-id")
-        return qs
+        query = self.request.GET.get("q")
+        if query:
+            loockups = Q(code__icontains=query) | Q(name__icontains=query)
+            qs = Device.objects.filter(loockups)
+        else:
+            qs = super(DeviceListView, self).get_queryset(*args, **kwargs)
+
+        return qs.order_by("-id")
 
 
 class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
