@@ -43,9 +43,9 @@
     </div>
     <div class="navbar-nav ml-auto">
       {% if user.is_authenticated %}
-      <span class="navbar-text">
-       <b> {{ user.username }}</b>
-      </span>
+        <span class="navbar-text">
+          <b> {{ user.username }}</b>
+        </span>
         <li>
           <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
         </li>
@@ -53,5 +53,13 @@
         <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
       {% endif %}
     </div>
+    <form class="d-flex"  action="{{ object.get_absolute_url }}" method='get'>
+      <input class="form-control me-2"
+             name="q"
+             type="search"
+             placeholder="Search"
+             aria-label="Search">
+      <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </form>
   </div>
 </nav>

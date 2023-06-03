@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.db.models import Q
 
 from .models import Customer
 from django.views.generic import (
@@ -14,6 +15,7 @@ from django.views.generic import (
 )
 
 from .forms import CustomerForm
+from django.db.models import Q
 
 
 class CustomerListView(LoginRequiredMixin, ListView):
@@ -21,9 +23,14 @@ class CustomerListView(LoginRequiredMixin, ListView):
     fields = "__All__"
 
     def get_queryset(self, *args, **kwargs):
-        qs = super(CustomerListView, self).get_queryset(*args, **kwargs)
-        qs = qs.order_by("-id")
-        return qs
+        query = self.request.GET.get("q")
+        if query:
+            loockups = Q(code__icontains=query) | Q(name__icontains=query)
+            qs = Customer.objects.filter(loockups)
+        else:
+            qs = super(CustomerListView, self).get_queryset(*args, **kwargs)
+
+        return qs.order_by("-id")
 
 
 class CustomerCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
