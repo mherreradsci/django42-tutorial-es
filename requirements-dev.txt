@@ -5,7 +5,7 @@ Django==4.2.2
 pkg_resources==0.0.0
 psycopg==3.1.8
 pycodestyle==2.10.0
-sqlparse==0.4.3
+sqlparse==0.4.4
 tomli==2.0.1
 typing_extensions==4.5.0
 pre-commit==3.2.2
