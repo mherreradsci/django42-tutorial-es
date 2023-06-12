@@ -1,0 +1,22 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% block content %}
+    <h3>
+        MAC Address Type -
+        {% if mac_address_type %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+    </h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-buttons">
+            <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+            <a href="{% url 'mac_address_types:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+        </div>
+    </form>
+{% endblock content %}

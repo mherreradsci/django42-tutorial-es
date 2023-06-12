@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "accounts",
     "common",
     "devices",
+    "mac_address_types",
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,18 @@ AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.AllowAllUsersModelBacke
 from django.contrib.messages import constants as message_constants
 
 MESSAGE_LEVEL = message_constants.INFO
+
+
+# Seg global "constants"
+# ------------------------------------------------------------------------------
+
+# UI: TextAreas
+TA_DEFAULT_ROWS = 4
+
+# DB: Defaults
+from django.utils import timezone
+import pytz
+
+DB_DEFAULT_INFINITE_DAY = timezone.datetime(
+    year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=pytz.UTC
+)

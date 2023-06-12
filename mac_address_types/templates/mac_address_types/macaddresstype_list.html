@@ -1,0 +1,74 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% block content %}
+    <!-- Page heading -->
+    <h3 class="text-center">MAC Address Types - List</h3>
+    <!-- Table for mac_address_type information -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Active</th>
+                <th scope="col">Created By</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">Updated By</th>
+                <th scope="col">Update Date</th>
+                <th scope="col"></th>
+                <th scope="col">
+                    <a href="{% url 'mac_address_types:create' %}">
+                        <div class="gap-2 col-8 mx-auto justify-content-md-end">
+                            <button type="button" class="btn btn-secondary btn-block btn-sm">Add</button>
+                        </div>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if messages %}
+                {% for message in messages %}
+                    <div {% if message.tags %} class="alert alert-{{ message.tags }}" id="success-alert" style="opacity: 500;"{% else %} class="text-center alert alert-info alert-dismissible shadow fade show" {% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% for mac_address_type in object_list %}
+                <tr>
+                    <td id="{{ mac_address_type.id }}">
+                        <a href="#{{ mac_address_type.id }}" title="Permalink to this item">{{ mac_address_type.id }}</a>
+                    </td>
+                    <td>{{ mac_address_type.code }}</td>
+                    <td>
+                        <a href="{% url 'mac_address_types:detail' mac_address_type.pk %}"
+                           title="Detail">{{ mac_address_type.name|default_if_none:"N/A" }}</a>
+                    </td>
+                    <td>{{ mac_address_type.desc|default_if_none:"N/A" }}</td>
+                    <td>
+                        <input id="id_active" type="checkbox" {{ mac_address_type.active|yesno:"checked," }} disabled>
+                    </td>
+                    <td>{{ mac_address_type.created_by|default_if_none:"--" }}</td>
+                    <td>{{ mac_address_type.created_at|date:'Y-m-d H:i:s' }}</td>
+                    <td>{{ mac_address_type.updated_by }}</td>
+                    <td>{{ mac_address_type.updated_at|date:'Y-m-d H:i:s' }}</td>
+                    <td>
+                        <a href="{% url 'mac_address_types:update' mac_address_type.pk %}">
+                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'mac_address_types:delete' mac_address_type.pk %}">
+                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <li>No mac_address_types yet.</li>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
