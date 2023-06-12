@@ -1,0 +1,41 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% load static %}
+{% block content %}
+    <div class="container ">
+        <div class="card mb-4 mx-auto">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">MAC Address Types - Detail</h3>
+                        <div class="main">
+                            <b>Code</b>: {{ object.code }}
+                            <br />
+                            <b>Name</b>: {{ object.name|default_if_none:"N/A" }}
+                            <br />
+                            <b>Desc</b>: {{ object.desc|default_if_none:"N/A" }}
+                            <br />
+                            <b>Active</b>:
+                            <input id="id_active" type="checkbox" {{ object.active|yesno:"checked," }} disabled>
+                            <br />
+                            <b>Created By</b>: {{ object.created_by }}
+                            <br />
+                            <b>Created At</b>: {{ object.created_at }}
+                            <br />
+                            <b>Updated By</b>: {{ object.updated_by }}
+                            <br />
+                            <b>Updated At</b>: {{ object.updated_at }}
+                            <br />
+                        </div>
+                        <div class="form-buttons">
+                            <a href="{% url 'mac_address_types:list' %}#{{ object.uuid }}"
+                               class="btn btn-secondary btn-sm">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

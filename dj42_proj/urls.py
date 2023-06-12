@@ -25,5 +25,6 @@ urlpatterns = [
     path("customers/", include("customers.urls")),
     path("devices/", include("devices.urls")),
     path("admin/", admin.site.urls),
+    path("mac_address_types/", include("mac_address_types.urls")),
     # path("login/", login_view, name="login"),
 ]
