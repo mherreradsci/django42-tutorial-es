@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "common",
     "devices",
     "mac_address_types",
+    "mac_addresses",
 ]
 
 MIDDLEWARE = [
