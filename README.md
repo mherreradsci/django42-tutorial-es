@@ -1,5 +1,13 @@
 # Django 4.2 LTS Tutorial en Español
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
+## Pendientes:
+
+* Métodos de desarrollo (Form validation, Testing, etc.)
+* Moldelo (n2n, geo, etc)
+* Deploy
+* CSV (pipelines)
+* Contribución (How to)
+* DevOps
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
