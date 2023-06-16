@@ -14,8 +14,6 @@ class MacAddress(AuditInfo):
     address = models.CharField(unique=True, max_length=17, null=False, blank=False)
     maad_type = models.ForeignKey(
         MacAddressType,
-        # related_name="%(app_label)s_%(class)s_created_by",
-        # related_query_name="%(app_label)s_%(class)ss",
         on_delete=models.CASCADE,
         blank=False,
         null=False,
