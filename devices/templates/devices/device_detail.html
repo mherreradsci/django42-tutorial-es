@@ -15,14 +15,18 @@
                             <br />
                             <b>Name</b>: {{ object.name }}
                             <br />
-                            <b>Active</b>:
-                            <input id="id_active" type="checkbox" {{ object.active|yesno:"checked," }} disabled>
-                            <br />
                             <b>UUID</b>: {{ object.uuid|default_if_none:"" }}
                             <br />
                             <b>IP V4</b>: {{ object.ipv4|default_if_none:"" }}
                             <br />
                             <b>IP V6</b>: {{ object.ipv6|default_if_none:"" }}
+                            <br />
+                            <b>Active</b>:
+                            <input id="id_active" type="checkbox" {{ object.active|yesno:"checked," }} disabled>
+                            <br />
+                            <b>Active From</b>: {{ object.active_from }}
+                            <br />
+                            <b>Active Until</b>: {{ object.active_until }}
                             <br />
                             <b>Created By</b>: {{ object.created_by }}
                             <br />
@@ -33,8 +37,27 @@
                             <b>Updated At</b>: {{ object.updated_at }}
                             <br />
                         </div>
+                        <br>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">MAC Address</th>
+                                    <th scope="col">MAC Address Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for macaddress in object.get_macaddress %}
+                                    <tr>
+                                        <td>{{ macaddress.address }}</td>
+                                        <td>{{ macaddress.maad_type }}</td>
+                                    </tr>
+                                {% empty %}
+                                    <li>No MAC Addresses yet.</li>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                         <div class="form-buttons">
-                            <a href="{% url 'devices:list' %}#{{ object.uuid }}"
+                            <a href="{{ object.get_absolute_url }}#{{ object.uuid }}"
                                class="btn btn-secondary btn-sm">Back</a>
                         </div>
                     </div>

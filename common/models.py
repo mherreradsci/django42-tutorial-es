@@ -1,3 +1,5 @@
+import pytz
+from django.utils import timezone
 from django.db import models
 from django.conf import settings
 
@@ -12,7 +14,6 @@ class AuditInfo(models.Model):
         User,
         related_name="%(app_label)s_%(class)s_created_by",
         related_query_name="%(app_label)s_%(class)ss",
-        # default=8, # "NONAME",
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
@@ -21,23 +22,32 @@ class AuditInfo(models.Model):
         User,
         related_name="%(app_label)s_%(class)s_updated_by",
         related_query_name="%(app_label)s_%(class)ss",
-        # default=8, # "NONAME",
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
-    active = models.BooleanField(default=True)
+    # active = models.BooleanField(default=True)
 
     class Meta:
         abstract = True
 
 
-from django.utils import timezone
+# class TypeInfo(AuditInfo):
+#     active_from = models.DateTimeField(
+#         blank=True, null=True, default=timezone.now)
+#     active_until = models.DateTimeField(
+#         blank=True,
+#         null=False,
+#         default=timezone.datetime(
+#             year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=pytz.UTC
+#         ),
+#     )
 
-import pytz
+#     class Meta:
+#         abstract = True
 
 
-class TypeInfo(AuditInfo):
+class ValidityInfo(AuditInfo):
     active_from = models.DateTimeField(blank=True, null=True, default=timezone.now)
     active_until = models.DateTimeField(
         blank=True,
@@ -46,6 +56,7 @@ class TypeInfo(AuditInfo):
             year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=pytz.UTC
         ),
     )
+    active = models.BooleanField(default=True)
 
     class Meta:
         abstract = True

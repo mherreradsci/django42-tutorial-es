@@ -7,19 +7,35 @@ from .models import MacAddress
 
 
 class MacAddressAdmin(admin.ModelAdmin):
-    list_display = [
+    fields = [
         "id",
         "address",
         "maad_type",
         "device",
         "active",
+        "active_from",
+        "active_until",
         "created_by",
         "created_at",
         "updated_by",
         "updated_at",
     ]
 
-    readonly_fields = ("created_by", "created_at", "updated_by", "updated_at")
+    list_display = [
+        "id",
+        "address",
+        "maad_type",
+        "device",
+        "active",
+        "active_from",
+        "active_until",
+        "created_by",
+        "created_at",
+        "updated_by",
+        "updated_at",
+    ]
+
+    readonly_fields = ("id", "created_by", "created_at", "updated_by", "updated_at")
     search_fields = ["address"]
     ordering = ["-id"]
 

@@ -1,9 +1,8 @@
 from django import forms
 from .models import Device
 
-from django.conf import settings
-
-User = settings.AUTH_USER_MODEL
+# from django.conf import settings
+# User = settings.AUTH_USER_MODEL
 
 
 class DeviceForm(forms.ModelForm):
@@ -14,7 +13,6 @@ class DeviceForm(forms.ModelForm):
 
     class Meta:
         model = Device
-        # fields = "__all__"
 
         fields = [
             "id",
@@ -23,6 +21,8 @@ class DeviceForm(forms.ModelForm):
             "ipv4",
             "ipv6",
             "active",
+            "active_from",
+            "active_until",
             "created_by",
             "updated_by",
         ]
@@ -47,5 +47,13 @@ class DeviceForm(forms.ModelForm):
                 attrs={
                     "placeholder": "IP V6 format",
                 }
+            ),
+            "active_from": forms.DateTimeInput(
+                format="%Y-%m-%d %H:%M:%S",
+                attrs={"class": "datetimefield", "placeholder": "until"},
+            ),
+            "active_until": forms.DateTimeInput(
+                format="%Y-%m-%d %H:%M:%S",
+                attrs={"class": "datetimefield", "placeholder": "until"},
             ),
         }
