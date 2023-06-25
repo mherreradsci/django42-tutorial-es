@@ -18,6 +18,8 @@
                             <b>Active</b>:
                             <input id="id_active" type="checkbox" {{ object.active|yesno:"checked," }} disabled>
                             <br />
+                            <b>UUID</b>: {{ object.uuid|default_if_none:"" }}
+                            <br />
                             <b>IP V4</b>: {{ object.ipv4|default_if_none:"" }}
                             <br />
                             <b>IP V6</b>: {{ object.ipv6|default_if_none:"" }}

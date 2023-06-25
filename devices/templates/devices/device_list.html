@@ -13,6 +13,7 @@
                 <th scope="col">Code</th>
                 <th scope="col">Name</th>
                 <th scope="col">Active</th>
+                <th scope="col">UUID</th>
                 <th scope="col">IPv4</th>
                 <th scope="col">Created By</th>
                 <th scope="col">Creation Date</th>
@@ -49,6 +50,7 @@
                     <td>
                         <input id="id_active" type="checkbox" {{ device.active|yesno:"checked," }} disabled>
                     </td>
+                    <td>{{ device.uuid|default_if_none:"--" }}</td>
                     <td>{{ device.ipv4|default_if_none:"--" }}</td>
                     <td>{{ device.created_by|default_if_none:"--" }}</td>
                     <td>{{ device.created_at|date:'Y-m-d H:i:s' }}</td>
