@@ -58,7 +58,6 @@ class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         obj = form.save(commit=False)
-        obj.created_by = self.request.user
         obj.updated_by = self.request.user
         obj.save()
         return super(DeviceUpdateView, self).form_valid(form)
@@ -66,7 +65,6 @@ class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
 class DeviceDetailViev(LoginRequiredMixin, DetailView):
     model = Device
-    fields = "__all__"
 
 
 class DeviceDeleteView(SuccessMessageMixin, LoginRequiredMixin, DeleteView):

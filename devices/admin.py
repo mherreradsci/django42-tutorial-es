@@ -14,6 +14,9 @@ class MacAddessInline(admin.TabularInline):
         "address",
         "maad_type",
         "device",
+        "active",
+        "active_from",
+        "active_until",
         "created_by",
         "created_at",
         "updated_by",
@@ -24,11 +27,13 @@ class MacAddessInline(admin.TabularInline):
 
 class DeviceAdmin(admin.ModelAdmin):
     inlines = [MacAddessInline]
-    list_display = [
+    fields = [
         "id",
         "code",
         "name",
         "active",
+        "active_from",
+        "active_until",
         "uuid",
         "ipv4",
         "ipv6",
@@ -38,7 +43,30 @@ class DeviceAdmin(admin.ModelAdmin):
         "updated_at",
     ]
 
-    readonly_fields = ("uuid", "created_by", "created_at", "updated_by", "updated_at")
+    list_display = [
+        "id",
+        "code",
+        "name",
+        "active",
+        "active_from",
+        "active_until",
+        "uuid",
+        "ipv4",
+        "ipv6",
+        "created_by",
+        "created_at",
+        "updated_by",
+        "updated_at",
+    ]
+
+    readonly_fields = (
+        "id",
+        "uuid",
+        "created_by",
+        "created_at",
+        "updated_by",
+        "updated_at",
+    )
     search_fields = ["code", "name"]
     ordering = ["name", "-id"]
 

@@ -38,12 +38,32 @@ class CustomerCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     form_class = CustomerForm
     success_message = 'Customer "%(name)s" was created successfully'
 
+    def get_initial(self):
+        initial = super(CustomerCreateView, self).get_initial()
+        initial["created_by"] = self.request.user
+        initial["updated_by"] = self.request.user
+        return initial
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.created_by = self.request.user
+        obj.updated_by = self.request.user
+        obj.save()
+        return super(CustomerCreateView, self).form_valid(form)
+
 
 class CustomerUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Customer
     success_message = 'Customer "%(name)s" was updated successfully'
 
     form_class = CustomerForm
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        # obj.created_by = self.request.user
+        obj.updated_by = self.request.user
+        obj.save()
+        return super(CustomerUpdateView, self).form_valid(form)
 
 
 class CustomerDetailViev(LoginRequiredMixin, DetailView):

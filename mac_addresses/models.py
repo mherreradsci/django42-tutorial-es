@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from common.models import AuditInfo
+from common.models import ValidityInfo
 from mac_address_types.models import MacAddressType
 from devices.models import Device
 
@@ -10,7 +10,7 @@ from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
 
-class MacAddress(AuditInfo):
+class MacAddress(ValidityInfo):
     address = models.CharField(unique=True, max_length=17, null=False, blank=False)
     maad_type = models.ForeignKey(
         MacAddressType,

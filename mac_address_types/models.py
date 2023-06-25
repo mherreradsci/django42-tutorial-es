@@ -1,11 +1,11 @@
 from django.db import models
-from common.models import TypeInfo, AuditInfo
+from common.models import ValidityInfo
 
 # from django.conf import settings
 from django.urls import reverse
 
 
-class MacAddressType(TypeInfo):
+class MacAddressType(ValidityInfo):
     code = models.CharField(unique=True, max_length=12, null=True, blank=False)
     name = models.CharField(max_length=120, null=True, blank=True)
     desc = models.TextField(max_length=600, null=True, blank=True)

@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from common.models import AuditInfo
+from common.models import ValidityInfo
 import uuid
 
 from django.conf import settings
@@ -9,7 +9,7 @@ from django.conf import settings
 User = settings.AUTH_USER_MODEL
 
 
-class Device(AuditInfo):
+class Device(ValidityInfo):
     code = models.CharField(unique=True, max_length=6, null=True, blank=False)
     name = models.CharField(max_length=120, null=True, blank=True)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
@@ -38,3 +38,6 @@ class Device(AuditInfo):
 
     def get_absolute_url(self):
         return reverse("devices:list")
+
+    def get_macaddress(self):
+        return self.macaddress_set.all()

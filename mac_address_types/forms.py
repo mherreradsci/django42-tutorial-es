@@ -3,9 +3,6 @@ from .models import MacAddressType
 
 from django.conf import settings
 
-# User = settings.AUTH_USER_MODEL
-from django.contrib.admin.widgets import AdminDateWidget
-
 
 class MacAddressTypeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -43,6 +40,12 @@ class MacAddressTypeForm(forms.ModelForm):
             "desc": forms.Textarea(
                 attrs={"placeholder": "Description", "rows": settings.TA_DEFAULT_ROWS},
             ),
-            "active_from": AdminDateWidget(attrs={"type": "date"}),
-            "active_until": AdminDateWidget(attrs={"type": "date"}),
+            "active_from": forms.DateTimeInput(
+                format="%Y-%m-%d %H:%M:%S",
+                attrs={"class": "datetimefield", "placeholder": "until"},
+            ),
+            "active_until": forms.DateTimeInput(
+                format="%Y-%m-%d %H:%M:%S",
+                attrs={"class": "datetimefield", "placeholder": "until"},
+            ),
         }
