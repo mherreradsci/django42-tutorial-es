@@ -1,8 +1,20 @@
 from django import forms
 from .models import Device
 
-# from django.conf import settings
-# User = settings.AUTH_USER_MODEL
+from mac_addresses.models import MacAddress
+from django.forms.models import inlineformset_factory
+
+
+MacAddressFormset = inlineformset_factory(
+    Device,
+    MacAddress,
+    fields=[
+        "address",
+        "maad_type",
+    ],
+    extra=1,
+    can_delete=True,
+)
 
 
 class DeviceForm(forms.ModelForm):

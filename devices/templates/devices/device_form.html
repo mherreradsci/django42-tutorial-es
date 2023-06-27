@@ -14,6 +14,15 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        <h3>MAC Addresses</h3>
+        <div>{{ macaddress_formset.management_form }}</div>
+        <div>
+            {% for form in macaddress_formset %}
+                <ul>
+                    <li>{{ form.as_table }}</li>
+                </ul>
+            {% endfor %}
+        </div>
         <div class="form-buttons">
             <input type="submit" value="Save" class="btn btn-primary btn-sm" />
             <a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>

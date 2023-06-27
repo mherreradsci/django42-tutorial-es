@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -13,7 +14,7 @@ from django.views.generic import (
     DeleteView,
 )
 
-from .forms import DeviceForm
+from .forms import DeviceForm, MacAddressFormset
 
 
 class DeviceListView(LoginRequiredMixin, ListView):
@@ -34,20 +35,40 @@ class DeviceListView(LoginRequiredMixin, ListView):
 class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Device
     form_class = DeviceForm
+
     success_message = 'Device "%(name)s" was created successfully'
+
+    def get_context_data(self, **kwargs):
+        context = super(DeviceCreateView, self).get_context_data(**kwargs)
+        if self.request.POST:
+            context["macaddress_formset"] = MacAddressFormset(self.request.POST)
+        else:
+            context["macaddress_formset"] = MacAddressFormset()
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data(form=form)
+        formset = context["macaddress_formset"]
+        if formset.is_valid():
+            response = super().form_valid(form)
+            formset.instance = self.object
+
+            for f in formset:
+                x = f.save(commit=False)
+                print("create:", type(f))
+                x.created_by = self.request.user
+                x.updated_by = self.request.user
+                # f.save()
+            formset.save()
+            return response
+        else:
+            return super().form_invalid(form)
 
     def get_initial(self):
         initial = super(DeviceCreateView, self).get_initial()
         initial["created_by"] = self.request.user
         initial["updated_by"] = self.request.user
         return initial
-
-    def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.created_by = self.request.user
-        obj.updated_by = self.request.user
-        obj.save()
-        return super(DeviceCreateView, self).form_valid(form)
 
 
 class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
@@ -56,11 +77,31 @@ class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
     form_class = DeviceForm
 
+    def get_context_data(self, **kwargs):
+        context = super(DeviceUpdateView, self).get_context_data(**kwargs)
+        if self.request.POST:
+            context["macaddress_formset"] = MacAddressFormset(
+                self.request.POST, instance=self.object
+            )
+            context["macaddress_formset"].full_clean()
+        else:
+            context["macaddress_formset"] = MacAddressFormset(instance=self.object)
+        return context
+
     def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.updated_by = self.request.user
-        obj.save()
-        return super(DeviceUpdateView, self).form_valid(form)
+        context = self.get_context_data(form=form)
+        formset = context["macaddress_formset"]
+        if formset.is_valid():
+            response = super().form_valid(form)
+            formset.instance = self.object
+            for f in formset:
+                x = f.save(commit=False)
+                x.updated_by = self.request.user
+                # f.save()
+            formset.save()
+            return response
+        else:
+            return super().form_invalid(form)
 
 
 class DeviceDetailViev(LoginRequiredMixin, DetailView):
