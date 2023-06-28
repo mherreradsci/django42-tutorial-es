@@ -12,7 +12,7 @@ MacAddressFormset = inlineformset_factory(
         "address",
         "maad_type",
     ],
-    extra=1,
+    extra=0,
     can_delete=True,
 )
 

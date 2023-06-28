@@ -49,16 +49,16 @@ class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         context = self.get_context_data(form=form)
         formset = context["macaddress_formset"]
+
         if formset.is_valid():
             response = super().form_valid(form)
             formset.instance = self.object
+            instances = formset.save(commit=False)
 
-            for f in formset:
-                x = f.save(commit=False)
-                print("create:", type(f))
-                x.created_by = self.request.user
-                x.updated_by = self.request.user
-                # f.save()
+            for instance in instances:
+                instance.created_by = self.request.user
+                instance.updated_by = self.request.user
+                # instance.save()
             formset.save()
             return response
         else:
@@ -94,10 +94,9 @@ class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         if formset.is_valid():
             response = super().form_valid(form)
             formset.instance = self.object
-            for f in formset:
-                x = f.save(commit=False)
-                x.updated_by = self.request.user
-                # f.save()
+            instances = formset.save(commit=False)
+            for instance in instances:
+                instance.updated_by = self.request.user
             formset.save()
             return response
         else:
