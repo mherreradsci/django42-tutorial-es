@@ -2,6 +2,7 @@
 {% block title %}
     Django 4.2 - dj42_proj - Español
 {% endblock title %}
+{% load static %}
 {% block content %}
     <style>
         .hidden {
@@ -45,28 +46,7 @@
         <a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
     </div>
 </form>
-<script>
-    const addMoreBtn = document.getElementById("add-more")
-    const totalNewForms = document.getElementById('id_macaddress_set-TOTAL_FORMS')
+<script src="{% static 'js/devices/macaddress_formset.js' %}"
+        type="text/javascript"></script>
 
-    addMoreBtn.addEventListener('click', add_new_form)
-    function add_new_form(event){
-        if (event) {
-            event.preventDefault()
-        }
-        const currentMacAddressForms =
-            document.getElementsByClassName("macaddress-form")
-        const currentFormCount = currentMacAddressForms.length
-        const formCopyTarget = document.getElementById("macaddress-form-list")
-        const copyEmptyFormElement =
-            document.getElementById("empty-form").cloneNode(true)
-        copyEmptyFormElement.setAttribute('class', "macaddress-form")
-        copyEmptyFormElement.setAttribute('id', `form-${currentFormCount}`)
-        const regexp = new RegExp('__prefix__', 'g')
-        copyEmptyFormElement.innerHTML =
-            copyEmptyFormElement.innerHTML.replace(regexp, currentFormCount)
-        totalNewForms.setAttribute('value', currentFormCount + 1)
-        formCopyTarget.append(copyEmptyFormElement)
-    }
-</script>
 {% endblock content %}
