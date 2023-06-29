@@ -11,6 +11,12 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 * Contribución (How to)
 * DevOps
 
+## Etapa actual (Stage 21)
+* 2023-06-29: Se agrega formset para Device - MAC Address, utiliza js
+
+## Siguiente etapa (Stage 22)
+* HTMX para agregar forms en forma dinámica (menos código js)
+
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
 - [Tutorial Django](https://docs.djangoproject.com/es/4.2/intro/tutorial01/)
