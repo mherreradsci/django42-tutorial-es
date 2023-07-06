@@ -17,7 +17,7 @@
             Create
         {% endif %}
     </h2>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         {% if macaddress_formset %}
