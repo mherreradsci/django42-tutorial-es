@@ -21,6 +21,7 @@ from django.db.models import Q
 class CustomerListView(LoginRequiredMixin, ListView):
     model = Customer
     fields = "__All__"
+    paginate_by = 10
 
     def get_queryset(self, *args, **kwargs):
         query = self.request.GET.get("q")
