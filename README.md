@@ -11,11 +11,11 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 * Contribución (How to)
 * DevOps
 
-## Etapa actual (Stage 21)
-* 2023-06-29: Se agrega formset para Device - MAC Address, utiliza js
+## Etapa actual (Stage 22)
+* Agrega paginación a listas de Clientes y Devices
 
-## Siguiente etapa (Stage 22)
-* Agregar paginación a listas de Clientes y Devices
+## Siguiente etapa (Stage 23)
+* HTMX para listas y paginación
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
