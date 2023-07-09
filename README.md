@@ -15,7 +15,7 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 * 2023-06-29: Se agrega formset para Device - MAC Address, utiliza js
 
 ## Siguiente etapa (Stage 22)
-* HTMX para agregar forms en forma dinámica (menos código js)
+* Agregar paginación a listas de Clientes y Devices
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
