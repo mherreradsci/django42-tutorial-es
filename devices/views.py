@@ -20,6 +20,7 @@ from .forms import DeviceForm, MacAddressFormset
 class DeviceListView(LoginRequiredMixin, ListView):
     model = Device
     fields = "__All__"
+    paginate_by = 5
 
     def get_queryset(self, *args, **kwargs):
         query = self.request.GET.get("q")
