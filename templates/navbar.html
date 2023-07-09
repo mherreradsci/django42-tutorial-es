@@ -53,13 +53,12 @@
         <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
       {% endif %}
     </div>
-    <form class="d-flex"  action="{{ object.get_absolute_url }}" method='get'>
-      <input class="form-control me-2"
-             name="q"
-             type="search"
-             placeholder="Search"
-             aria-label="Search"
-             value={{ request.GET.q }}>
+    <form class="d-flex"
+          hx-get="{{ object.get_absolute_url }}"
+          hx-target="#customers-table"
+          hx-swap="outerHTML"
+          method='get'>
+      <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="{{ request.GET.q }}">
       <button class="btn btn-outline-secondary" type="submit">Search</button>
     </form>
   </div>

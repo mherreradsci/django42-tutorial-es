@@ -33,6 +33,11 @@ class CustomerListView(LoginRequiredMixin, ListView):
 
         return qs.order_by("-id")
 
+    def get_template_names(self):
+        if self.request.htmx and not self.request.htmx.history_restore_request:
+            return "customers/partials/customer_table.html"
+        return "customers/customer_list.html"
+
 
 class CustomerCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Customer

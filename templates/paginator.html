@@ -1,0 +1,77 @@
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li class="page-item enabled">
+                <a class="page-link"
+                   href="#"
+                   hx-get="{{ object.get_absolute_url }}"
+                   hx-vals='{"page": "{{ page_obj.first_page_number }}", "q": "{{ request.GET.q }}"}'
+                   hx-target="#customers-table"
+                   hx-swap="outerHTML">&laquo; first</a>
+            </li>
+            <li class="page-item enabled">
+                <a class="page-link"
+                   href="#"
+                   hx-get="{{ object.get_absolute_url }}"
+                   hx-vals='{"page": "{{ page_obj.previous_page_number }}", "q": "{{ request.GET.q }}"}'
+                   hx-target="#customers-table"
+                   hx-swap="outerHTML">previous</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">&laquo; first</a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link">previous</a>
+            </li>
+        {% endif %}
+        {% for i in page_obj.paginator.page_range %}
+            {% if page_obj.number == i %}
+                <li class="page-item active">
+                    <a class="page-link"
+                       href="#"
+                       aria-current="page"
+                       hx-get="{{ object.get_absolute_url }}"
+                       hx-vals='{"page": "{{ i }}", "q": "{{ request.GET.q }}"}'
+                       hx-target="#customers-table"
+                       hx-swap="outerHTML">{{ i }}</a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link"
+                       href="#"
+                       aria-current="page"
+                       hx-get="{{ object.get_absolute_url }}"
+                       hx-vals='{"page": "{{ i }}", "q": "{{ request.GET.q }}"}'
+                       hx-target="#customers-table"
+                       hx-swap="outerHTML">{{ i }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li class="page-item enabled">
+                <a class="page-link"
+                   href="#"
+                   hx-get="{{ object.get_absolute_url }}"
+                   hx-vals='{"page": "{{ page_obj.next_page_number }}", "q": "{{ request.GET.q }}"}'
+                   hx-target="#customers-table"
+                   hx-swap="outerHTML">next</a>
+            </li>
+            <li class="page-item enabled">
+                <a class="page-link"
+                   href="#"
+                   hx-get="{{ object.get_absolute_url }}"
+                   hx-vals='{"page": "{{ page_obj.paginator.num_pages }}", "q": "{{ request.GET.q }}"}'
+                   hx-target="#customers-table"
+                   hx-swap="outerHTML">last &raquo;</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">next</a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link">last &raquo;</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
