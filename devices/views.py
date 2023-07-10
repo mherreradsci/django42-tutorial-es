@@ -32,6 +32,11 @@ class DeviceListView(LoginRequiredMixin, ListView):
 
         return qs.order_by("-id")
 
+    def get_template_names(self):
+        if self.request.htmx and not self.request.htmx.history_restore_request:
+            return "devices/partials/device_table.html"
+        return "devices/device_list.html"
+
 
 class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Device
