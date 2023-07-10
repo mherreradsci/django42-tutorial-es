@@ -4,18 +4,19 @@
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
 ## Pendientes:
 
-* Métodos de desarrollo (Form validation, Testing, etc.)
+* Form validation
+* Testing
 * Moldelo (n2n, geo, etc)
-* Deploy
-* CSV (pipelines)
+* CI/CD (pipelines)
 * Contribución (How to)
-* DevOps
+* Internacionalización y localización
+* Deploy
 
-## Etapa actual (Stage 22)
-* Agrega paginación a listas de Clientes y Devices
-
-## Siguiente etapa (Stage 23)
+## Etapa actual (Stage 23)
 * HTMX para listas y paginación
+
+## Siguiente etapa (Stage 24)
+* Por definir
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
