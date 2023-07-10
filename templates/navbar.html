@@ -55,10 +55,26 @@
     </div>
     <form class="d-flex"
           hx-get="{{ object.get_absolute_url }}"
-          hx-target="#customers-table"
+          hx-target="#global-list-table"
           hx-swap="outerHTML"
           method='get'>
-      <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" value="{{ request.GET.q }}">
+      <input class="form-control me-2"
+             name="q"
+             type="search"
+             placeholder="Search"
+             aria-label="Search"
+             value="{{ request.GET.q }}"
+             autocomplete="off">
+             {% comment %}
+             autocomplete="off" es para el caso de refresh/F5 en
+             firefox ya que al hacer el refresh, no se limpia el campo "q" pero
+             pero en la view  el self.request.GET.get("q") no encuentra el
+             valor de q. Al pner autocomplete en off, hay consistencia entre
+             lo mostrado en el Search y el filtro/paginacion
+             TODO: Buscar la forma de actualizar el filtro independiente de
+             si es un refresh en firefox. Obs.: Con CNTR+F5 si se limpia
+             el valor del search (q)
+             {% endcomment %}
       <button class="btn btn-outline-secondary" type="submit">Search</button>
     </form>
   </div>

@@ -6,7 +6,7 @@
                    href="#"
                    hx-get="{{ object.get_absolute_url }}"
                    hx-vals='{"page": "{{ page_obj.first_page_number }}", "q": "{{ request.GET.q }}"}'
-                   hx-target="#customers-table"
+                   hx-target="#global-list-table"
                    hx-swap="outerHTML">&laquo; first</a>
             </li>
             <li class="page-item enabled">
@@ -14,7 +14,7 @@
                    href="#"
                    hx-get="{{ object.get_absolute_url }}"
                    hx-vals='{"page": "{{ page_obj.previous_page_number }}", "q": "{{ request.GET.q }}"}'
-                   hx-target="#customers-table"
+                   hx-target="#global-list-table"
                    hx-swap="outerHTML">previous</a>
             </li>
         {% else %}
@@ -33,7 +33,7 @@
                        aria-current="page"
                        hx-get="{{ object.get_absolute_url }}"
                        hx-vals='{"page": "{{ i }}", "q": "{{ request.GET.q }}"}'
-                       hx-target="#customers-table"
+                       hx-target="#global-list-table"
                        hx-swap="outerHTML">{{ i }}</a>
                 </li>
             {% else %}
@@ -43,7 +43,7 @@
                        aria-current="page"
                        hx-get="{{ object.get_absolute_url }}"
                        hx-vals='{"page": "{{ i }}", "q": "{{ request.GET.q }}"}'
-                       hx-target="#customers-table"
+                       hx-target="#global-list-table"
                        hx-swap="outerHTML">{{ i }}</a>
                 </li>
             {% endif %}
@@ -54,7 +54,7 @@
                    href="#"
                    hx-get="{{ object.get_absolute_url }}"
                    hx-vals='{"page": "{{ page_obj.next_page_number }}", "q": "{{ request.GET.q }}"}'
-                   hx-target="#customers-table"
+                   hx-target="#global-list-table"
                    hx-swap="outerHTML">next</a>
             </li>
             <li class="page-item enabled">
@@ -62,7 +62,7 @@
                    href="#"
                    hx-get="{{ object.get_absolute_url }}"
                    hx-vals='{"page": "{{ page_obj.paginator.num_pages }}", "q": "{{ request.GET.q }}"}'
-                   hx-target="#customers-table"
+                   hx-target="#global-list-table"
                    hx-swap="outerHTML">last &raquo;</a>
             </li>
         {% else %}
