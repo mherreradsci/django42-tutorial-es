@@ -2,6 +2,10 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
+
+![Screenshot from 2023-07-10 00-23-54-900xX](https://github.com/mherreradsci/django42-tutorial-es/assets/73266769/acd34935-5b99-4fc9-95f1-1e8489361b1e)
+
+
 ## Pendientes:
 
 * Form validation
