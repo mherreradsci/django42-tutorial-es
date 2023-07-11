@@ -1,4 +1,4 @@
-import pytz
+from backports.zoneinfo import ZoneInfo
 from django.utils import timezone
 from django.db import models
 from django.conf import settings
@@ -26,25 +26,9 @@ class AuditInfo(models.Model):
         blank=True,
         null=True,
     )
-    # active = models.BooleanField(default=True)
 
     class Meta:
         abstract = True
-
-
-# class TypeInfo(AuditInfo):
-#     active_from = models.DateTimeField(
-#         blank=True, null=True, default=timezone.now)
-#     active_until = models.DateTimeField(
-#         blank=True,
-#         null=False,
-#         default=timezone.datetime(
-#             year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=pytz.UTC
-#         ),
-#     )
-
-#     class Meta:
-#         abstract = True
 
 
 class ValidityInfo(AuditInfo):
@@ -53,7 +37,13 @@ class ValidityInfo(AuditInfo):
         blank=True,
         null=False,
         default=timezone.datetime(
-            year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=pytz.UTC
+            year=2501,
+            month=1,
+            day=1,
+            hour=0,
+            minute=0,
+            second=0,
+            tzinfo=ZoneInfo("UTC"),
         ),
     )
     active = models.BooleanField(default=True)

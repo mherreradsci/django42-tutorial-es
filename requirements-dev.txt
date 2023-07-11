@@ -11,4 +11,3 @@ typing_extensions==4.5.0
 pre-commit==3.2.2
 black==23.3.0
 django-htmx==1.14.0
-pytz==2023.3

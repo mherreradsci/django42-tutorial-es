@@ -173,8 +173,8 @@ TA_DEFAULT_ROWS = 4
 
 # DB: Defaults
 from django.utils import timezone
-import pytz
+from backports.zoneinfo import ZoneInfo
 
 DB_DEFAULT_INFINITE_DAY = timezone.datetime(
-    year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=pytz.UTC
+    year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=ZoneInfo("UTC")
 )
