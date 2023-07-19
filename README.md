@@ -16,11 +16,11 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 * Internacionalización y localización
 * Deploy
 
-## Etapa actual (Stage 23)
-* HTMX para listas y paginación
+## Etapa actual (Stage 24)
+* Variables de ambiente
 
-## Siguiente etapa (Stage 24)
-* Por definir
+## Siguiente etapa (Stage 25)
+* Carga inicial de datos para modelos
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
@@ -107,3 +107,8 @@ http://127.0.0.1:8000/
 ```
 (ve_py38_django42)$ deactivate
 ```
+
+## Referencias
+### Try Django 3.2 - Python Web Development Tutorial Series
+CodingEntrepreneurs
+https://youtube.com/playlist?list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL
