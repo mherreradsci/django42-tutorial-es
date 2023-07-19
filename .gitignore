@@ -18,3 +18,6 @@ build/
 tests/report/
 db.sqlite3
 .vscode/settings.json
+
+# Environments
+.env
