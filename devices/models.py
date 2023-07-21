@@ -6,7 +6,7 @@ import uuid
 from django.conf import settings
 
 
-User = settings.AUTH_USER_MODEL
+# User = settings.AUTH_USER_MODEL
 
 
 class Device(ValidityInfo):
