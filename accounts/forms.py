@@ -33,7 +33,7 @@ class CustomAuthForm(AuthenticationForm):
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = UserCreationForm.Meta.fields
+        fields = UserCreationForm.Meta.fields + ("email",)  # type: ignore
         error_messages = {
             "username": {
                 "unique": _("This account already exist. Please, try another"),
