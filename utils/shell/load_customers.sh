@@ -16,7 +16,7 @@ from customers.models import Customer
 from django.utils import timezone
 from accounts.models import User
 
-user = User.objects.get(username='dadmin')
+user = User.objects.get(username='init')
 
 Customer.objects.filter(code__iregex=r'^CR[0-9]{4,}$').delete()
 
