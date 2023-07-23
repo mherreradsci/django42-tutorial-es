@@ -3,15 +3,15 @@
   "model": "devices.device",
   "pk": 1,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "000000",
@@ -25,15 +25,15 @@
   "model": "devices.device",
   "pk": 2,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "NJX001",
@@ -47,15 +47,15 @@
   "model": "devices.device",
   "pk": 3,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "BCOM",
@@ -67,17 +67,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 11,
+  "pk": 4,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "XB02",
@@ -89,17 +89,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 30,
+  "pk": 5,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "NJN001",
@@ -111,17 +111,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 31,
+  "pk": 6,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "NUC001",
@@ -133,127 +133,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 345,
+  "pk": 12,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "3",
-    "name": null,
-    "uuid": "3aa0a81e-59f6-444a-b227-94253cc6fdea",
-    "ipv4": null,
-    "ipv6": null
-  }
-},
-{
-  "model": "devices.device",
-  "pk": 346,
-  "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "1",
-    "name": null,
-    "uuid": "29e0f22c-9006-4ee3-afe1-ca1a0967911a",
-    "ipv4": null,
-    "ipv6": null
-  }
-},
-{
-  "model": "devices.device",
-  "pk": 347,
-  "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "2",
-    "name": null,
-    "uuid": "1a1aea42-b9d1-47c1-b3f8-f89f87e1b75e",
-    "ipv4": null,
-    "ipv6": null
-  }
-},
-{
-  "model": "devices.device",
-  "pk": 348,
-  "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "4",
-    "name": null,
-    "uuid": "e911d67e-a192-4943-8991-920821663cdc",
-    "ipv4": null,
-    "ipv6": null
-  }
-},
-{
-  "model": "devices.device",
-  "pk": 349,
-  "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "5",
-    "name": null,
-    "uuid": "56507d8e-424b-4fb1-8540-3bd8a66d716a",
-    "ipv4": null,
-    "ipv6": null
-  }
-},
-{
-  "model": "devices.device",
-  "pk": 350,
-  "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0001",
@@ -265,17 +155,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 351,
+  "pk": 13,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0002",
@@ -287,17 +177,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 352,
+  "pk": 14,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0003",
@@ -309,17 +199,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 353,
+  "pk": 15,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0004",
@@ -331,17 +221,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 354,
+  "pk": 16,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0005",
@@ -353,17 +243,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 355,
+  "pk": 17,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0006",
@@ -375,17 +265,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 356,
+  "pk": 18,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0007",
@@ -397,17 +287,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 357,
+  "pk": 19,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0008",
@@ -419,17 +309,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 358,
+  "pk": 20,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0009",
@@ -441,17 +331,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 359,
+  "pk": 21,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0010",
@@ -463,17 +353,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 360,
+  "pk": 22,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0011",
@@ -485,17 +375,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 361,
+  "pk": 23,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0012",
@@ -507,17 +397,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 362,
+  "pk": 24,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0013",
@@ -529,17 +419,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 363,
+  "pk": 25,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0014",
@@ -551,17 +441,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 364,
+  "pk": 26,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0015",
@@ -573,17 +463,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 365,
+  "pk": 27,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0016",
@@ -595,17 +485,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 366,
+  "pk": 28,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0017",
@@ -617,17 +507,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 367,
+  "pk": 29,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0018",
@@ -639,17 +529,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 368,
+  "pk": 30,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0019",
@@ -661,17 +551,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 369,
+  "pk": 31,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0020",
@@ -683,17 +573,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 370,
+  "pk": 32,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0021",
@@ -705,17 +595,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 371,
+  "pk": 33,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0022",
@@ -727,17 +617,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 372,
+  "pk": 34,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0023",
@@ -749,17 +639,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 373,
+  "pk": 35,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0024",
@@ -771,17 +661,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 374,
+  "pk": 36,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0025",
@@ -793,17 +683,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 375,
+  "pk": 37,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0026",
@@ -815,17 +705,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 376,
+  "pk": 38,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0027",
@@ -837,17 +727,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 377,
+  "pk": 39,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0028",
@@ -859,17 +749,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 378,
+  "pk": 40,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0029",
@@ -881,17 +771,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 379,
+  "pk": 41,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0030",
@@ -903,17 +793,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 380,
+  "pk": 42,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0031",
@@ -925,17 +815,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 381,
+  "pk": 43,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0032",
@@ -947,17 +837,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 382,
+  "pk": 44,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0033",
@@ -969,17 +859,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 383,
+  "pk": 45,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0034",
@@ -991,17 +881,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 384,
+  "pk": 46,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0035",
@@ -1013,17 +903,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 385,
+  "pk": 47,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0036",
@@ -1035,17 +925,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 386,
+  "pk": 48,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0037",
@@ -1057,17 +947,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 387,
+  "pk": 49,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0038",
@@ -1079,17 +969,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 388,
+  "pk": 50,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0039",
@@ -1101,17 +991,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 389,
+  "pk": 51,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0040",
@@ -1123,17 +1013,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 390,
+  "pk": 52,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0041",
@@ -1145,17 +1035,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 391,
+  "pk": 53,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0042",
@@ -1167,17 +1057,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 392,
+  "pk": 54,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0043",
@@ -1189,17 +1079,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 393,
+  "pk": 55,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0044",
@@ -1211,17 +1101,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 394,
+  "pk": 56,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0045",
@@ -1233,17 +1123,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 395,
+  "pk": 57,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0046",
@@ -1255,17 +1145,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 396,
+  "pk": 58,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0047",
@@ -1277,17 +1167,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 397,
+  "pk": 59,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0048",
@@ -1299,17 +1189,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 398,
+  "pk": 60,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0049",
@@ -1321,17 +1211,17 @@
 },
 {
   "model": "devices.device",
-  "pk": 399,
+  "pk": 61,
   "fields": {
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
     "created_by": [
       "init"
     ],
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CD0050",

@@ -9,13 +9,13 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "INI",
     "name": "INITIAL CUSTOMER",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
@@ -28,13 +28,13 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "ACME",
     "name": "Corporación Acme",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
@@ -47,13 +47,13 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "EONI",
     "name": "EON Infinite",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
@@ -66,13 +66,70 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "NEON",
     "name": "Neon LTS",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 5,
+  "fields": {
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "0100",
+    "name": "Importante empresa del sector",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 6,
+  "fields": {
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CR0001",
+    "name": "Cliente 0001",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
+  }
+},
+{
+  "model": "customers.customer",
+  "pk": 7,
+  "fields": {
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CR0002",
+    "name": "Cliente 0002",
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
@@ -85,75 +142,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "0100",
-    "name": "Importante empresa del sector",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
-  }
-},
-{
-  "model": "customers.customer",
-  "pk": 332,
-  "fields": {
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "CR0001",
-    "name": "Cliente 0001",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
-  }
-},
-{
-  "model": "customers.customer",
-  "pk": 333,
-  "fields": {
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "CR0002",
-    "name": "Cliente 0002",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
-  }
-},
-{
-  "model": "customers.customer",
-  "pk": 334,
-  "fields": {
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0003",
     "name": "Cliente 0003",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 335,
+  "pk": 9,
   "fields": {
     "created_by": [
       "init"
@@ -161,18 +161,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0004",
     "name": "Cliente 0004",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 336,
+  "pk": 10,
   "fields": {
     "created_by": [
       "init"
@@ -180,18 +180,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0005",
     "name": "Cliente 0005",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 337,
+  "pk": 11,
   "fields": {
     "created_by": [
       "init"
@@ -199,18 +199,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0006",
     "name": "Cliente 0006",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 338,
+  "pk": 12,
   "fields": {
     "created_by": [
       "init"
@@ -218,18 +218,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0007",
     "name": "Cliente 0007",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 339,
+  "pk": 13,
   "fields": {
     "created_by": [
       "init"
@@ -237,18 +237,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0008",
     "name": "Cliente 0008",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 340,
+  "pk": 14,
   "fields": {
     "created_by": [
       "init"
@@ -256,18 +256,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0009",
     "name": "Cliente 0009",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 341,
+  "pk": 15,
   "fields": {
     "created_by": [
       "init"
@@ -275,18 +275,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0010",
     "name": "Cliente 0010",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 342,
+  "pk": 16,
   "fields": {
     "created_by": [
       "init"
@@ -294,18 +294,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0011",
     "name": "Cliente 0011",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 343,
+  "pk": 17,
   "fields": {
     "created_by": [
       "init"
@@ -313,18 +313,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0012",
     "name": "Cliente 0012",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 344,
+  "pk": 18,
   "fields": {
     "created_by": [
       "init"
@@ -332,18 +332,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0013",
     "name": "Cliente 0013",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 345,
+  "pk": 19,
   "fields": {
     "created_by": [
       "init"
@@ -351,18 +351,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0014",
     "name": "Cliente 0014",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 346,
+  "pk": 20,
   "fields": {
     "created_by": [
       "init"
@@ -370,18 +370,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0015",
     "name": "Cliente 0015",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 347,
+  "pk": 21,
   "fields": {
     "created_by": [
       "init"
@@ -389,18 +389,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0016",
     "name": "Cliente 0016",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 348,
+  "pk": 22,
   "fields": {
     "created_by": [
       "init"
@@ -408,18 +408,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0017",
     "name": "Cliente 0017",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 349,
+  "pk": 23,
   "fields": {
     "created_by": [
       "init"
@@ -427,18 +427,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0018",
     "name": "Cliente 0018",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 350,
+  "pk": 24,
   "fields": {
     "created_by": [
       "init"
@@ -446,18 +446,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0019",
     "name": "Cliente 0019",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 351,
+  "pk": 25,
   "fields": {
     "created_by": [
       "init"
@@ -465,18 +465,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0020",
     "name": "Cliente 0020",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 352,
+  "pk": 26,
   "fields": {
     "created_by": [
       "init"
@@ -484,18 +484,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0021",
     "name": "Cliente 0021",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 353,
+  "pk": 27,
   "fields": {
     "created_by": [
       "init"
@@ -503,18 +503,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0022",
     "name": "Cliente 0022",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 354,
+  "pk": 28,
   "fields": {
     "created_by": [
       "init"
@@ -522,18 +522,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0023",
     "name": "Cliente 0023",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 355,
+  "pk": 29,
   "fields": {
     "created_by": [
       "init"
@@ -541,18 +541,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0024",
     "name": "Cliente 0024",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 356,
+  "pk": 30,
   "fields": {
     "created_by": [
       "init"
@@ -560,18 +560,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0025",
     "name": "Cliente 0025",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 357,
+  "pk": 31,
   "fields": {
     "created_by": [
       "init"
@@ -579,18 +579,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0026",
     "name": "Cliente 0026",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 358,
+  "pk": 32,
   "fields": {
     "created_by": [
       "init"
@@ -598,18 +598,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0027",
     "name": "Cliente 0027",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 359,
+  "pk": 33,
   "fields": {
     "created_by": [
       "init"
@@ -617,18 +617,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0028",
     "name": "Cliente 0028",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 360,
+  "pk": 34,
   "fields": {
     "created_by": [
       "init"
@@ -636,18 +636,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0029",
     "name": "Cliente 0029",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 361,
+  "pk": 35,
   "fields": {
     "created_by": [
       "init"
@@ -655,18 +655,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0030",
     "name": "Cliente 0030",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 362,
+  "pk": 36,
   "fields": {
     "created_by": [
       "init"
@@ -674,18 +674,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0031",
     "name": "Cliente 0031",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 363,
+  "pk": 37,
   "fields": {
     "created_by": [
       "init"
@@ -693,18 +693,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0032",
     "name": "Cliente 0032",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 364,
+  "pk": 38,
   "fields": {
     "created_by": [
       "init"
@@ -712,18 +712,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0033",
     "name": "Cliente 0033",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 365,
+  "pk": 39,
   "fields": {
     "created_by": [
       "init"
@@ -731,18 +731,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0034",
     "name": "Cliente 0034",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 366,
+  "pk": 40,
   "fields": {
     "created_by": [
       "init"
@@ -750,18 +750,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0035",
     "name": "Cliente 0035",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 367,
+  "pk": 41,
   "fields": {
     "created_by": [
       "init"
@@ -769,18 +769,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0036",
     "name": "Cliente 0036",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 368,
+  "pk": 42,
   "fields": {
     "created_by": [
       "init"
@@ -788,18 +788,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0037",
     "name": "Cliente 0037",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 369,
+  "pk": 43,
   "fields": {
     "created_by": [
       "init"
@@ -807,18 +807,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0038",
     "name": "Cliente 0038",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 370,
+  "pk": 44,
   "fields": {
     "created_by": [
       "init"
@@ -826,18 +826,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0039",
     "name": "Cliente 0039",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 371,
+  "pk": 45,
   "fields": {
     "created_by": [
       "init"
@@ -845,18 +845,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0040",
     "name": "Cliente 0040",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 372,
+  "pk": 46,
   "fields": {
     "created_by": [
       "init"
@@ -864,18 +864,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0041",
     "name": "Cliente 0041",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 373,
+  "pk": 47,
   "fields": {
     "created_by": [
       "init"
@@ -883,18 +883,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0042",
     "name": "Cliente 0042",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 374,
+  "pk": 48,
   "fields": {
     "created_by": [
       "init"
@@ -902,18 +902,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0043",
     "name": "Cliente 0043",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 375,
+  "pk": 49,
   "fields": {
     "created_by": [
       "init"
@@ -921,18 +921,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0044",
     "name": "Cliente 0044",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 376,
+  "pk": 50,
   "fields": {
     "created_by": [
       "init"
@@ -940,18 +940,18 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0045",
     "name": "Cliente 0045",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 },
 {
   "model": "customers.customer",
-  "pk": 377,
+  "pk": 51,
   "fields": {
     "created_by": [
       "init"
@@ -959,32 +959,13 @@
     "updated_by": [
       "init"
     ],
-    "active_from": "2023-07-22T00:00:00.000Z",
+    "active_from": "2023-07-22T00:00:00Z",
     "active_until": "2501-01-01T00:00:00Z",
     "active": true,
     "code": "CR0046",
     "name": "Cliente 0046",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
-  }
-},
-{
-  "model": "customers.customer",
-  "pk": 394,
-  "fields": {
-    "created_by": [
-      "init"
-    ],
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00.000Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "code": "new",
-    "name": "new",
-    "created_at": "2023-07-22T00:00:00.000Z",
-    "updated_at": "2023-07-22T00:00:00.000Z"
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z"
   }
 }
 ]
