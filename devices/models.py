@@ -6,11 +6,16 @@ import uuid
 from django.conf import settings
 
 
-User = settings.AUTH_USER_MODEL
+# User = settings.AUTH_USER_MODEL
+
+
+class DeviceManager(models.Manager):
+    def get_by_natural_key(self, code):
+        return self.get(code)
 
 
 class Device(ValidityInfo):
-    code = models.CharField(unique=True, max_length=6, null=True, blank=False)
+    code = models.CharField(unique=True, max_length=6, null=False, blank=False)
     name = models.CharField(max_length=120, null=True, blank=True)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     ipv4 = models.GenericIPAddressField(
@@ -19,6 +24,8 @@ class Device(ValidityInfo):
     ipv6 = models.GenericIPAddressField(
         protocol="IPv6", blank=True, null=True, default=None
     )
+
+    objects = DeviceManager()
 
     class Meta:
         managed = True
@@ -41,3 +48,6 @@ class Device(ValidityInfo):
 
     def get_macaddress(self):
         return self.macaddress_set.all()
+
+    def natural_key(self):
+        return self.code

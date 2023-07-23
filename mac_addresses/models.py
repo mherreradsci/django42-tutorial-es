@@ -7,7 +7,7 @@ from devices.models import Device
 from django.conf import settings
 
 
-User = settings.AUTH_USER_MODEL
+# User = settings.AUTH_USER_MODEL
 
 
 class MacAddress(ValidityInfo):

@@ -19,7 +19,7 @@ from accounts.models import User
 
 Device.objects.filter(code__iregex=r"^CD[0-9]{4,}$").delete()
 
-user = User.objects.get(username='dadmin')
+user = User.objects.get(username='init')
 
 # https://docs.djangoproject.com/en/4.2/ref/models/querysets/#bulk-create
 Device.objects.bulk_create(

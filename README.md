@@ -16,11 +16,11 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 * Internacionalización y localización
 * Deploy
 
-## Etapa actual (Stage 24)
-* Variables de ambiente
-
-## Siguiente etapa (Stage 25)
+## Etapa actual (Stage 25)
 * Carga inicial de datos para modelos
+
+## Siguiente etapa (Stage 26)
+* Testing básico
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
@@ -78,19 +78,24 @@ $ source ve_py38_django42/bin/activate
 ```
 (ve_py38_django42)$ python manage.py migrate
 ```
-### Crear usuario administrador
+## Carga inicial de datos
+### Crear usuario para carga inicial
+* Debe reemplazar \<clave\> por su propia clave
 
 ```
-# Observación: No es necesario poner un email real, por ejemplo, podría ser dadmin@example.com
-(ve_py38_django42)$ python manage.py createsuperuser
+(ve_py38_django42)$ echo "from accounts.models import User; User.objects.create_superuser('init', '', '<clave>')" | python manage.py shell
 ```
-### Generar datos para probar la funcionalidad
-- Esto se puede hacer con Python Shell:
 
-[Load Customers](utils/shell/load_customers.sh)
-
-[Load Devices](utils/shell/load_devices.sh)
-
+### Carga datos para lookup tables. En este caso, para MAC_ADDRESS_TYPES
+```
+(ve_py38_django42)$ python manage.py loaddata init_mac_address_types.json
+```
+### Carga datos para Customers, devices y MAC Address
+```
+(ve_py38_django42)$ python manage.py loaddata init_customers.json
+(ve_py38_django42)$ python manage.py loaddata init_devices.json
+(ve_py38_django42)$ python manage.py loaddata init_mac_addresses.json
+```
 
 ### Ejecutar el servidor de desarrollo
 ```

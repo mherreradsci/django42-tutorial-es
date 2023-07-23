@@ -1,0 +1,20 @@
+[
+{
+  "model": "mac_addresses.macaddress",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": null,
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "address": "11.11.11.11.11.11",
+    "maad_type": 1,
+    "device": 5
+  }
+}
+]

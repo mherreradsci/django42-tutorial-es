@@ -1,0 +1,1234 @@
+[
+{
+  "model": "devices.device",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "000000",
+    "name": "000000",
+    "uuid": "86dc14a9-a58b-433c-8a4e-c97339eda0db",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 2,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "NJX001",
+    "name": "Nvidia Jetson Xavier 001",
+    "uuid": "af49f407-8c9a-4a5c-97c7-1662ee1642a2",
+    "ipv4": "192.168.0.100",
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 3,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "BCOM",
+    "name": "BCO-1000",
+    "uuid": "b82cb486-8ada-428f-9454-39573c5ca428",
+    "ipv4": "192.168.100.20",
+    "ipv6": "2023:c180:2600:16b5:e1da:c1d8:da23:135"
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 4,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "XB02",
+    "name": "Xbee 002",
+    "uuid": "02683114-38d7-4617-a4e7-ef7b2e0ecd1d",
+    "ipv4": "172.16.20.37",
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 5,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "NJN001",
+    "name": "Nvidia Jetson Nano",
+    "uuid": "4be40f30-99b5-4c28-b680-66e4f145dbf3",
+    "ipv4": "192.168.30.27",
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 6,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "NUC001",
+    "name": "NUC13ANKi70QC",
+    "uuid": "c3b2ab8b-74ad-4438-a840-ed8c199defa9",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 12,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0001",
+    "name": "Device 0001",
+    "uuid": "c5e1887b-c612-432c-8b53-a20669107615",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 13,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0002",
+    "name": "Device 0002",
+    "uuid": "ad561507-5814-493d-aad3-7283f215c63c",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 14,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0003",
+    "name": "Device 0003",
+    "uuid": "57da782d-c316-4ca4-a458-23a62c110159",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 15,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0004",
+    "name": "Device 0004",
+    "uuid": "dd9e6270-b5da-4433-b049-5bccf1c22d8f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 16,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0005",
+    "name": "Device 0005",
+    "uuid": "e47097e4-1083-48e1-9726-2a7f605efb0f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 17,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0006",
+    "name": "Device 0006",
+    "uuid": "6859d331-d624-44c6-bb32-a7ca37958323",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 18,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0007",
+    "name": "Device 0007",
+    "uuid": "7ea13c79-8faf-47e1-8941-dccc11ada77d",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 19,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0008",
+    "name": "Device 0008",
+    "uuid": "fba98cd3-cceb-434d-ad8b-45729ea59266",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 20,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0009",
+    "name": "Device 0009",
+    "uuid": "1e201c39-0e71-436f-b369-76cecf9b7892",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 21,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0010",
+    "name": "Device 0010",
+    "uuid": "d9600a2f-5e0a-4e31-a71d-fdd864a8ab9c",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 22,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0011",
+    "name": "Device 0011",
+    "uuid": "6ef0cb12-c888-4468-be76-62d0ff26ffe2",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 23,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0012",
+    "name": "Device 0012",
+    "uuid": "3c4970e9-e5d9-42fa-88a3-be57e94c0d5f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 24,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0013",
+    "name": "Device 0013",
+    "uuid": "89569808-8527-4d29-ac97-3a308be8e817",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 25,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0014",
+    "name": "Device 0014",
+    "uuid": "007da307-4a53-4023-a2bd-008277a552eb",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 26,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0015",
+    "name": "Device 0015",
+    "uuid": "13df0bfc-4ffa-43ff-a459-6eef90496aa1",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 27,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0016",
+    "name": "Device 0016",
+    "uuid": "2116e0f4-d023-4644-8209-fd849b9d74aa",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 28,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0017",
+    "name": "Device 0017",
+    "uuid": "63d09a23-d24f-4026-b8cf-ad31addc9446",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 29,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0018",
+    "name": "Device 0018",
+    "uuid": "4feb6928-5ca7-41f0-bb29-a82b7e808d4e",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 30,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0019",
+    "name": "Device 0019",
+    "uuid": "96254c2d-2d90-4f6a-b18c-4ba33d4fcd5f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 31,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0020",
+    "name": "Device 0020",
+    "uuid": "585693c6-7575-41a6-84a2-9479e812f045",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 32,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0021",
+    "name": "Device 0021",
+    "uuid": "4caac1bb-481e-4b11-a2e4-f7627b00fb4c",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 33,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0022",
+    "name": "Device 0022",
+    "uuid": "b4038658-3850-49e8-b854-92201d64b394",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 34,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0023",
+    "name": "Device 0023",
+    "uuid": "7a575801-244a-40d1-a9f8-31156b458a76",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 35,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0024",
+    "name": "Device 0024",
+    "uuid": "31848004-4629-4ee7-aaaa-757978a5053a",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 36,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0025",
+    "name": "Device 0025",
+    "uuid": "11904313-ea37-4c89-ade9-45968e6810c1",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 37,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0026",
+    "name": "Device 0026",
+    "uuid": "ab9aa145-a62e-4f6e-867b-e688a6b1311c",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 38,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0027",
+    "name": "Device 0027",
+    "uuid": "a0f1b2d5-3aca-46a5-971b-1b26761ba0fb",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 39,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0028",
+    "name": "Device 0028",
+    "uuid": "31097117-f567-4fc9-b136-ac839e9c4f98",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 40,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0029",
+    "name": "Device 0029",
+    "uuid": "aa5ea9dd-082b-4e05-8dd3-1814e7363b94",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 41,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0030",
+    "name": "Device 0030",
+    "uuid": "68d04e16-3949-4898-9baf-490c2f506689",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 42,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0031",
+    "name": "Device 0031",
+    "uuid": "dd6c97a9-7802-481b-a26b-76e67a59d92a",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 43,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0032",
+    "name": "Device 0032",
+    "uuid": "207ebbe7-2651-4391-a7b5-ac6812e49863",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 44,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0033",
+    "name": "Device 0033",
+    "uuid": "e3a07b63-7ed2-4094-b029-03d2a431973d",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 45,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0034",
+    "name": "Device 0034",
+    "uuid": "5a9d6678-6592-4964-876d-a7fd175fddd2",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 46,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0035",
+    "name": "Device 0035",
+    "uuid": "9cb05dac-e590-4be6-9b6e-1a5e037c93a4",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 47,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0036",
+    "name": "Device 0036",
+    "uuid": "2f1d207a-a22c-49a5-bfae-97dceceed367",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 48,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0037",
+    "name": "Device 0037",
+    "uuid": "c0b79b7d-d74b-497a-9651-7912aadf0bbc",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 49,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0038",
+    "name": "Device 0038",
+    "uuid": "6957a865-7678-4f84-a9d6-78942817c262",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 50,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0039",
+    "name": "Device 0039",
+    "uuid": "23606ec4-8da1-44a0-852d-eb84c0673bb4",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 51,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0040",
+    "name": "Device 0040",
+    "uuid": "bac33b1a-0b30-4394-96d6-43d0471e2844",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 52,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0041",
+    "name": "Device 0041",
+    "uuid": "dde94c9a-8cdd-4e83-86f1-68d2bd585c9f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 53,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0042",
+    "name": "Device 0042",
+    "uuid": "c96615ec-4c17-4e8d-b047-9b0236dc259a",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 54,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0043",
+    "name": "Device 0043",
+    "uuid": "92c039c7-38c1-4033-bd7b-31dc4c7fa61f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 55,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0044",
+    "name": "Device 0044",
+    "uuid": "e6f43850-2c8f-4c8e-8948-7764c03e015e",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 56,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0045",
+    "name": "Device 0045",
+    "uuid": "43c9c616-173e-4234-89db-fa6583e3f81f",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 57,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0046",
+    "name": "Device 0046",
+    "uuid": "d01c48c6-ac86-41a7-9c77-b671138dbe13",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 58,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0047",
+    "name": "Device 0047",
+    "uuid": "4548c4fd-ffc1-451d-8cea-042ca45ef6d4",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 59,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0048",
+    "name": "Device 0048",
+    "uuid": "1184c31c-8d1f-4d1b-8edb-112e53c215c8",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 60,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0049",
+    "name": "Device 0049",
+    "uuid": "2eb7a0be-013e-4422-bac0-84f7a7e02afa",
+    "ipv4": null,
+    "ipv6": null
+  }
+},
+{
+  "model": "devices.device",
+  "pk": 61,
+  "fields": {
+    "created_at": "2023-07-22T00:00:00Z",
+    "updated_at": "2023-07-22T00:00:00Z",
+    "created_by": [
+      "init"
+    ],
+    "updated_by": [
+      "init"
+    ],
+    "active_from": "2023-07-22T00:00:00Z",
+    "active_until": "2501-01-01T00:00:00Z",
+    "active": true,
+    "code": "CD0050",
+    "name": "Device 0050",
+    "uuid": "bbeb3d7f-a9d0-42ff-b4f5-75e429eff5cf",
+    "ipv4": null,
+    "ipv6": null
+  }
+}
+]
