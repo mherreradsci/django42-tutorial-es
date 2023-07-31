@@ -12,22 +12,33 @@ User = get_user_model()
 
 
 class CustomAuthForm(AuthenticationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(CustomAuthForm, self).__init__(*args, **kwargs)
+        self.error_messages["no_bad_users"] = _(
+            "Sorry, accounts starting with 'bad' are not welcome here.")
+
+    username = forms.CharField(
+        widget=TextInput(attrs={"class": "validate",
+                         "placeholder": "Username"})
+    )
+    password = forms.CharField(widget=PasswordInput(
+        attrs={"placeholder": "Password"}))
+
     def confirm_login_allowed(self, user):
         if not user.is_active:
             raise ValidationError(
-                _("This account is inactive."),
+                self.error_messages["inactive"],
                 code="inactive",
             )
+
         if user.get_username().startswith("bad"):
             raise ValidationError(
-                _("Sorry, accounts starting with 'bad' aren't welcome here."),
-                code="no_b_users",
+                self.error_messages["no_bad_users"],
+                code="no_bad_users",
+                # _("Sorry, accounts starting with 'bad' are not welcome here."),
+                # code="no_bad_users",
             )
-
-    username = forms.CharField(
-        widget=TextInput(attrs={"class": "validate", "placeholder": "Username"})
-    )
-    password = forms.CharField(widget=PasswordInput(attrs={"placeholder": "Password"}))
 
 
 class CustomUserCreationForm(UserCreationForm):

@@ -15,6 +15,7 @@
             <p>Please login to see this page.</p>
         {% endif %}
     {% endif %}
+
     <form method="post" action="{% url 'accounts:login' %}">
         {% csrf_token %}
         <table>
@@ -28,13 +29,17 @@
             </tr>
         </table>
         <input type="submit" value="login">
-        <input type="hidden" name="next" value="{{ next }}">
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}" />
+        {% endif %}
     </form>
     <p>
         Need an account? Please <a href="{% url 'accounts:register' %}">Register</a>
     </p>
     {# Assumes you set up the password_reset view in your URLconf #}
-    {% comment %} <p>
+    {% comment %}
+    <p>
         <a href="{% url 'accounts:password_reset' %}">Lost password?</a>
-    </p> {% endcomment %}
+    </p> 
+    {% endcomment %}
 {% endblock content %}
