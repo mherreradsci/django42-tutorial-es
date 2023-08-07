@@ -151,18 +151,6 @@ class DeviceUpdateView(
         }
 
 
-def delete_macaddress(request, pk):
-    try:
-        macaddress = MacAddress.objects.get(id=pk)
-    except MacAddress.DoesNotExist:
-        messages.success(request, "Object Does not exit")
-        return redirect("devices:update_device", pk=macaddress.device.id)
-
-    macaddress.delete()
-    messages.success(request, "MacAddress deleted successfully")
-    return redirect("devices:update_device", pk=macaddress.device.id)
-
-
 class DeviceDetailViev(LoginRequiredMixin, DetailView):
     model = Device
 
