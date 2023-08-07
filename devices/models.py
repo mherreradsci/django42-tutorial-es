@@ -11,7 +11,7 @@ from django.conf import settings
 
 class DeviceManager(models.Manager):
     def get_by_natural_key(self, code):
-        return self.get(code)
+        return self.get(code=code)
 
 
 class Device(ValidityInfo):

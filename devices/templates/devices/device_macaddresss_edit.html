@@ -1,0 +1,49 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% load static %}
+{% block content %}
+    <style>
+        .hidden {
+            display: none
+        }
+    </style>
+    <h2>
+        Devices -
+        {% if device %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+    </h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if macaddress_formset %}
+            <h3>MAC Addresses</h3>
+            <div>{{ macaddress_formset.management_form }}</div>
+            <div id="macaddress-form-list">
+                {% for form in macaddress_formset %}
+                    <div class="macaddress-form">
+                        <ul>
+                            <li>{{ form.as_table }}</li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="empty-form" class="hidden">{{ macaddress_formset.empty_form }}</div>
+            <div class="form-buttons">
+                <input id="add-more"
+                       type="button"
+                       value="Add more"
+                       class="btn btn-primary btn-sm" />
+            </div>
+        {% endif %}
+    <div class="form-buttons">
+        <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+        <a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+    </div>
+</form>
+<script src="{% static 'js/devices/macaddress_formset.js' %}"
+        type="text/javascript"></script>
+{% endblock content %}

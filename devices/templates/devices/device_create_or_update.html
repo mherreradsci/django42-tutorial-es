@@ -1,0 +1,113 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% load static %}
+{% block content %}
+    <style>
+        .hidden {
+            display: none
+        }
+    </style>
+    <h2>
+        Devices -
+        {% if device %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+    </h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <!-- inline form for MAC Address start -->
+
+        <!-- EXPLAINING with named_formsets.macaddress_formset as formset -->
+        <!-- Note: named_formsets is used in get_context_data function in views.py -->
+        <!-- Note: here macaddress_formset is our DeviceMacAddressFormset name, used in
+            get_named_formsets function in views.py -->
+        {% with named_formsets.macaddress_formset as formset %}
+            {{ formset.management_form }}
+            <script type="text/html" id="macaddresses-template">  // id="inlineformsetname-template"
+                // id='inlineformsetname-__prefix__'
+                <tr id="macaddresses-__prefix__" class= hide_all>
+                    {% for fields in formset.empty_form.hidden_fields %}
+                        {{ fields }}
+                    {% endfor %}
+
+                    {% for fields in formset.empty_form.visible_fields %}
+                        <td>{{fields}}</td>
+                    {% endfor %}
+                </tr>
+            </script>
+            <div class="table-responsive card mt-4">
+                <div class="card-header card-header-secondary">
+                    <h4 class="card-title">Add MAC Addresses</h4>
+                </div>
+                <table class="table card-header">
+                    <thead class="text-secondary">
+                        <th>MAC Address <span style="color: red;" class="required">*</span></th>
+                        <th>MAC Addres Type <span style="color: red;" class="required">*</span></th>
+                        <th>Active? </th>
+                        <th>Active From</th>
+                        <th>Active Until</th>
+                        <th>Created by</th>
+                        <th>Updated by</th>
+                        <th>Delete btn</th>
+                    </thead>
+                    <tbody id="item-macaddresses">  <!-- id="item-inlineformsetname" -->
+                        <!-- formset non forms errors -->
+                        {% for error in formset.non_form_errors %}
+                            <span style="color: red">{{ error }}</span>
+                        {% endfor %}
+                        {% for formss in formset %}
+                            {{ formss.management_form }}
+                            <tr id="macaddresses-{{ forloop.counter0 }}" class= hide_all>  <!-- id="inlineformsetname-counter" -->
+                                {{ formss.id }}
+                                {% for field in formss.visible_fields %}
+                                    <td>
+                                        {{field}}
+                                        {% for error in field.errors %}
+                                            <span style="color: red">{{ error }}</span>
+                                        {% endfor %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#" id="add-macaddresses" class="btn btn-secondary add-macaddresses">Add More</a> <!-- id="add-inlineformsetname-button" -->
+            </div>
+
+        {% endwith %}
+        <!-- inline form for MAC Address end -->
+
+
+        <div class="form-buttons">
+            <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+            <a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+        </div>
+    </form>
+{% comment %} <script src="{% static 'js/devices/macaddress_formset.js' %}"
+        type="text/javascript"></script> {% endcomment %}
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>
+
+    $(document).ready(function() {
+    // when user clicks add more btn of macaddresses
+        $('.add-macaddresses').click(function(ev) {
+            ev.preventDefault();
+            var count = $('#item-macaddresses').children().length;
+            var tmplMarkup = $('#macaddresses-template').html();
+            var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+            $('#item-macaddresses').append(compiledTmpl);
+
+            // update form count
+            $('#id_macaddress_formset-TOTAL_FORMS').attr('value', count+1);
+        });
+    });
+</script>
+
+{% endblock content %}
