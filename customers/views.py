@@ -38,6 +38,10 @@ class CustomerListView(LoginRequiredMixin, ListView):
             return "customers/partials/customer_table.html"
         return "customers/customer_list.html"
 
+    # def get_paginate_by(self, queryset):
+    #     result = self.request.GET.get("paginate_by", self.paginate_by)
+    #     return self.request.GET.get("paginate_by", self.paginate_by)
+
 
 class CustomerCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Customer
