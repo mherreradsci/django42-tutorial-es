@@ -1,6 +1,5 @@
 from django.test import TestCase, Client, RequestFactory
 from .models import User
-from dj42_proj import settings
 from django.urls import reverse
 
 from . import views
@@ -8,7 +7,6 @@ from .forms import CustomUserCreationForm, CustomAuthForm
 
 
 class AutenticationViewTest(TestCase):
-
     @classmethod
     def setUpTestData(cls):
         cls.factory = RequestFactory()
@@ -16,39 +14,34 @@ class AutenticationViewTest(TestCase):
             username="testuser", password="password", email="testuser@example.com"
         )
 
-
     def test_login_view_successful(self):
-        
         url = reverse("accounts:login")
         request = self.factory.post(url)
-        print('test_login_view_successful:request:', request)
         request.user = self.user
         request.session = self.client.session
 
         data = {
-            'username': "testuser",
-            'password': 'password',
+            "username": "testuser",
+            "password": "password",
         }
         form = CustomAuthForm(request, data)
         self.assertTrue(form.is_valid())
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('customers:list'))
-
+        self.assertRedirects(response, reverse("customers:list"))
 
     def test_login_view_redirect_successful(self):
-        
         url = reverse("accounts:login")
         request = self.factory.post(url)
         request.user = self.user
         request.session = self.client.session
-        #response = views.logout_view(request)
+        # response = views.logout_view(request)
 
         data = {
-            'username': "testuser",
-            'password': 'password',
-            'next': '/devices/list/',
+            "username": "testuser",
+            "password": "password",
+            "next": "/devices/list/",
         }
         form = CustomAuthForm(request, data)
 
@@ -56,13 +49,11 @@ class AutenticationViewTest(TestCase):
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('devices:list'))
-
-
+        self.assertRedirects(response, reverse("devices:list"))
 
     def test_logout_view_from_logged_user(self):
         self.client = Client()
-        login = self.client.login(username='testuser', password='password')
+        login = self.client.login(username="testuser", password="password")
         self.assertTrue(login)
 
         url = reverse("accounts:logout")
@@ -89,17 +80,17 @@ class AutenticationViewTest(TestCase):
         request.session = self.client.session
 
         data = {
-            'username': 'newuser',
-            'email': 'newuser@example.com',
-            'password1': 'testpassword',
-            'password2': 'testpassword',
+            "username": "newuser",
+            "email": "newuser@example.com",
+            "password1": "testpassword",
+            "password2": "testpassword",
         }
         form = CustomUserCreationForm(data)
         self.assertTrue(form.is_valid())
         response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse('accounts:login'))
+        self.assertRedirects(response, reverse("accounts:login"))
 
     def test_register_view_unsuccessful(self):
         url = reverse("accounts:register")
@@ -107,13 +98,13 @@ class AutenticationViewTest(TestCase):
         request.session = self.client.session
 
         data = {
-            'username': "testuser",
-            'email': 'newuser@example.com',
-            'password1': 'testpassword',
-            'password2': 'testpassword',
+            "username": "testuser",
+            "email": "newuser@example.com",
+            "password1": "testpassword",
+            "password2": "testpassword",
         }
         form = CustomUserCreationForm(data)
         self.assertFalse(form.is_valid())
         response = self.client.post(url, data)
-        
+
         self.assertEqual(response.status_code, 200)
