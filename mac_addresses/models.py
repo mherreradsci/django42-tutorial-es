@@ -36,5 +36,5 @@ class MacAddress(ValidityInfo):
     def __str__(self):
         return f"[{self.address}]"
 
-    def get_absolute_url(self):
-        return reverse("mac_addresses:list")
+    # def get_absolute_url(self):
+    #     return reverse("mac_addresses:list")

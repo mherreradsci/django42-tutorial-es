@@ -14,6 +14,7 @@ class MacAddressForm(forms.ModelForm):
         fields = [
             "address",
             "maad_type",
+            "active",
             "active_from",
             "active_until",
             "created_by",
