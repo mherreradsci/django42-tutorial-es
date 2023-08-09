@@ -1,8 +1,5 @@
 from django.contrib import admin
 from .models import MacAddressType
-from django.conf.locale.en import formats as en_formats
-
-# en_formats.DATETIME_FORMAT = "m-d-Y H:i:s"
 
 
 class MacAddressTypeAdmin(admin.ModelAdmin):

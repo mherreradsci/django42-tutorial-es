@@ -1,7 +1,6 @@
 from unittest import mock
 
 from django.test import TestCase
-from django.urls import reverse
 from django.utils import timezone
 
 from accounts.models import User

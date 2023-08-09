@@ -1,14 +1,11 @@
-from django.test import TestCase, Client, RequestFactory
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 
 from accounts.models import User
-from devices.models import Device
 from devices.forms import DeviceMacAddressFormset
+from devices.models import Device
 from mac_address_types.models import MacAddressType
 from mac_addresses.models import MacAddress
-
-
-from django.utils import timezone
 
 
 class DeviceTest(TestCase):
@@ -45,23 +42,13 @@ class DeviceTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(0, MacAddress.objects.count())
 
-        # data = {}
-
-        # # global information, some additional fields may go there
-        # data['csrf_token'] = response.context['csrf_token']
-
-        # # management form information, needed because of the formset
-        # management_form = response.context['form'].management_form
-        # for i in 'TOTAL_FORMS', 'INITIAL_FORMS', 'MIN_NUM_FORMS', 'MAX_NUM_FORMS':
-        #     data['%s-%s' % (management_form.prefix, i)] = management_form[i].value()
-
         form_data = {
             "code": "123456",
             "macaddress_set-TOTAL_FORMS": "1",
             "macaddress_set-INITIAL_FORMS": "0",
             "macaddress_set-MIN_NUM_FORMS": "0",
             "macaddress_set-MAX_NUM_FORMS": "",
-            "macaddress_set-0-address": "NEW MAC ADDRESS",
+            "macaddress_set-0-address": "NEW MAC ADDRESS02",
             "macaddress_set-0-maad_type": "1",
             "macaddress_set-0-DELETE": False,
         }

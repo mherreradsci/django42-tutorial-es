@@ -3,60 +3,103 @@ from django.urls import reverse
 
 from accounts.models import User
 from devices.models import Device
+from devices.forms import DeviceMacAddressFormset
 from mac_address_types.models import MacAddressType
 from mac_addresses.models import MacAddress
 
-# class DeletionTests(TestCase):
-#     @classmethod
-#     def setUpTestData(cls):
-#         cls.factory = RequestFactory()
-#         cls.client = Client()
 
-#         # Create an user for login
-#         cls.user = User.objects.create(
-#             username="testuser", password="password")
+class DeletionTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.factory = RequestFactory()
+        cls.client = Client()
 
-#         # cls.number_of_devices = 50
+        # Create an user for login
+        cls.user = User.objects.create_user(username="testuser", password="password")
+        cls.user.save()
 
-#         # for id in range(0, cls.number_of_devices):
-#         #     Device.objects.create(
-#         #         code="DE" + str(id).zfill(4), name="Device " + str(id).zfill(4)
-#         #     )
+        cls.mac_address_type = MacAddressType.objects.create(code="NMAT")
+        cls.mac_address_type.save()
 
-#         cls.mac_address_type = MacAddressType.objects.create(code="NMAT")
-#         cls.mac_address_type.save()
+    def test_mac_address_deletion_using_formset(self):
+        device = Device.objects.create(code="test", name="test")
+        mac_address = MacAddress.objects.create(
+            address="00-00-00-00-00-00", maad_type=self.mac_address_type, device=device
+        )
 
-#     def test_deletion(self):
+        data = {
+            "code": device.code,
+            "macaddress_set-TOTAL_FORMS": "1",
+            "macaddress_set-INITIAL_FORMS": "1",
+            "macaddress_set-MIN_NUM_FORMS": "0",
+            "macaddress_set-MAX_NUM_FORMS": "0",
+            "macaddress_set-0-id": str(device.pk),
+            "macaddress_set-0-poet": str(mac_address.pk),
+            "macaddress_set-0-address": "test",
+            "macaddress_set-0-DELETE": "on",
+        }
+        formset = DeviceMacAddressFormset(data, instance=device)
+        formset.save()
+        self.assertTrue(formset.is_valid())
+        self.assertEqual(MacAddress.objects.count(), 0)
 
-#         DeviceMacAddressFormset = inlineformset_factory(
-#             Device,
-#             MacAddress,
-#             fields=[
-#                 "address",
-#                 "maad_type",
-#             ],
-#             extra=0,
-#             can_delete=True,
-#         )
+    def test_device_delete_from_formset(self):
+        result = self.client.login(username="testuser", password="password")
+        self.assertTrue(result)
 
-#         device = Device.objects.create(code='test', name="test")
-#         mac_address = MacAddress.objects.create(address= '00-00-00-00-00-00',
-#                                         maad_type=self.mac_address_type,
-#                                         device = device)
+        self.assertEqual(MacAddress.objects.count(), 0)
 
-#         data = {
-#             "macaddress_set-TOTAL_FORMS": "1",
-#             "macaddress_set-INITIAL_FORMS": "1",
-#             "macaddress_set-MAX_NUM_FORMS": "0",
-#             "macaddress_set-0-id": str(device.pk),
-#             "macaddress_set-0-poet": str(mac_address.pk),
-#             "macaddress_set-0-address": "test",
-#             "macaddress_set-0-DELETE": "on",
-#         }
-#         formset = DeviceMacAddressFormset(data, instance=device)
-#         formset.save()
-#         self.assertTrue(formset.is_valid())
-#         self.assertEqual(MacAddress.objects.count(), 0)
+        device = Device.objects.create(code="test", name="test")
+        mac_address = MacAddress.objects.create(
+            address="00-00-00-00-00-00", maad_type=self.mac_address_type, device=device
+        )
+        self.assertEqual(MacAddress.objects.count(), 1)
+
+        data = {
+            "code": device.code,
+            # "name": device.name,
+            # "active": device.active,
+            # "active_from": device.active_from,
+            # "active_until": device.active_until,
+            # "created_by": self.user,
+            # "updated_by": self.user,
+            "macaddress_set-TOTAL_FORMS": "1",
+            "macaddress_set-INITIAL_FORMS": "1",
+            "macaddress_set-MIN_NUM_FORMS": "0",
+            "macaddress_set-MAX_NUM_FORMS": "1000",
+            "macaddress_set-0-address": mac_address.address,
+            "macaddress_set-0-maad_type": mac_address.maad_type,
+            # "macaddress_set-0-active": mac_address.active,
+            # "macaddress_set-0-active_from": mac_address.active_from,
+            # # "initial-macaddress_set-0-active_from" : timezone.now(),
+            # "macaddress_set-0-active_until": mac_address.active_until,
+            # # "macaddress_set-0-created_by": mac_address.created_by,
+            # # "macaddress_set-0-updated_by": mac_address.updated_by,
+            "macaddress_set-0-DELETE": "1",
+            "macaddress_set-0-id": str(mac_address.id),
+            "macaddress_set-0-device": device,
+        }
+
+        # formset = DeviceMacAddressFormset(data, instance=device)
+        # self.assertTrue(formset.is_valid())
+        # formset.save()
+
+        url = reverse("devices:update", kwargs={"pk": device.pk})  # args=(device.id,))
+
+        response = self.client.post(path=url, data=data, follow=True)
+
+        self.assertEqual(response.status_code, 200)
+
+        self.assertRedirects(
+            response=response,
+            expected_url=reverse("devices:list"),
+            status_code=302,
+            target_status_code=200,
+        )
+
+        self.assertEqual(Device.objects.count(), 1)
+
+        self.assertEqual(MacAddress.objects.count(), 0)
 
 
 class DeviceTest(TestCase):
@@ -90,7 +133,7 @@ class DeviceTest(TestCase):
 
     def test_device_list_view_get_queryset(self):
         result = self.client.login(username="testuser", password="password")
-
+        self.assertTrue(result)
         headers = {"HTTP_HX-Request": "true"}
         response = self.client.get("/devices/list/", **headers)
         self.assertEqual(response.status_code, 200)  # check 200 OK response

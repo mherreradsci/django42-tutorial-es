@@ -1,11 +1,10 @@
-"""
-Automated Test for dj42_proj project
-"""
-
-import os
 from django.conf import settings
 from django.contrib.auth.password_validation import validate_password
 from django.test import TestCase
+
+"""
+Automated Test for dj42_proj project
+"""
 
 
 class ConfigTest(TestCase):

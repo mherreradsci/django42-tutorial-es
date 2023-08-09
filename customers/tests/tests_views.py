@@ -1,9 +1,8 @@
-from django.test import TestCase, Client, RequestFactory
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 
 from accounts.models import User
 from customers.models import Customer
-from customers.views import CustomerListView
 
 
 class CustomerTest(TestCase):
@@ -28,6 +27,7 @@ class CustomerTest(TestCase):
     def test_customer_list_view_get_queryset(self):
         # Create an instance of a POST request.
         result = self.client.login(username="testuser", password="password")
+        self.assertTrue(result)
 
         headers = {"HTTP_HX-Request": "true"}
         response = self.client.get("/customers/list/", **headers)

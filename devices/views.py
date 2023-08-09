@@ -8,18 +8,13 @@ from django.db.models import Q
 from .models import Device
 from django.views.generic import (
     ListView,
-    # CreateView,
-    # UpdateView,
     DetailView,
     DeleteView,
-    FormView,
 )
 
 from django.views.generic.edit import CreateView, UpdateView
 
-from django.views.generic.detail import SingleObjectMixin
 from .forms import DeviceForm, DeviceMacAddressFormset
-from mac_addresses.models import MacAddress
 
 
 class DeviceListView(LoginRequiredMixin, ListView):
@@ -84,10 +79,14 @@ class DeviceInline:
         """
         Hook for custom formset saving.. useful if you have multiple formsets
         """
-        macaddresses = formset.save(commit=False)  # self.save_formset(formset, contact)
-        # add this, if you have can_delete=True parameter set in inlineformset_factory func
+
+        macaddresses = formset.save(commit=False)
+        # add this, if you have can_delete=True parameter set in
+        # inlineformset_factory func
+
         for obj in formset.deleted_objects:
             obj.delete()
+
         for macaddress in macaddresses:
             if macaddress.id:
                 macaddress.updated_by = self.request.user
@@ -124,7 +123,11 @@ class DeviceCreateView(
                     self.request.FILES or None,
                     prefix="macaddress_set",
                 ),
-                # 'images': ImageFormSet(self.request.POST or None, self.request.FILES or None, prefix='images'),
+                # "images": ImageFormSet(
+                #     self.request.POST or None,
+                #     self.request.FILES or None,
+                #     prefix="images",
+                # ),
             }
 
         else:
@@ -152,7 +155,12 @@ class DeviceUpdateView(
                 instance=self.object,
                 prefix="macaddress_set",
             ),
-            # 'images': ImageFormSet(self.request.POST or None, self.request.FILES or None, instance=self.object, prefix='images'),
+            # "images": ImageFormSet(
+            #     self.request.POST or None,
+            #     self.request.FILES or None,
+            #     instance=self.object,
+            #     prefix="images",
+            # ),
         }
 
 

@@ -29,7 +29,7 @@ def logout_view(request):
 def register_view(request):
     form = CustomUserCreationForm(request.POST or None)
     if form.is_valid():
-        user_obj = form.save()
+        form.save()
         return redirect("accounts:login")
     context = {"form": form}
     return render(request, "accounts/register.html", context)
