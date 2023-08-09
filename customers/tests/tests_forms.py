@@ -1,12 +1,12 @@
 from django.test import TestCase
 
-from .forms import MacAddressForm
+from customers.forms import CustomerForm
 
 
-class DeviceTestCase(TestCase):
+class CustomerTestCase(TestCase):
     def test_form_fileds_disabled(self):
-        form_data = {"address": "22-22-22-22-22-22"}
+        form_data = {"code": "CUS001", "name": "Customer 001"}
 
-        form = MacAddressForm(data=form_data)
+        form = CustomerForm(data=form_data)
         self.assertTrue(form.fields["created_by"].disabled)
         self.assertTrue(form.fields["updated_by"].disabled)

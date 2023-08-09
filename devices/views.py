@@ -8,18 +8,12 @@ from django.db.models import Q
 from .models import Device
 from django.views.generic import (
     ListView,
-    # CreateView,
-    # UpdateView,
     DetailView,
     DeleteView,
-    FormView,
 )
 
 from django.views.generic.edit import CreateView, UpdateView
-
-from django.views.generic.detail import SingleObjectMixin
 from .forms import DeviceForm, DeviceMacAddressFormset
-from mac_addresses.models import MacAddress
 
 
 class DeviceListView(LoginRequiredMixin, ListView):
@@ -49,12 +43,23 @@ class DeviceInline:
     template_name = "devices/device_create_or_update.html"
 
     def form_valid(self, form):
+        # print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:VIEW:DeviceInline:form:", form)
         named_formsets = self.get_named_formsets()
 
-        if not all((x.is_valid() for x in named_formsets.values())):
-            return self.render_to_response(self.get_context_data(form=form))
+        # if not all((x.is_valid() for x in named_formsets.values())):
+        #     return self.render_to_response(self.get_context_data(form=form))
+
+        all_valid = True
+        for x in named_formsets.values():
+            if not x.is_valid():
+                print("DeviceInline:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA:", x, " is invalid")
+                all_valid = False
+                # return self.render_to_response(self.get_context_data(form=form))
+        # if not all_valid:
+        #     return self.render_to_response(self.get_context_data(form=form))
 
         obj = form.save(commit=False)
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:VIEW:DeviceInline:obj.id:", obj.id)
         if obj.id:
             obj.updated_by = self.request.user
         else:
@@ -79,6 +84,13 @@ class DeviceInline:
         """
         macaddresses = formset.save(commit=False)  # self.save_formset(formset, contact)
         # add this, if you have can_delete=True parameter set in inlineformset_factory func
+
+        print("formset_macaddress_formset_valid:RRRRRRRRRRRRRR:formset:", formset)
+        print(
+            "formset_macaddress_formset_valid:RRRRRRRRRRRRRR:macaddresses:",
+            macaddresses,
+        )
+
         for obj in formset.deleted_objects:
             obj.delete()
         for macaddress in macaddresses:
@@ -95,6 +107,10 @@ class DeviceInline:
 class DeviceCreateView(
     SuccessMessageMixin, LoginRequiredMixin, DeviceInline, CreateView
 ):
+    form_class = DeviceForm
+    model = Device
+    template_name = "devices/device_create_or_update.html"
+
     success_message = 'Device "%(name)s" was created successfully'
 
     def get_context_data(self, **kwargs):
@@ -115,16 +131,14 @@ class DeviceCreateView(
                 "macaddress_formset": DeviceMacAddressFormset(
                     self.request.POST or None,
                     self.request.FILES or None,
-                    prefix="macaddress_formset",
+                    prefix="macaddress_set",
                 ),
                 # 'images': ImageFormSet(self.request.POST or None, self.request.FILES or None, prefix='images'),
             }
 
         else:
             return {
-                "macaddress_formset": DeviceMacAddressFormset(
-                    prefix="macaddress_formset"
-                ),
+                "macaddress_formset": DeviceMacAddressFormset(prefix="macaddress_set"),
                 # 'images': ImageFormSet(prefix='images'),
             }
 
@@ -145,7 +159,7 @@ class DeviceUpdateView(
                 self.request.POST or None,
                 self.request.FILES or None,
                 instance=self.object,
-                prefix="macaddress_formset",
+                prefix="macaddress_set",
             ),
             # 'images': ImageFormSet(self.request.POST or None, self.request.FILES or None, instance=self.object, prefix='images'),
         }

@@ -17,7 +17,7 @@
             Create
         {% endif %}
     </h2>
-    <form method="post">
+    <form enctype="multipart/form-data" class="container" method="post">
         {% csrf_token %}
         {{ form.as_p }}
 

@@ -1,9 +1,9 @@
 from django.test import TestCase, Client, RequestFactory
-from .models import User
+from accounts.models import User
 from django.urls import reverse
 
-from . import views
-from .forms import CustomUserCreationForm, CustomAuthForm
+from accounts import views
+from accounts.forms import CustomUserCreationForm, CustomAuthForm
 
 
 class AutenticationViewTest(TestCase):

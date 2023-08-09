@@ -1,8 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Device, DeviceManager
 from accounts.models import User
+from devices.models import Device
+
 
 """
 Automated Test for Devices Model

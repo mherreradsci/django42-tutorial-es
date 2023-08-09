@@ -1,7 +1,7 @@
 from accounts.models import User
 from django.test import TestCase, Client, RequestFactory
 from django.urls import reverse
-from .models import MacAddressType
+from mac_address_types.models import MacAddressType
 
 
 class MacAddressTypeTest(TestCase):
@@ -52,8 +52,13 @@ class MacAddressTypeTest(TestCase):
         url = reverse("mac_address_types:create")
         form_data = {"code": "NEW", "name": "New MacAddressType"}
         response = self.client.post(path=url, data=form_data)
+
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, "/mac_address_types/list/")
+
+        self.assertEqual(
+            MacAddressType.objects.order_by("id").last().name, "New MacAddressType"
+        )
 
     def test_mac_address_type_update_view(self):
         result = self.client.login(username="testuser", password="password")

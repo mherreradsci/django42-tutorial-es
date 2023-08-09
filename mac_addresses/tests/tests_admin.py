@@ -1,15 +1,14 @@
-from django.test import TestCase
+import copy
 from unittest.mock import Mock
 
 from django.contrib.admin.sites import AdminSite
+from django.test import TestCase
+
 from accounts.models import User
-from .models import MacAddress
-from .admin import MacAddressAdmin
-
-from mac_address_types.models import MacAddressType
 from devices.models import Device
-
-import copy
+from mac_address_types.models import MacAddressType
+from mac_addresses.admin import MacAddressAdmin
+from mac_addresses.models import MacAddress
 
 trace_on = False
 

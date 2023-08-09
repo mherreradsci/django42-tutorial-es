@@ -1,13 +1,14 @@
 from django.test import TestCase
 from unittest.mock import Mock
 
+import copy
+import time
+
 from django.contrib.admin.sites import AdminSite
 from accounts.models import User
 from mac_address_types.models import MacAddressType
 from mac_address_types.admin import MacAddressTypeAdmin
 
-import copy
-import time
 
 trace_on = False
 

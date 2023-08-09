@@ -1,12 +1,12 @@
 from django.test import TestCase
 from unittest.mock import Mock
+import copy
 
 from django.contrib.admin.sites import AdminSite
 from accounts.models import User
 from devices.models import Device
 from devices.admin import DeviceAdmin
 
-import copy
 
 trace_on = False
 

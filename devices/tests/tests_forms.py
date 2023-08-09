@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from .forms import DeviceForm
+from ..forms import DeviceForm
 
 
 class DeviceTestCase(TestCase):

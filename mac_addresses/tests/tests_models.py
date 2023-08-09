@@ -1,19 +1,17 @@
+from unittest import mock
+
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
-from mac_address_types.models import MacAddressType
-from devices.models import Device
-
-from .models import MacAddress
 from accounts.models import User
+from devices.models import Device
+from mac_address_types.models import MacAddressType
+from mac_addresses.models import MacAddress
 
 """
 Automated Test for MacAddresss Model
 """
-
-from backports.zoneinfo import ZoneInfo
-from django.utils import timezone
-from unittest import mock
 
 
 class MacAddressTestCase(TestCase):

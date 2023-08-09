@@ -1,11 +1,9 @@
-from accounts.models import User
 from django.test import TestCase, Client, RequestFactory
 from django.urls import reverse
-from django.contrib.messages import get_messages
-from .models import Customer
 
-
-from .views import CustomerListView
+from accounts.models import User
+from customers.models import Customer
+from customers.views import CustomerListView
 
 
 class CustomerTest(TestCase):

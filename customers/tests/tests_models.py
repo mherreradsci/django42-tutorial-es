@@ -1,16 +1,14 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
+from unittest import mock
 
-from .models import Customer
+from customers.models import Customer
 from accounts.models import User
 
 """
 Automated Test for Customers Model
 """
-
-from backports.zoneinfo import ZoneInfo
-from django.utils import timezone
-from unittest import mock
 
 
 class CustomerTestCase(TestCase):

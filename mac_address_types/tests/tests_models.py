@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import MacAddressType
+from mac_address_types.models import MacAddressType
 from accounts.models import User
 
 """
