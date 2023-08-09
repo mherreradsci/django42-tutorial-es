@@ -1,12 +1,10 @@
-from django.test import TestCase, Client, RequestFactory
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
-from devices.models import Device
-from devices.forms import DeviceMacAddressFormset
 
 from accounts.models import User
+from devices.models import Device
 from mac_address_types.models import MacAddressType
 from mac_addresses.models import MacAddress
-
 
 # class DeletionTests(TestCase):
 #     @classmethod
@@ -82,7 +80,6 @@ class DeviceTest(TestCase):
         cls.mac_address_type.save()
 
         fisrt_device = Device.objects.order_by("id").first()
-        print("PPPPPPPPPPPPPP::fisrt_device:", fisrt_device)
 
         cls.ma = MacAddress.objects.create(
             address="werwerwqerqwer",
@@ -112,140 +109,6 @@ class DeviceTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
 
-    # def test_device_create_view_get_initial(self):
-    #     result = self.client.login(username="testuser", password="password")
-    #     self.assertTrue(result)
-
-    #     url = reverse("devices:create")
-    #     print("YYYYYYYYYYYYY:test_device_create_view_get_initial:url::", url)
-    #     # form_data = {"code": "NEW", "name": "New Device"}
-
-    #     form_data = {
-    #         "code": "NEW",
-    #         "name": "New Device",
-    #         "active": True,
-    #         "active_from": timezone.now(),
-    #         "active_until": timezone.now(),
-    #         "created_by": self.user,
-    #         "updated_by": self.user,
-    #         "macaddress_set-TOTAL_FORMS": "0",
-    #         "macaddress_set-INITIAL_FORMS": "0",
-    #         "macaddress_set-MAX_NUM_FORMS": "0",
-    #     }
-
-    #     response = self.client.post(path=url, data=form_data, follow=True)
-    #     # self.assertEqual(Device.objects.last().name, "New Device")
-
-    #     # print("YYYYYYYYYYYYY:test_device_create_view_get_initial:response::", response)
-    #     # print("YYYYYYYYYYYYY:test_device_create_view_get_initial:response.context::", response.context)
-    #     # print("YYYYYYYYYYYYY:test_device_create_view_get_initial:response.redirect_chain:", response.redirect_chain)
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertEqual(
-    #         response.template_name, ["devices/device_create_or_update.html"]
-    #     )
-
-    # def test_XXXXXXXXXXXXXXXXXX(self):
-    #     result = self.client.login(username="testuser", password="password")
-    #     self.assertTrue(result)
-
-    #     url = reverse("devices:create")
-
-    #     request = self.client.get(path=url)
-    #     request.user = self.user
-    #     form_data = {
-    #         "code": "XXX",
-    #         "name": "New Device",
-    #         "active": True,
-    #         "active_from": timezone.now(),
-    #         "active_until": timezone.now(),
-    #     }
-
-    #     #request.data = form_data
-
-    #     response = DeviceCreateView.as_view()(request)
-    #     self.assertEqual(response.status_code, 200)
-
-    #     print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:response:", response)
-    #     print("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD:response.context_data[form]:", response.context_data["form"])
-
-    #     form_data = {
-    #         "code": "XXX",
-    #         "name": "New Device",
-    #         "active": True,
-    #         "active_from": timezone.now(),
-    #         "active_until": timezone.now(),
-    #     }
-    #     response = self.client.post(path=url, data=form_data)
-    #     print ("RESPONSE:", response )
-
-    #     print("response.context['form']", response.context['form'])
-    #     print("response.context['form'].errors", response.context['form'].errors)
-
-    #     self.assertEqual(response.status_code, 302)
-
-    #     #self.assertEqual(response.url, "/mac_address_types/list/")
-
-    #     self.assertEqual(Device.objects.order_by("id").last().name, "New MacAddressType")
-
-    # def test_device_create_view_form_valid(self):
-    #     result = self.client.login(username="testuser", password="password")
-    #     self.assertTrue(result)
-
-    #     url = reverse("devices:create")
-    #     print("YYYYYYYYYYYYY:test_device_create_view_get_initial:url::", url)
-
-    #     request = self.factory.get(url)
-    #     request.session = self.client.session
-    #     request.user = self.user
-
-    #     response = DeviceCreateView.as_view()(request)
-
-    #     print("#################################dir(response):", dir(response))
-
-    #     print("#################################:request.POST:", request.POST)
-
-    #     self.assertEqual(response.status_code, 200)
-
-    #     data = {
-    #         "code": "NEW",
-    #         "name": "New Devicex",
-    #         "active": True,
-    #         "active_from": timezone.now(),
-    #         "active_until": timezone.now(),
-    #         "created_by": self.user,
-    #         "updated_by": self.user,
-    #         "macaddress_set-TOTAL_FORMS": "0",
-    #         "macaddress_set-INITIAL_FORMS": "0",
-    #         "macaddress_set-MAX_NUM_FORMS": "0",
-
-    #     }
-
-    #     form = DeviceForm(data)
-    #     self.assertTrue(form.is_valid())
-    #     #response = self.client.get(url, data)
-    #     response = self.factory.post(url, data)
-    #     # print("\nzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz:reponse:\n", response )
-    #     # print("\nzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz:response.request:\n", response.request )
-    #     # print("\nzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz:reponse.reason_phrase:\n", response.reason_phrase )
-
-    #     self.assertEqual(Device.objects.order_by("id").last().name, "New Device")
-
-    #     # #self.assertEqual(response.status_code, 302)
-    #     # #self.assertRedirects(response, reverse("accounts:login"))
-
-    #     # #form_data = {"code": "NEW", "name": "New Device"}
-
-    #     # # response = self.client.post(path=url, data=form_data, follow=True)
-    #     # # self.assertEqual(Device.objects.last().name, "New Device")
-
-    #     # # print("YYYYYYYYYYYYY:test_device_create_view_get_initial:response::", response)
-    #     # # print("YYYYYYYYYYYYY:test_device_create_view_get_initial:response.context::", response.context)
-    #     # # print("YYYYYYYYYYYYY:test_device_create_view_get_initial:response.redirect_chain:", response.redirect_chain)
-    #     # # self.assertEqual(response.status_code, 200)
-    #     # # self.assertEqual(
-    #     # #     response.template_name, ["devices/device_create_or_update.html"]
-    #     # # )
-
     def test_device_update_view_formset(self):
         result = self.client.login(username="testuser", password="password")
         self.assertTrue(result)
@@ -262,10 +125,10 @@ class DeviceTest(TestCase):
             "active_until": object.active_until,
             "created_by": self.user,
             "updated_by": self.user,
-            "macaddress_formset-TOTAL_FORMS": "0",
-            "macaddress_formset-INITIAL_FORMS": "0",
-            "macaddress_formset-MIN_NUM_FORMS": "0",
-            "macaddress_formset-MAX_NUM_FORMS": "0",
+            "macaddress_set-TOTAL_FORMS": "0",
+            "macaddress_set-INITIAL_FORMS": "0",
+            "macaddress_set-MIN_NUM_FORMS": "0",
+            "macaddress_set-MAX_NUM_FORMS": "0",
         }
 
         response = self.client.post(path=url, data=form_data)

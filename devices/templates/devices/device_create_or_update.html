@@ -17,17 +17,17 @@
             Create
         {% endif %}
     </h2>
-    <form enctype="multipart/form-data" class="container" method="post">
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
 
         <!-- inline form for MAC Address start -->
 
-        <!-- EXPLAINING with named_formsets.macaddress_formset as formset -->
+        <!-- EXPLAINING with named_formsets.macaddress_set as formset -->
         <!-- Note: named_formsets is used in get_context_data function in views.py -->
-        <!-- Note: here macaddress_formset is our DeviceMacAddressFormset name, used in
+        <!-- Note: here macaddress_set is our DeviceMacAddressFormset name, used in
             get_named_formsets function in views.py -->
-        {% with named_formsets.macaddress_formset as formset %}
+        {% with named_formsets.macaddress_set as formset %}
             {{ formset.management_form }}
             <script type="text/html" id="macaddresses-template">  // id="inlineformsetname-template"
                 // id='inlineformsetname-__prefix__'
@@ -105,7 +105,7 @@
             $('#item-macaddresses').append(compiledTmpl);
 
             // update form count
-            $('#id_macaddress_formset-TOTAL_FORMS').attr('value', count+1);
+            $('#id_macaddress_set-TOTAL_FORMS').attr('value', count+1);
         });
     });
 </script>

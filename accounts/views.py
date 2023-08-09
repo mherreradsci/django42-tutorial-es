@@ -1,7 +1,6 @@
 from .forms import CustomAuthForm, CustomUserCreationForm
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
-from django.conf import settings
 
 
 def login_view(request):
@@ -10,8 +9,8 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            if 'next' in request.POST:
-                return redirect(request.POST.get('next'))
+            if "next" in request.POST:
+                return redirect(request.POST.get("next"))
             else:
                 return redirect("customers:list")
     else:

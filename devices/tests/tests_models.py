@@ -1,17 +1,15 @@
+from unittest import mock
+
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from accounts.models import User
 from devices.models import Device
 
-
 """
 Automated Test for Devices Model
 """
-
-from backports.zoneinfo import ZoneInfo
-from django.utils import timezone
-from unittest import mock
 
 
 class DeviceTestCase(TestCase):
