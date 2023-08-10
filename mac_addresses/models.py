@@ -1,13 +1,7 @@
 from django.db import models
-from django.urls import reverse
 from common.models import ValidityInfo
 from mac_address_types.models import MacAddressType
 from devices.models import Device
-
-from django.conf import settings
-
-
-# User = settings.AUTH_USER_MODEL
 
 
 class MacAddress(ValidityInfo):
@@ -36,5 +30,5 @@ class MacAddress(ValidityInfo):
     def __str__(self):
         return f"[{self.address}]"
 
-    def get_absolute_url(self):
-        return reverse("mac_addresses:list")
+    # def get_absolute_url(self):
+    #     return reverse("mac_addresses:list")

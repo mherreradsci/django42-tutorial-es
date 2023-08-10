@@ -1,0 +1,9 @@
+[run]
+omit=
+	*/migrations/*
+	*/test/*
+	*/tests*.py
+	*/staticfiles/*
+	*/__init__.py
+	dj42_proj/asgi.py
+	dj42_proj/wsgi.py

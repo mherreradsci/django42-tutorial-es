@@ -12,3 +12,4 @@ pre-commit==3.2.2
 black==23.3.0
 django-htmx==1.14.0
 django-dotenv==1.4.2
+coverage==7.2.7
