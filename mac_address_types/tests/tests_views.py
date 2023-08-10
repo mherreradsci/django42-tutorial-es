@@ -22,6 +22,7 @@ class MacAddressTypeTest(TestCase):
 
     def test_macaddresstype_list_view_get_queryset(self):
         result = self.client.login(username="testuser", password="password")
+        self.assertTrue(result)
 
         headers = {"HTTP_HX-Request": "true"}
         response = self.client.get("/mac_address_types/list/", **headers)

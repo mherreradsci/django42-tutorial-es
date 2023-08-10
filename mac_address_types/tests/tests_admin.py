@@ -33,12 +33,12 @@ class MacAddressTypeAdminTest(TestCase):
     def test_mac_address_type_admin_save_and_update_model(self):
         if trace_on:
             print(
-                f"id".ljust(5 + 3)
-                + f"name".ljust(30 + 3)
-                + f"created_by".ljust(10 + 3)
-                + f"created_at".ljust(32 + 3)
-                + f"updated_by".ljust(10 + 3)
-                + f"updated_at".ljust(32 + 3)
+                "id".ljust(5 + 3)
+                + "name".ljust(30 + 3)
+                + "created_by".ljust(10 + 3)
+                + "created_at".ljust(32 + 3)
+                + "updated_by".ljust(10 + 3)
+                + "updated_at".ljust(32 + 3)
             )
         my_model_admin = MacAddressTypeAdmin(
             model=MacAddressType, admin_site=AdminSite()

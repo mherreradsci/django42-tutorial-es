@@ -39,14 +39,14 @@ class MacAddressAdminTest(TestCase):
     def test_mac_address_admin_save_and_update_model(self):
         if trace_on:
             print(
-                f"id".ljust(5 + 3)
-                + f"address".ljust(17 + 3)
-                + f"maad_type".ljust(15 + 3)
-                + f"device".ljust(25 + 3)
-                + f"created_by".ljust(10 + 3)
-                + f"created_at".ljust(32 + 3)
-                + f"updated_by".ljust(10 + 3)
-                + f"updated_at".ljust(32 + 3)
+                "id".ljust(5 + 3)
+                + "address".ljust(17 + 3)
+                + "maad_type".ljust(15 + 3)
+                + "device".ljust(25 + 3)
+                + "created_by".ljust(10 + 3)
+                + "created_at".ljust(32 + 3)
+                + "updated_by".ljust(10 + 3)
+                + "updated_at".ljust(32 + 3)
             )
         my_model_admin = MacAddressAdmin(model=MacAddress, admin_site=AdminSite())
         self.assertEqual(str(my_model_admin), "mac_addresses.MacAddressAdmin")

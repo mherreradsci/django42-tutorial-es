@@ -15,7 +15,6 @@ from django.views.generic import (
 )
 
 from .forms import CustomerForm
-from django.db.models import Q
 
 
 class CustomerListView(LoginRequiredMixin, ListView):

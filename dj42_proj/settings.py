@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
+from django.contrib.messages import constants as message_constants
+from django.utils import timezone
+from backports.zoneinfo import ZoneInfo
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -125,7 +130,7 @@ AUTH_USER_MODEL = "accounts.User"
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Chile/Continental"  #'UTC'
+TIME_ZONE = "Chile/Continental"  # 'UTC'
 
 USE_I18N = True
 
@@ -164,21 +169,17 @@ AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.AllowAllUsersModelBacke
 
 # Set globally MESSAGE_LEVEL
 # https://docs.djangoproject.com/en/4.2/ref/contrib/messages/
-from django.contrib.messages import constants as message_constants
 
 MESSAGE_LEVEL = message_constants.INFO
 
 
-# Seg global "constants"
+# Set global "constants"
 # ------------------------------------------------------------------------------
 
 # UI: TextAreas
 TA_DEFAULT_ROWS = 4
 
 # DB: Defaults
-from django.utils import timezone
-from backports.zoneinfo import ZoneInfo
-
 DB_DEFAULT_INFINITE_DAY = timezone.datetime(
     year=2501, month=1, day=1, hour=0, minute=0, second=0, tzinfo=ZoneInfo("UTC")
 )

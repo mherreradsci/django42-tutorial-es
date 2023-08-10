@@ -14,7 +14,8 @@ class ConfigTest(TestCase):
         """
 
         try:
-            is_strong = validate_password(settings.SECRET_KEY)
+            # Validate if is_strong
+            validate_password(settings.SECRET_KEY)
         except Exception as e:
             msg = f"Weak Secret Key {e.messages}"
             self.fail(msg)
