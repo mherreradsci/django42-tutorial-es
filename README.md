@@ -1,9 +1,13 @@
 # Django 4.2 LTS Tutorial en Español
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg) ![Coverage: blacl][def]
 
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
 
 ![Screenshot from 2023-07-10 00-23-54-900xX](https://github.com/mherreradsci/django42-tutorial-es/assets/73266769/acd34935-5b99-4fc9-95f1-1e8489361b1e)
+
+
+
 
 
 ## Pendientes:
@@ -117,3 +121,6 @@ http://127.0.0.1:8000/
 ### Try Django 3.2 - Python Web Development Tutorial Series
 CodingEntrepreneurs
 https://youtube.com/playlist?list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL
+
+
+[def]: https://img.shields.io/badge/Coverage-99%25-brightgreen.svg
