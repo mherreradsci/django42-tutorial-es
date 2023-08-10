@@ -1,17 +1,14 @@
-from django.db import models
-from django.urls import reverse
-from common.models import ValidityInfo
 import uuid
 
-from django.conf import settings
+from django.db import models
+from django.urls import reverse
 
-
-# User = settings.AUTH_USER_MODEL
+from common.models import ValidityInfo
 
 
 class DeviceManager(models.Manager):
     def get_by_natural_key(self, code):
-        return self.get(code)
+        return self.get(code=code)
 
 
 class Device(ValidityInfo):

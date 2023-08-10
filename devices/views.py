@@ -1,6 +1,6 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -8,13 +8,13 @@ from django.db.models import Q
 from .models import Device
 from django.views.generic import (
     ListView,
-    CreateView,
-    UpdateView,
     DetailView,
     DeleteView,
 )
 
-from .forms import DeviceForm, MacAddressFormset
+from django.views.generic.edit import CreateView, UpdateView
+
+from .forms import DeviceForm, DeviceMacAddressFormset
 
 
 class DeviceListView(LoginRequiredMixin, ListView):
@@ -38,37 +38,76 @@ class DeviceListView(LoginRequiredMixin, ListView):
         return "devices/device_list.html"
 
 
-class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
-    model = Device
+class DeviceInline:
     form_class = DeviceForm
+    model = Device
+    template_name = "devices/device_create_or_update.html"
 
+    def form_valid(self, form):
+        named_formsets = self.get_named_formsets()
+
+        # if not all((x.is_valid() for x in named_formsets.values())):
+        #     return self.render_to_response(self.get_context_data(form=form))
+
+        all_valid = True
+        for x in named_formsets.values():
+            if not x.is_valid():
+                all_valid = False
+        if not all_valid:
+            return self.render_to_response(self.get_context_data(form=form))
+
+        obj = form.save(commit=False)
+        if obj.id:
+            obj.updated_by = self.request.user
+        else:
+            obj.created_by = self.request.user
+            obj.updated_by = self.request.user
+
+        self.object = form.save()
+
+        # for every formset, attempt to find a specific formset save function
+        # otherwise, just save.
+        for name, formset in named_formsets.items():
+            formset_save_func = getattr(self, "formset_{0}_valid".format(name), None)
+            if formset_save_func is not None:
+                formset_save_func(formset)
+            else:
+                formset.save()
+        return redirect("devices:list")
+
+    def formset_macaddress_set_valid(self, formset):
+        """
+        Hook for custom formset saving.. useful if you have multiple formsets
+        """
+
+        macaddresses = formset.save(commit=False)
+        # add this, if you have can_delete=True parameter set in
+        # inlineformset_factory func
+
+        for obj in formset.deleted_objects:
+            obj.delete()
+
+        for macaddress in macaddresses:
+            if macaddress.id:
+                macaddress.updated_by = self.request.user
+            else:
+                macaddress.created_by = self.request.user
+                macaddress.updated_by = self.request.user
+
+            macaddress.device = self.object
+            macaddress.save()
+
+
+class DeviceCreateView(
+    SuccessMessageMixin, LoginRequiredMixin, DeviceInline, CreateView
+):
     success_message = 'Device "%(name)s" was created successfully'
 
     def get_context_data(self, **kwargs):
         context = super(DeviceCreateView, self).get_context_data(**kwargs)
-        if self.request.POST:
-            context["macaddress_formset"] = MacAddressFormset(self.request.POST)
-        else:
-            context["macaddress_formset"] = MacAddressFormset()
+        context["named_formsets"] = self.get_named_formsets()
+
         return context
-
-    def form_valid(self, form):
-        context = self.get_context_data(form=form)
-        formset = context["macaddress_formset"]
-
-        if formset.is_valid():
-            response = super().form_valid(form)
-            formset.instance = self.object
-            instances = formset.save(commit=False)
-
-            for instance in instances:
-                instance.created_by = self.request.user
-                instance.updated_by = self.request.user
-                # instance.save()
-            formset.save()
-            return response
-        else:
-            return super().form_invalid(form)
 
     def get_initial(self):
         initial = super(DeviceCreateView, self).get_initial()
@@ -76,37 +115,53 @@ class DeviceCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
         initial["updated_by"] = self.request.user
         return initial
 
+    def get_named_formsets(self):
+        if self.request.method == "POST":
+            return {
+                "macaddress_set": DeviceMacAddressFormset(
+                    self.request.POST or None,
+                    self.request.FILES or None,
+                    prefix="macaddress_set",
+                ),
+                # "images": ImageFormSet(
+                #     self.request.POST or None,
+                #     self.request.FILES or None,
+                #     prefix="images",
+                # ),
+            }
 
-class DeviceUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
-    model = Device
+        else:
+            return {
+                "macaddress_set": DeviceMacAddressFormset(prefix="macaddress_set"),
+                # 'images': ImageFormSet(prefix='images'),
+            }
+
+
+class DeviceUpdateView(
+    SuccessMessageMixin, LoginRequiredMixin, DeviceInline, UpdateView
+):
     success_message = 'Device "%(name)s" was updated successfully'
-
-    form_class = DeviceForm
 
     def get_context_data(self, **kwargs):
         context = super(DeviceUpdateView, self).get_context_data(**kwargs)
-        if self.request.POST:
-            context["macaddress_formset"] = MacAddressFormset(
-                self.request.POST, instance=self.object
-            )
-            context["macaddress_formset"].full_clean()
-        else:
-            context["macaddress_formset"] = MacAddressFormset(instance=self.object)
+        context["named_formsets"] = self.get_named_formsets()
         return context
 
-    def form_valid(self, form):
-        context = self.get_context_data(form=form)
-        formset = context["macaddress_formset"]
-        if formset.is_valid():
-            response = super().form_valid(form)
-            formset.instance = self.object
-            instances = formset.save(commit=False)
-            for instance in instances:
-                instance.updated_by = self.request.user
-            formset.save()
-            return response
-        else:
-            return super().form_invalid(form)
+    def get_named_formsets(self):
+        return {
+            "macaddress_set": DeviceMacAddressFormset(
+                self.request.POST or None,
+                self.request.FILES or None,
+                instance=self.object,
+                prefix="macaddress_set",
+            ),
+            # "images": ImageFormSet(
+            #     self.request.POST or None,
+            #     self.request.FILES or None,
+            #     instance=self.object,
+            #     prefix="images",
+            # ),
+        }
 
 
 class DeviceDetailViev(LoginRequiredMixin, DetailView):

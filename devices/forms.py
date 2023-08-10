@@ -1,19 +1,27 @@
 from django import forms
-from .models import Device
-
-from mac_addresses.models import MacAddress
 from django.forms.models import inlineformset_factory
 
+from .models import Device
+from mac_addresses.models import MacAddress
+from mac_addresses.forms import MacAddressForm
 
-MacAddressFormset = inlineformset_factory(
+
+DeviceMacAddressFormset = inlineformset_factory(
     Device,
     MacAddress,
-    fields=[
-        "address",
-        "maad_type",
-    ],
+    form=MacAddressForm,
+    # fields=[
+    #     "address",
+    #     "maad_type",
+    #     "active",
+    #     "active_from",
+    #     "active_until",
+    #     "created_by",
+    #     "updated_by",
+    # ],
     extra=0,
     can_delete=True,
+    can_delete_extra=True,
 )
 
 

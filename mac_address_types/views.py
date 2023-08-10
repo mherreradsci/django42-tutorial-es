@@ -13,13 +13,13 @@ from django.views.generic import (
     DeleteView,
 )
 
-
 from .forms import MacAddressTypeForm
 
 
 class MacAddressTypeListView(LoginRequiredMixin, ListView):
     model = MacAddressType
     fields = "__All__"
+    paginate_by = 5
 
     def get_queryset(self, *args, **kwargs):
         query = self.request.GET.get("q")
@@ -34,6 +34,11 @@ class MacAddressTypeListView(LoginRequiredMixin, ListView):
             qs = super(MacAddressTypeListView, self).get_queryset(*args, **kwargs)
 
         return qs.order_by("-id")
+
+    def get_template_names(self):
+        if self.request.htmx and not self.request.htmx.history_restore_request:
+            return "mac_address_types/partials/macaddresstype_table.html"
+        return "mac_address_types/macaddresstype_list.html"
 
 
 class MacAddressTypeCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):

@@ -15,7 +15,6 @@ from django.views.generic import (
 )
 
 from .forms import CustomerForm
-from django.db.models import Q
 
 
 class CustomerListView(LoginRequiredMixin, ListView):
@@ -37,6 +36,10 @@ class CustomerListView(LoginRequiredMixin, ListView):
         if self.request.htmx and not self.request.htmx.history_restore_request:
             return "customers/partials/customer_table.html"
         return "customers/customer_list.html"
+
+    # def get_paginate_by(self, queryset):
+    #     result = self.request.GET.get("paginate_by", self.paginate_by)
+    #     return self.request.GET.get("paginate_by", self.paginate_by)
 
 
 class CustomerCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):

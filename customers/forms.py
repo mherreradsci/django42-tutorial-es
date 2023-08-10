@@ -33,11 +33,6 @@ class CustomerForm(forms.ModelForm):
                     "placeholder": "code",
                 }
             ),
-            "code": forms.TextInput(
-                attrs={
-                    "placeholder": "code",
-                }
-            ),
             "name": forms.TextInput(
                 attrs={
                     "placeholder": "name",
