@@ -1,6 +1,6 @@
 # Django 4.2 LTS Tutorial en Español
 
-![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg) ![Coverage: blacl][def]
+![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg) ![Coverage][def]
 
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
 
