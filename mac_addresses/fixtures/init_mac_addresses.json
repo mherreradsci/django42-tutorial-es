@@ -1,20 +1,102 @@
 [
 {
-  "model": "mac_addresses.macaddress",
-  "pk": 1,
-  "fields": {
-    "created_at": "2023-07-22T00:00:00Z",
-    "updated_at": "2023-07-22T00:00:00Z",
-    "created_by": null,
-    "updated_by": [
-      "init"
-    ],
-    "active_from": "2023-07-22T00:00:00Z",
-    "active_until": "2501-01-01T00:00:00Z",
-    "active": true,
-    "address": "11.11.11.11.11.11",
-    "maad_type": 1,
-    "device": 5
-  }
+    "model": "mac_addresses.macaddress",
+    "pk": 1,
+    "fields": {
+        "created_at": "2023-07-22T00:00:00Z",
+        "updated_at": "2023-07-22T00:00:00Z",
+        "created_by": [
+            "init"
+        ],
+        "updated_by": [
+            "init"
+        ],
+        "active_from": "2023-07-22T00:00:00Z",
+        "active_until": "2501-01-01T00:00:00Z",
+        "active": true,
+        "address": "11.11.11.11.11.11",
+        "maad_type": 1,
+        "device": 61
+    }
+},
+{
+    "model": "mac_addresses.macaddress",
+    "pk": 2,
+    "fields": {
+        "created_at": "2023-07-22T00:00:00Z",
+        "updated_at": "2023-07-22T00:00:00Z",
+        "created_by": [
+            "init"
+        ],
+        "updated_by": [
+            "init"
+        ],
+        "active_from": "2023-07-22T00:00:00Z",
+        "active_until": "2501-01-01T00:00:00Z",
+        "active": true,
+        "address": "22.22.22.22.22.22",
+        "maad_type": 2,
+        "device": 61
+    }
+},
+{
+    "model": "mac_addresses.macaddress",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-07-22T00:00:00Z",
+        "updated_at": "2023-07-22T00:00:00Z",
+        "created_by": [
+            "init"
+        ],
+        "updated_by": [
+            "init"
+        ],
+        "active_from": "2023-07-22T00:00:00Z",
+        "active_until": "2501-01-01T00:00:00Z",
+        "active": true,
+        "address": "33.33.33.33.33.33",
+        "maad_type": 3,
+        "device": 61
+    }
+},
+{
+    "model": "mac_addresses.macaddress",
+    "pk": 4,
+    "fields": {
+        "created_at": "2023-07-22T00:00:00Z",
+        "updated_at": "2023-07-22T00:00:00Z",
+        "created_by": [
+            "init"
+        ],
+        "updated_by": [
+            "init"
+        ],
+        "active_from": "2023-07-22T00:00:00Z",
+        "active_until": "2501-01-01T00:00:00Z",
+        "active": true,
+        "address": "44.44.44.44.44.44",
+        "maad_type": 1,
+        "device": 5
+    }
+},
+{
+    "model": "mac_addresses.macaddress",
+    "pk": 5,
+    "fields": {
+        "created_at": "2023-07-22T00:00:00Z",
+        "updated_at": "2023-07-22T00:00:00Z",
+        "created_by": [
+            "init"
+        ],
+        "updated_by": [
+            "init"
+        ],
+        "active_from": "2023-07-22T00:00:00Z",
+        "active_until": "2501-01-01T00:00:00Z",
+        "active": true,
+        "address": "55.55.55.55.55.55",
+        "maad_type": 2,
+        "device": 5
+    }
 }
 ]
