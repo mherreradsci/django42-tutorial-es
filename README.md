@@ -1,5 +1,7 @@
 # Django 4.2 LTS Tutorial en Español
+
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Coverage](https://img.shields.io/badge/Coverage-99%25-brightgreen.svg)](https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml)
+
 
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
 
@@ -13,6 +15,9 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 ### Django Testing
 ### CI (Continuous Integration)
 ### Utilización de herramientas para Calidad de Código (Code Quality Tools)
+
+
+
 
 ## Pendientes:
 * Form validation
