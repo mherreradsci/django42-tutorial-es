@@ -24,8 +24,8 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 ## Etapa actual (Stage 26)
 * Testing básico
 * Incorpora herramientas para mejorar la calidad del código (Estilo y formato)
-* Automatización de revisión de código (Develop and Deploy)
-* Github Actions para revisin de calidad de código al hacer push o PR
+* Automatización de revisión de código (pre-commit)
+
 
 ## Siguiente etapa (Stage 27)
 * Por definir
