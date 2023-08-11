@@ -1,6 +1,11 @@
 # Django 4.2 LTS Tutorial en Español
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Coverage](https://img.shields.io/badge/Coverage-99%25-brightgreen.svg)](https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml)
+<p align="left">
+<a href="https://github.com/mherreradsci/django42-tutorial-es/actions"><img alt="Actions Status" src="https://github.com/mherreradsci/django42-tutorial-es/workflows/Django%20CI/badge.svg"></a>
+<a><href="https://github.com/mherreradsci/django42-tutorial-es/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-indigo.svg"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml"><img alt="" src="https://img.shields.io/badge/Coverage-99%25-brightgreen.svg"></a>
+</p>
 
 
 El objetivo de este repositorio es proponer una forma para hacer un proyecto Django abarcando el ciclo de vida completo. Es decir, desde cero hasta Producción.
