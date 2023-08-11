@@ -128,5 +128,4 @@ http://127.0.0.1:8000/
 
 ## Referencias
 ### Try Django 3.2 - Python Web Development Tutorial Series
-CodingEntrepreneurs
-https://youtube.com/playlist?list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL
+ [CodingEntrepreneurs - Django 3.2 series](https://youtube.com/playlist?list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL)
