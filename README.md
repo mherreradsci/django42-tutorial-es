@@ -9,6 +9,7 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 ### Proyecto tipo
 * Modelos: Client, Device, MAC Addresses, Types (lookup) y Modelos abstractos base
 * Navegación estandarizada
+### AJAX vía django-htmx
 ### Django Testing
 ### CI (Continuous Integration)
 ### Utilización de herramientas para Calidad de Código (Code Quality Tools)
