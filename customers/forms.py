@@ -8,8 +8,6 @@ class CustomerForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CustomerForm, self).__init__(*args, **kwargs)
-        # self.fields['active_from'].widget = widgets.AdminDateWidget(attrs={"type": "date"})
-        # self.fields['active_from_time'].widget = widgets.AdminTimeWidget(attrs={"type": "time"})
         self.fields["created_by"].disabled = True
         self.fields["updated_by"].disabled = True
 

@@ -107,7 +107,8 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation\
+            .UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -121,7 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Add custom User model, even if the default User model is sufficient
-# https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project
+# https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project # noqa: E501
+
 
 AUTH_USER_MODEL = "accounts.User"
 
