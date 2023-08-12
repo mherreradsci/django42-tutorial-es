@@ -15,8 +15,11 @@ import os
 
 from django.contrib.messages import constants as message_constants
 from django.utils import timezone
-from backports.zoneinfo import ZoneInfo
 
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from backports.zoneinfo import ZoneInfo
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

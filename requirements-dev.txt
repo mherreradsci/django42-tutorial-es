@@ -1,4 +1,4 @@
-backports.zoneinfo==0.2.1
+backports.zoneinfo==0.2.1;python_version<"3.9"
 Django==4.2.3
 django-dotenv==1.4.2
 django-htmx==1.14.0
