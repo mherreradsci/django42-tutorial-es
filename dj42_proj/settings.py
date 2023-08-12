@@ -15,8 +15,11 @@ import os
 
 from django.contrib.messages import constants as message_constants
 from django.utils import timezone
-from backports.zoneinfo import ZoneInfo
 
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from backports.zoneinfo import ZoneInfo
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -107,7 +110,7 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa: E501
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -121,7 +124,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Add custom User model, even if the default User model is sufficient
-# https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project
+# https://docs.djangoproject.com/en/4.2/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project # noqa: E501
+
 
 AUTH_USER_MODEL = "accounts.User"
 

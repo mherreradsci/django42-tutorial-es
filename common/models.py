@@ -1,7 +1,11 @@
-from backports.zoneinfo import ZoneInfo
-from django.utils import timezone
-from django.db import models
 from django.conf import settings
+from django.db import models
+from django.utils import timezone
+
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    from backports.zoneinfo import ZoneInfo
 
 User = settings.AUTH_USER_MODEL
 
