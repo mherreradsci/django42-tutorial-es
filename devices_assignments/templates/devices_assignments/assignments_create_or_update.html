@@ -30,20 +30,7 @@
             </div>
         {% endfor %}
     {% endif %}
-    {% if form.non_field_errors %}
-    <div class="non-field-errors">
-        {% for err in form.non_field_errors %}
-        <p class="form-error">HORROR {{ err }}</p>
-        {% endfor %}
-    </div>
-    {% endif %}
-    {% if formset.non_field_errors %}
-    <div class="non-field-errors">
-        {% for err in formset.non_field_errors %}
-        <p class="form-error">Formset:Error:{{ err }}</p>
-        {% endfor %}
-    </div>
-    {% endif %}
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_table }}
@@ -92,9 +79,20 @@
                             <span style="color: red">{{ error }}</span>
                         {% endfor %}
 
+                        {% for err in formset.non_field_errors %}
+                        <p class="form-error">Formset:Error:{{ err }}</p>
+                        {% endfor %}
+
                         {% for formss in formset %}
-                            <tr id="assignments-{{ forloop.counter0 }}" class="hide_all">  <!-- id="inlineformsetname-counter" -->
+                            <tr id="assignments-{{ forloop.counter0 }}" class="xhide_all">  <!-- id="inlineformsetname-counter" -->
                                 {{ formss.id }}
+                                {% if formss.non_field_errors %}
+                                <tr>
+                                <td>
+                                    <span style="color: red">{{ formss.non_field_errors }}</span>
+                                </td>
+                                </tr>
+                                {% endif %}
                                 {% for field in formss.visible_fields %}
                                     <td>
                                         {{ field }}
@@ -103,8 +101,9 @@
                                         {% endfor %}
                                     </td>
                                 {% endfor %}
+
                             </tr>
-                            {% endfor %}
+                        {% endfor %}
                     </tbody>
                 </table>
                 <a href="#" id="add-assignments" class="btn btn-secondary add-assignments">Add More</a> <!-- id="add-inlineformsetname-button" -->

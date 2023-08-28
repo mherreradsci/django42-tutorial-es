@@ -29,17 +29,10 @@ class CustomerUpdateView(
 
     def get_context_data(self, **kwargs):
         context = super(CustomerUpdateView, self).get_context_data(**kwargs)
-        print(f"\nCustomerUpdateView:get_context_data:context:{context}\n\n")
         context["named_formsets"] = self.get_named_formsets()
-        print(
-            f"\nCustomerUpdateView:get_context_data:named_formsets:{context['named_formsets']}\n\n"
-        )
         return context
 
     def get_named_formsets(self):
-        print(
-            "CustomerUpdateView:get_named_formsets:self.request.POST", self.request.POST
-        )
         return {
             "assignments": DeviCustAssignmentFormset(
                 self.request.POST or None,
@@ -57,12 +50,7 @@ class CustomerUpdateView(
 
     def get_success_url(
         self,
-    ):  # Parece que no se utiliza OJJJJJJJJJJJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-        print(
-            "\n\n#####################################\nCustomerUpdateView:get_success_url:self.request.POST.get ('_continue'):",
-            self.request.POST.get("_continue"),
-        )
-        # print("CustomerUpdateView:get_success_url:self.request.POST.get ('continue'):", self.request.POST.get ('continue'))
+    ):
         if self.request.POST.get("_continue"):
             success_url = reverse(
                 "devices_assignments:update", kwargs={"pk": self.object.pk}
@@ -81,23 +69,10 @@ class CustomerUpdateView(
         #     return self.render_to_response(self.get_context_data(form=form))
 
         all_valid = True
-        print("form_valid:named_formsets.values():", named_formsets.values())
         for fs in named_formsets.values():
-            print("form_valid:fs", fs)
             if not fs.is_valid():
                 all_valid = False
-                for i, f in enumerate(fs):
-                    # print("\nf:", f.data) #.get("device", 'ND'))
-                    print("\nf:code:", f.data.get("code", "ND"))
-                    print(
-                        f"\nf:'assignments-{i}-device':",
-                        f.data.get(f"assignments-{i}-device", "ND"),
-                    )
-                    print(
-                        f"\nf:'assignments-{i}-active_from':{f.data.get(f'assignments-{i}-active_from', 'ND')}\n"
-                    )
 
-        print("form_valid:all_valid", all_valid)
         if not all_valid:
             return self.render_to_response(self.get_context_data(form=form))
 
@@ -113,11 +88,9 @@ class CustomerUpdateView(
         # for every formset, attempt to find a specific formset save function
         # otherwise, just save.
         for name, formset in named_formsets.items():
-            print("\nform_valid:name:", name)
             formset_save_func = getattr(self, "formset_{0}_valid".format(name), None)
-            print("\n\nform_valid:formset_save_func:", formset_save_func)
+
             if formset_save_func is not None:
-                print("\nform_valid:formset_save_func:", formset_save_func)
                 formset_save_func(formset)
             else:
                 formset.save()
@@ -128,7 +101,6 @@ class CustomerUpdateView(
         """
         Hook for custom formset saving. Useful if you have multiple formsets
         """
-        print("formset_assignments_valid called")
         assignments = formset.save(commit=False)
         # add this, if you have can_delete=True parameter set in
         # inlineformset_factory func
@@ -137,7 +109,6 @@ class CustomerUpdateView(
             obj.delete()
 
         for assignment in assignments:
-            print("ZZZZZZZZZZZZZZZZZZZZ:", assignment.device)
             if assignment.id:
                 assignment.updated_by = self.request.user
             else:
@@ -145,17 +116,10 @@ class CustomerUpdateView(
                 assignment.updated_by = self.request.user
 
             assignment.customer = self.object
-            print("ZZZZZZZZZZZZZZZZZZZZ:assignment.created_by", assignment.created_by)
-            print("ZZZZZZZZZZZZZZZZZZZZ:assignment.updated_by", assignment.updated_by)
             assignment.save()
-        # formset.save_m2m()
 
     def get_initial(self):
         initial = super(CustomerUpdateView, self).get_initial()
-        # initial["customer"] = self.kwargs["customer_pk"]
-        print(
-            ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CustomerUpdateView:get_initial"
-        )
         initial["created_by"] = self.request.user
         initial["updated_by"] = self.request.user
         return initial
