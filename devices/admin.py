@@ -1,8 +1,10 @@
+from django.conf.locale.en import formats as en_formats
 from django.contrib import admin
-from .models import Device
+
+from common import models_utilities
 from mac_addresses.models import MacAddress
 
-from django.conf.locale.en import formats as en_formats
+from .models import Device, DeviCustAssignment
 
 en_formats.DATETIME_FORMAT = "d-m-Y H:i:s"
 
@@ -25,8 +27,29 @@ class MacAddessInline(admin.TabularInline):
     readonly_fields = ("created_by", "created_at", "updated_by", "updated_at")
 
 
+class DeviCustAssignmentInline(admin.TabularInline):
+    model = DeviCustAssignment
+    extra = 0
+    fields = [
+        "customer",
+        "device",
+        "active",
+        "active_from",
+        "active_until",
+        "created_by",
+        "created_at",
+        "updated_by",
+        "updated_at",
+    ]
+    readonly_fields = ("created_by", "created_at", "updated_by", "updated_at")
+
+
+class DeviCustAssignmentAdmin(admin.ModelAdmin):
+    inlines = [DeviCustAssignmentInline]
+
+
 class DeviceAdmin(admin.ModelAdmin):
-    inlines = [MacAddessInline]
+    inlines = [MacAddessInline, DeviCustAssignmentInline]
     fields = [
         "id",
         "code",
@@ -71,12 +94,10 @@ class DeviceAdmin(admin.ModelAdmin):
     ordering = ["name", "-id"]
 
     def save_model(self, request, obj, form, change):
-        if not obj.pk:
-            obj.created_by = request.user
-            obj.updated_by = request.user
-        elif change:
-            obj.updated_by = request.user
-        obj.save()
+        models_utilities.save_model(self, request, obj, form, change)
+
+    def save_formset(self, request, form, formset, change):
+        models_utilities.save_formset(self, request, form, formset, change)
 
 
 admin.site.register(Device, DeviceAdmin)
