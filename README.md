@@ -39,7 +39,7 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 
 
 ## Siguiente etapa (Stage 27)
-* Por definir
+* Many To Many (m2m) - Devices assignments for Customers
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
