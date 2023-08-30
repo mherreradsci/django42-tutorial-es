@@ -22,15 +22,7 @@
             Create
         {% endif %}
     </h2>
-    {% if messages %}
-        {% for message in messages %}
-            <div {% if message.tags %} class="alert alert-{{ message.tags }}" id="success-alert" style="opacity: 500;"{% else %} class="text-center alert alert-info alert-dismissible shadow fade show" {% endif %}>
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
-                <strong>{{ message }}</strong>
-            </div>
-        {% endfor %}
-    {% endif %}
-
+    {% include "messages.html" %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_table }}
