@@ -1,7 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import Q
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import UpdateView

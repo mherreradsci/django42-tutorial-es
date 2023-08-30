@@ -16,7 +16,6 @@ class CustomerForm(forms.ModelForm):
         widgets = {
             "code": forms.TextInput(attrs={"readonly": "readonly"}),
             "name": forms.TextInput(attrs={"readonly": "readonly"}),
-            # "active": forms.CheckboxInput(attrs={"readonly": "readonly", "disabled": True}),
         }
 
 
