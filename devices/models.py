@@ -103,4 +103,4 @@ class DeviCustAssignment(ValidityInfo):
         return reverse("devices:list")
 
     def __str__(self):
-        return f"{self.customer} - {self.device}"
+        return f"{self.device}"

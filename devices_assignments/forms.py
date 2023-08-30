@@ -47,7 +47,7 @@ class DeviCustAssignmentForm(forms.ModelForm):
             ),
             "active_until": forms.DateTimeInput(
                 format="%Y-%m-%d %H:%M:%S",
-                attrs={"class": "datetimefield", "placeholder": "until"},
+                attrs={"class": "datetimefield", "placeholder": "until date/time"},
             ),
             "closing_remarks": forms.Textarea(attrs={"rows": 1, "cols": 20}),
         }
@@ -59,7 +59,7 @@ DeviCustAssignmentFormset = inlineformset_factory(
     form=DeviCustAssignmentForm,
     extra=0,
     can_delete=True,
-    # can_delete_extra=True,
-    # min_num=3,
-    # validate_min=True,
+    can_delete_extra=True,
+    min_num=0,
+    validate_min=True,
 )

@@ -2,20 +2,12 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
-from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
-from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
-from django.views.generic import CreateView as gcw
-from django.views.generic import DeleteView, DetailView, ListView, UpdateView
+from django.urls import reverse
+from django.views.generic import UpdateView
 
-from devices_assignments.forms import (
-    CustomerForm,
-    DeviCustAssignmentForm,
-    DeviCustAssignmentFormset,
-)
 from customers.models import Customer
-from devices.models import DeviCustAssignment
+from devices_assignments.forms import CustomerForm, DeviCustAssignmentFormset
 
 
 class CustomerUpdateView(
@@ -23,9 +15,11 @@ class CustomerUpdateView(
 ):
     form_class = CustomerForm
     model = Customer
-    template_name = "devices_assignments/assignments_create_or_update.html"
+    template_name = "devices_assignments/assignments_update.html"
 
     success_message = 'Customer "%(name)s" was updated successfully'
+    success_message_inline_upd = 'Device "%(name)s" was updated successfully'
+    success_message_inline_del = 'Device "%(name)s" was deleted successfully'
 
     def get_context_data(self, **kwargs):
         context = super(CustomerUpdateView, self).get_context_data(**kwargs)
@@ -51,6 +45,11 @@ class CustomerUpdateView(
     def get_success_url(
         self,
     ):
+        messages.add_message(
+            self.request,
+            messages.INFO,
+            self.success_message % {"name": self.object},
+        )
         if self.request.POST.get("_continue"):
             success_url = reverse(
                 "devices_assignments:update", kwargs={"pk": self.object.pk}
@@ -60,7 +59,6 @@ class CustomerUpdateView(
         else:
             success_url = None
         return success_url
-        # return reverse("customers:list")
 
     def form_valid(self, form):
         named_formsets = self.get_named_formsets()
@@ -106,7 +104,13 @@ class CustomerUpdateView(
         # inlineformset_factory func
 
         for obj in formset.deleted_objects:
+            del_name = obj
             obj.delete()
+            messages.add_message(
+                self.request,
+                messages.INFO,
+                self.success_message_inline_del % {"name": del_name},
+            )
 
         for assignment in assignments:
             if assignment.id:
@@ -114,7 +118,11 @@ class CustomerUpdateView(
             else:
                 assignment.created_by = self.request.user
                 assignment.updated_by = self.request.user
-
+            messages.add_message(
+                self.request,
+                messages.INFO,
+                self.success_message_inline_upd % {"name": assignment.device},
+            )
             assignment.customer = self.object
             assignment.save()
 
