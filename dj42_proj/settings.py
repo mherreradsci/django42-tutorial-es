@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "accounts",
     "common",
     "devices",
+    "devices_assignments",
     "mac_address_types",
     "mac_addresses",
 ]

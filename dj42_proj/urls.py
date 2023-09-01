@@ -24,6 +24,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("customers/", include("customers.urls")),
     path("devices/", include("devices.urls")),
+    path("devices_assignments/", include("devices_assignments.urls")),
     path("admin/", admin.site.urls),
     path("mac_address_types/", include("mac_address_types.urls")),
 ]

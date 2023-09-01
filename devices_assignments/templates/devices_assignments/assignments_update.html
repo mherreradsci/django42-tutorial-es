@@ -1,0 +1,135 @@
+{% extends "base-bs5.html" %}
+{% block title %}
+    Django 4.2 - dj42_proj - Español
+{% endblock title %}
+{% load static %}
+{% block content %}
+{% if form.errors %}
+<div class="alert alert-info" role="alert">
+    <strong>Alert01</strong> {{ form.non_field_errors }}
+</div>
+{% endif %}
+    <style>
+        .hidden {
+            display: none
+        }
+    </style>
+    <h2>
+        Devices Customers Assignments -
+        {% if customer %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+    </h2>
+    {% include "messages.html" %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+
+        <!-- inline form for Device Custom Assignment start -->
+
+        <!-- EXPLAINING with named_formsets.assignments as formset -->
+        <!-- Note: named_formsets is used in get_context_data function in views.py -->
+        <!-- Note: here assignments is our DeviCustAssignmentFormset name, used in
+            get_named_formsets function in views.py -->
+        {% with named_formsets.assignments as formset %}
+            {{ formset.management_form }}
+
+            <script type="text/html" id="assignments-template">  // id="inlineformsetname-template"
+                // id='inlineformsetname-__prefix__'
+                <tr id="assignments-__prefix__" class="hide_all">
+                    {% for fields in formset.empty_form.hidden_fields %}
+                        {{ fields }}
+                    {% endfor %}
+
+                    {% for fields in formset.empty_form.visible_fields %}
+                        <td>{{ fields }}</td>
+                    {% endfor %}
+                </tr>
+            </script>
+            <div class="table-responsive card mt-4">
+                <div class="card-header card-header-secondary">
+                    <h4 class="card-title">Assign Device</h4>
+                </div>
+                <table class="table card-header">
+                    <thead class="text-secondary">
+                        <th>Device <span style="color: red;" class="required">*</span></th>
+                        <th>Active? </th>
+                        <th>Active From</th>
+                        <th>Active Until</th>
+                        <th>Created by</th>
+                        <th>Updated by</th>
+						<th>EOA Type</th>
+						<th>EOA Reason</th>
+                        <th>Delete btn</th>
+                    </thead>
+                    <tbody id="item-assignments">  <!-- id="item-inlineformsetname" -->
+
+                        <!-- formset non forms errors -->
+                        {% for error in formset.non_form_errors %}
+                            <span style="color: red">{{ error }}</span>
+                        {% endfor %}
+
+                        {% for err in formset.non_field_errors %}
+                        <p class="form-error">Formset:Error:{{ err }}</p>
+                        {% endfor %}
+
+                        {% for formss in formset %}
+                            <tr id="assignments-{{ forloop.counter0 }}" class="xhide_all">  <!-- id="inlineformsetname-counter" -->
+                                {{ formss.id }}
+                                {% if formss.non_field_errors %}
+                                <tr>
+                                <td>
+                                    <span style="color: red">{{ formss.non_field_errors }}</span>
+                                </td>
+                                </tr>
+                                {% endif %}
+                                {% for field in formss.visible_fields %}
+                                    <td>
+                                        {{ field }}
+                                        {% for error in field.errors %}
+                                            <span style="color: red">{{ error }}</span>
+                                        {% endfor %}
+                                    </td>
+                                {% endfor %}
+
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#" id="add-assignments" class="btn btn-secondary add-assignments">Add More</a> <!-- id="add-inlineformsetname-button" -->
+            </div>
+
+        {% endwith %}
+        <!-- inline form for Device Custom Assignment end -->
+
+
+        <div class="form-buttons">
+            <input type="submit" value="Save" name="_save" class="btn btn-primary btn-sm" />
+            <input type="submit" value="Save and continue editing" name="_continue" class="btn btn-primary btn-sm" />
+			<a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+        </div>
+    </form>
+{% comment %} <script src="{% static 'js/devices/macaddress_formset.js' %}"
+        type="text/javascript"></script> {% endcomment %}
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>
+
+    $(document).ready(function() {
+    // when user clicks add more btn of assignments
+        $('.add-assignments').click(function(ev) {
+            ev.preventDefault();
+            var count = $('#item-assignments').children().length;
+            var tmplMarkup = $('#assignments-template').html();
+            var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+            $('#item-assignments').append(compiledTmpl);
+
+            // update form count
+            $('#id_assignments-TOTAL_FORMS').attr('value', count+1);
+        });
+    });
+</script>
+
+{% endblock content %}
