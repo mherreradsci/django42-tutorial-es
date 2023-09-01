@@ -56,7 +56,7 @@ class CustomerUpdateView(
         elif self.request.POST.get("_save"):
             success_url = reverse("devices:list")
         else:
-            success_url = None
+            success_url = reverse("devices:list")
         return success_url
 
     def form_valid(self, form):
