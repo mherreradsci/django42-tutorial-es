@@ -77,8 +77,8 @@ class DeviceTest(TestCase):
 
         self.assertEqual(formset.is_valid(), True)
 
-        d = response.context["named_formsets"]["assignments"]
-
+        # test in case of save
+        form_data["_save"] = "on"
         response = self.client.post(path=url, data=form_data, follow=True)
         self.assertEqual(response.status_code, 200)
 
@@ -121,7 +121,8 @@ class DeviceTest(TestCase):
 
         self.assertEqual(formset.is_valid(), True)
 
-        d = response.context["named_formsets"]["assignments"]
+        # test in case of _continue
+        form_data["_continue"] = "on"
 
         response = self.client.post(path=url, data=form_data, follow=True)
         self.assertEqual(response.status_code, 200)
