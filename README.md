@@ -4,7 +4,7 @@
 <a href="https://github.com/mherreradsci/django42-tutorial-es/actions"><img alt="Actions Status" src="https://github.com/mherreradsci/django42-tutorial-es/workflows/Django%20CI/badge.svg"></a>
 <a><href="https://github.com/mherreradsci/django42-tutorial-es/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-indigo.svg"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
-<a href="https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml"><img alt="" src="https://img.shields.io/badge/Coverage-99%25-brightgreen.svg"></a>
+<a href="https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml"><img alt="" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg"></a>
 </p>
 
 
@@ -26,20 +26,16 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 
 ## Pendientes:
 * Form validation
-* Moldelo (n2n)
 * CD (continuous delivery)
 * Contribución (How to)
 * Internacionalización y localización
 
 
-## Etapa actual (Stage 26)
-* Testing básico
-* Incorpora herramientas para mejorar la calidad del código (Estilo y formato)
-* Automatización de revisión de código (pre-commit)
-
-
-## Siguiente etapa (Stage 27)
+## Etapa actual (Stage 27)
 * Many To Many (m2m) - Devices assignments for Customers
+
+## Siguiente etapa (Stage 28)
+* Por definir (TBD)
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)
