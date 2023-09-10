@@ -1,10 +1,11 @@
+from unittest import mock
+
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
-from unittest import mock
 
-from customers.models import Customer
 from accounts.models import User
+from customers.models import Customer
 
 """
 Automated Test for Customers Model
@@ -13,6 +14,7 @@ Automated Test for Customers Model
 
 class CustomerTestCase(TestCase):
     # fixtures = ["init_customers.json"]
+    # FIXME. Reeplazar setUp por setUpTestData donde sea necesario
     def setUp(self):
         """
         Setup

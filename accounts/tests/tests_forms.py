@@ -1,6 +1,7 @@
 from django.test import TestCase, override_settings
-from accounts.models import User
+
 from accounts.forms import CustomAuthForm
+from accounts.models import User
 
 
 class AutenticationFormTest(TestCase):
@@ -17,14 +18,40 @@ class AutenticationFormTest(TestCase):
             username="badbunny", password="som37560", email="badbunny@example.com"
         )
 
-        # Use an authentication backend that rejects inactive users.
+        cls.u3 = User.objects.create_user(
+            username="someone", password="topsecret", email="someone@example.com"
+        )
 
+    # Use the ModelBackend to test invalid_login
+    @override_settings(
+        AUTHENTICATION_BACKENDS=["django.contrib.auth.backends.ModelBackend"]
+    )
+    def test_inactive_user_model_backend(self):
+        data = {
+            "username": "inactive",
+            "password": "passwordXrtfn123",
+        }
+        form = CustomAuthForm(None, data)
+
+        self.assertFalse(form.is_valid())
+
+        self.assertEqual(
+            form.non_field_errors(),
+            [
+                str(
+                    form.error_messages["invalid_login"]
+                    % {"username": User._meta.get_field("username").verbose_name}
+                )
+            ],
+        )
+
+    # Use an authentication backend that rejects inactive users.
     @override_settings(
         AUTHENTICATION_BACKENDS=[
             "django.contrib.auth.backends.AllowAllUsersModelBackend"
         ]
     )
-    def test_inactive_user(self):
+    def test_inactive_user_model_allow(self):
         data = {
             "username": "inactive",
             "password": "passwordXrtfn123",
@@ -48,3 +75,14 @@ class AutenticationFormTest(TestCase):
         self.assertEqual(
             form.non_field_errors(), [str(form.error_messages["no_bad_users"])]
         )
+
+    def test_user_ok(self):
+        data = {
+            "username": "someone",
+            "password": "topsecret",
+        }
+
+        form = CustomAuthForm(None, data)
+
+        self.assertTrue(form.is_valid())
+        self.assertEqual(form.non_field_errors(), [])

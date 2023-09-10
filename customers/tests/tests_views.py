@@ -6,6 +6,8 @@ from customers.models import Customer
 
 
 class CustomerTest(TestCase):
+    """Test for Customer Views"""
+
     @classmethod
     def setUpTestData(cls):
         # Every test needs access to the request factory.
@@ -17,7 +19,7 @@ class CustomerTest(TestCase):
         cls.user = User.objects.create_user(username="testuser", password="password")
 
         # User.objects.create(username="init")
-        cls.number_of_customers = 50
+        cls.number_of_customers = 15
 
         for id in range(0, cls.number_of_customers):
             Customer.objects.create(

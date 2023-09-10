@@ -14,6 +14,7 @@ Automated Test for Devices Model
 
 class DeviceTestCase(TestCase):
     # fixtures = ["init_devices.json"]
+    # FIXME. Reeplazar setUp por setUpTestData donde sea necesario
     def setUp(self):
         """
         Setup

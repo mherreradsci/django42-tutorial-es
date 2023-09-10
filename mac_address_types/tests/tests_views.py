@@ -1,6 +1,7 @@
-from accounts.models import User
-from django.test import TestCase, Client, RequestFactory
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
+
+from accounts.models import User
 from mac_address_types.models import MacAddressType
 
 
@@ -13,7 +14,7 @@ class MacAddressTypeTest(TestCase):
         # Create an user for login
         cls.user = User.objects.create_user(username="testuser", password="password")
 
-        cls.number_of_mac_address_types = 50
+        cls.number_of_mac_address_types = 15
 
         for id in range(0, cls.number_of_mac_address_types):
             MacAddressType.objects.create(
