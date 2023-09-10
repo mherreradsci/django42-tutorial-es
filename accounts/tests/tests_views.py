@@ -1,9 +1,11 @@
-from django.test import TestCase, Client, RequestFactory
-from accounts.models import User
+from http import HTTPStatus
+
+from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 
 from accounts import views
-from accounts.forms import CustomUserCreationForm, CustomAuthForm
+from accounts.forms import CustomAuthForm, CustomUserCreationForm
+from accounts.models import User
 
 
 class AutenticationViewTest(TestCase):
@@ -28,7 +30,7 @@ class AutenticationViewTest(TestCase):
         self.assertTrue(form.is_valid())
         response = self.client.post(url, data)
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)  # 302
         self.assertRedirects(response, reverse("customers:list"))
 
     def test_login_view_redirect_successful(self):
@@ -48,7 +50,7 @@ class AutenticationViewTest(TestCase):
         self.assertTrue(form.is_valid())
         response = self.client.post(url, data)
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse("devices:list"))
 
     def test_logout_view_from_logged_user(self):
@@ -62,7 +64,7 @@ class AutenticationViewTest(TestCase):
         request.session = self.client.session
         response = views.logout_view(request)
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertEqual(response.url, "/accounts/login/")
 
     def test_logout_view_from_not_logged_user(self):
@@ -72,7 +74,7 @@ class AutenticationViewTest(TestCase):
         request.user = self.user
         request.session = self.client.session
         response = views.logout_view(request)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_register_view_successful(self):
         url = reverse("accounts:register")
@@ -89,7 +91,7 @@ class AutenticationViewTest(TestCase):
         self.assertTrue(form.is_valid())
         response = self.client.post(url, data)
 
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse("accounts:login"))
 
     def test_register_view_unsuccessful(self):
@@ -107,4 +109,4 @@ class AutenticationViewTest(TestCase):
         self.assertFalse(form.is_valid())
         response = self.client.post(url, data)
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)

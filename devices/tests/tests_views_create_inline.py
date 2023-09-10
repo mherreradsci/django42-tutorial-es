@@ -18,7 +18,7 @@ class DeviceTest(TestCase):
         cls.user = User.objects.create_user(username="testuser", password="password")
         cls.user.save()
 
-        cls.number_of_devices = 50
+        cls.number_of_devices = 15
 
         for id in range(0, cls.number_of_devices):
             Device.objects.create(

@@ -1,19 +1,21 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from mac_address_types.models import MacAddressType
 from accounts.models import User
+from mac_address_types.models import MacAddressType
 
 """
 Automated Test for MacAddressType Model
 """
 
 
-from django.utils import timezone
 from unittest import mock
+
+from django.utils import timezone
 
 
 class MacAddressTypeTestCase(TestCase):
+    # FIXME. Reeplazar setUp por setUpTestData donde sea necesario
     def setUp(self):
         """
         Setup

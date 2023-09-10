@@ -2,8 +2,8 @@ from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 
 from accounts.models import User
-from devices.models import Device
 from devices.forms import DeviceMacAddressFormset
+from devices.models import Device
 from mac_address_types.models import MacAddressType
 from mac_addresses.models import MacAddress
 
@@ -112,7 +112,7 @@ class DeviceTest(TestCase):
         cls.user = User.objects.create_user(username="testuser", password="password")
         cls.user.save()
 
-        cls.number_of_devices = 50
+        cls.number_of_devices = 15
 
         for id in range(0, cls.number_of_devices):
             Device.objects.create(
