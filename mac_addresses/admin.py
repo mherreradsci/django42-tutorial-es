@@ -1,9 +1,8 @@
 from django.contrib import admin
+
+from common import models_utilities
+
 from .models import MacAddress
-
-# from django.conf.locale.en import formats as en_formats
-
-# en_formats.DATETIME_FORMAT = "m-d-Y H:i:s"
 
 
 class MacAddressAdmin(admin.ModelAdmin):
@@ -35,17 +34,25 @@ class MacAddressAdmin(admin.ModelAdmin):
         "updated_at",
     ]
 
-    readonly_fields = ("id", "created_by", "created_at", "updated_by", "updated_at")
+    readonly_fields = (
+        "id",
+        "active",
+        "created_by",
+        "created_at",
+        "updated_by",
+        "updated_at",
+    )
     search_fields = ["address"]
     ordering = ["-id"]
+    list_per_page = 15  # No of records per page
+
+    def active(self, obj):
+        return obj.active
+
+    active.boolean = True
 
     def save_model(self, request, obj, form, change):
-        if not obj.pk:
-            obj.created_by = request.user
-            obj.updated_by = request.user
-        elif change:
-            obj.updated_by = request.user
-        obj.save()
+        models_utilities.save_model(self, request, obj, form, change)
 
 
 admin.site.register(MacAddress, MacAddressAdmin)

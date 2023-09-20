@@ -1,15 +1,20 @@
 from django import forms
-from .models import Customer
+
+from customers.models import Customer
 
 
 class CustomerForm(forms.ModelForm):
-    active_from = forms.DateTimeInput()
-    active_until = forms.DateTimeInput()
+    active = forms.BooleanField(initial=True, required=False)
 
     def __init__(self, *args, **kwargs):
         super(CustomerForm, self).__init__(*args, **kwargs)
+        self.fields["active"].disabled = True
         self.fields["created_by"].disabled = True
         self.fields["updated_by"].disabled = True
+
+        instance = getattr(self, "instance", None)
+        if instance and instance.pk:
+            self.fields["active"].initial = instance.active
 
     class Meta:
         model = Customer
@@ -28,7 +33,7 @@ class CustomerForm(forms.ModelForm):
         widgets = {
             "code": forms.TextInput(
                 attrs={
-                    "placeholder": "code",
+                    "placeholder": "customer code",
                 }
             ),
             "name": forms.TextInput(
@@ -38,10 +43,16 @@ class CustomerForm(forms.ModelForm):
             ),
             "active_from": forms.DateTimeInput(
                 format="%Y-%m-%d %H:%M:%S",
-                attrs={"class": "datetimefield", "placeholder": "until"},
+                attrs={
+                    "class": "datetimefield",
+                    "placeholder": "YYYY-MM-DD HH24:MI:SS",
+                },
             ),
             "active_until": forms.DateTimeInput(
                 format="%Y-%m-%d %H:%M:%S",
-                attrs={"class": "datetimefield", "placeholder": "until"},
+                attrs={
+                    "class": "datetimefield",
+                    "placeholder": "YYYY-MM-DD HH24:MI:SS",
+                },
             ),
         }
