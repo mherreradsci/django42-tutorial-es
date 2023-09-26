@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 from django.contrib.messages import constants as message_constants
 from django.utils import timezone
@@ -133,11 +133,16 @@ AUTH_USER_MODEL = "accounts.User"
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+DATETIME_FORMAT = "d-m-Y H:i:s"
+DATETIME_INPUT_FORMATS = (("%d-%m-%Y %H:%i:%s"),)
+
+
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "Chile/Continental"  # 'UTC'
 
 USE_I18N = True
+USE_L10N = False
 
 USE_TZ = True
 

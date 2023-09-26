@@ -6,12 +6,22 @@ from devices.models import DeviCustAssignment
 
 
 class CustomerForm(forms.ModelForm):
+    active = forms.BooleanField(initial=True, required=False)
+
+    def __init__(self, *args, **kwargs):
+        super(CustomerForm, self).__init__(*args, **kwargs)
+        self.fields["active"].disabled = True
+
+        instance = getattr(self, "instance", None)
+        if instance and instance.pk:
+            self.fields["active"].initial = instance.active
+
     class Meta:
         model = Customer
         fields = [
             "code",
             "name",
-            # "active",
+            "active",
         ]
         widgets = {
             "code": forms.TextInput(attrs={"readonly": "readonly"}),
@@ -20,16 +30,21 @@ class CustomerForm(forms.ModelForm):
 
 
 class DeviCustAssignmentForm(forms.ModelForm):
+    active = forms.BooleanField(initial=True, required=False)
+
     def __init__(self, *args, **kwargs):
         super(DeviCustAssignmentForm, self).__init__(*args, **kwargs)
+        self.fields["active"].disabled = True
         self.fields["created_by"].disabled = True
         self.fields["updated_by"].disabled = True
+
+        instance = getattr(self, "instance", None)
+        if instance and instance.pk:
+            self.fields["active"].initial = instance.active
 
     class Meta:
         model = DeviCustAssignment
         fields = [
-            # "id",
-            # "customer",
             "device",
             "active",
             "active_from",

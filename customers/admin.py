@@ -1,11 +1,8 @@
-from django.conf.locale.en import formats as en_formats
 from django.contrib import admin
 
 from common import models_utilities
 from customers.models import Customer
 from devices.models import DeviCustAssignment
-
-en_formats.DATETIME_FORMAT = "d-m-Y H:i:s"
 
 
 class DeviCustAssignmentInline(admin.TabularInline):
@@ -22,7 +19,12 @@ class DeviCustAssignmentInline(admin.TabularInline):
         "updated_by",
         "updated_at",
     ]
-    readonly_fields = ("created_by", "created_at", "updated_by", "updated_at")
+    readonly_fields = ("active", "created_by", "created_at", "updated_by", "updated_at")
+
+    def active(self, obj):
+        return obj.active
+
+    active.boolean = True
 
 
 class CustomerAdmin(admin.ModelAdmin):
@@ -44,14 +46,28 @@ class CustomerAdmin(admin.ModelAdmin):
         "id",
         "code",
         "name",
+        "active",
         "created_by",
         "created_at",
         "updated_by",
         "updated_at",
     ]
-    readonly_fields = ["id", "created_by", "created_at", "updated_by", "updated_at"]
+    readonly_fields = [
+        "id",
+        "active",
+        "created_by",
+        "created_at",
+        "updated_by",
+        "updated_at",
+    ]
     search_fields = ["code", "name"]
-    ordering = ["name", "-id"]
+    ordering = ["-id"]
+    list_per_page = 15  # No of records per page
+
+    def active(self, obj):
+        return obj.active
+
+    active.boolean = True
 
     def save_model(self, request, obj, form, change):
         models_utilities.save_model(self, request, obj, form, change)

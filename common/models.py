@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 
@@ -31,6 +32,21 @@ class AuditInfo(models.Model):
         null=True,
     )
 
+    # def save(self, *args, **kwargs):
+    #     print("ValidityInfo:save")
+    #     u = kwargs.pop("user", None)
+    #     print("ValidityInfo:save:u:", u)
+    #     print("ValidityInfo:save:self.pk", self.pk)
+    #     if self.pk:
+    #         print("ValidityInfo:save:self.pk:Update:Ok")
+    #         # Object already exists
+    #         self.updated_by = u  # This can be passed from maybe your views
+    #     else:
+    #         print("ValidityInfo:save:self.pk:New:Ok")
+    #         self.created_by = u  # This can be passed from maybe your views
+    #         self.updated_by = u  # This can be passed from maybe your views
+    #     super(ValidityInfo, self).save(*args, **kwargs)
+
     class Meta:
         abstract = True
 
@@ -50,7 +66,31 @@ class ValidityInfo(AuditInfo):
             tzinfo=ZoneInfo("UTC"),
         ),
     )
-    active = models.BooleanField(default=True)
+
+    @property
+    def active(self):
+        "Returns if the instance if active or not."
+        now = timezone.now()
+        return self.active_from <= now and now <= self.active_until
+
+    def clean(self):
+        # Validate consistency in Active
+        errors = {}
+
+        if not self.active_from:
+            errors.setdefault("active_from", []).append("active_from without value")
+
+        if not self.active_until:
+            errors.setdefault("active_until", []).append("active_until without value")
+        if not errors:
+            if self.active_from >= self.active_until:
+                errors.setdefault("active_until", []).append(
+                    "active_until <= active_from"
+                )
+
+        if len(errors) > 0:
+            # raise errors
+            raise ValidationError(errors)
 
     class Meta:
         abstract = True
