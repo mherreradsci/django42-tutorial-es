@@ -137,11 +137,14 @@ DATETIME_FORMAT = "d-m-Y H:i:s"
 DATETIME_INPUT_FORMATS = (("%d-%m-%Y %H:%i:%s"),)
 
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en-us"  # "es-cl" #"en-us"
 
 TIME_ZONE = "Chile/Continental"  # 'UTC'
 
+# Django’s translation system
 USE_I18N = True
+
+# Localized formatting of data
 USE_L10N = False
 
 USE_TZ = True

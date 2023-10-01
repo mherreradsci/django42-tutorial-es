@@ -2,6 +2,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext as _
 
 try:
     from zoneinfo import ZoneInfo
@@ -33,26 +34,32 @@ class AuditInfo(models.Model):
     )
 
     # def save(self, *args, **kwargs):
-    #     print("ValidityInfo:save")
-    #     u = kwargs.pop("user", None)
-    #     print("ValidityInfo:save:u:", u)
-    #     print("ValidityInfo:save:self.pk", self.pk)
-    #     if self.pk:
-    #         print("ValidityInfo:save:self.pk:Update:Ok")
-    #         # Object already exists
-    #         self.updated_by = u  # This can be passed from maybe your views
-    #     else:
-    #         print("ValidityInfo:save:self.pk:New:Ok")
-    #         self.created_by = u  # This can be passed from maybe your views
-    #         self.updated_by = u  # This can be passed from maybe your views
-    #     super(ValidityInfo, self).save(*args, **kwargs)
+    #     print("AuditInfo:save")
+    #     print("AuditInfo:save:self.created_by:", self.created_by)
+    #     print("AuditInfo:save:args:", args)
+    #     print("AuditInfo:save:kwargs:", kwargs)
+
+    #     user = kwargs.pop("user", None)
+    #     print("AuditInfo:save:user:", user)
+
+    #     if user:
+    #         print("AuditInfo:save:self.pk", self.pk)
+    #         if self.instance.pk:
+    #             print("AuditInfo:save:self.pk:Update:Ok")
+    #             # Object already exists
+    #             self.updated_by = user  # This can be passed from maybe your views
+    #         else:
+    #             print("AuditInfo:save:self.pk:New:Ok")
+    #             self.created_by = user  # This can be passed from maybe your views
+    #             self.updated_by = user  # This can be passed from maybe your views
+    #     super().save(*args, **kwargs)
 
     class Meta:
         abstract = True
 
 
 class ValidityInfo(AuditInfo):
-    active_from = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    active_from = models.DateTimeField(blank=True, null=False, default=timezone.now)
     active_until = models.DateTimeField(
         blank=True,
         null=False,
@@ -85,7 +92,7 @@ class ValidityInfo(AuditInfo):
         if not errors:
             if self.active_from >= self.active_until:
                 errors.setdefault("active_until", []).append(
-                    "active_until <= active_from"
+                    _("active_until must be less or equal to active_from")
                 )
 
         if len(errors) > 0:
