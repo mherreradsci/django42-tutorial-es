@@ -14,18 +14,12 @@ Automated Test for MacAddresss Model
 
 
 class MacAddressTestCase(TestCase):
-    # fixtures = ["init_mac_address.json"]
-    # FIXME. Reeplazar setUp por setUpTestData donde sea necesario
-    def setUp(self):
-        """
-        Setup
-        """
-        User.objects.create(username="init")
-
     @classmethod
     def setUpTestData(cls):
         cls.number_of_mac_address = 15
         cls.mocked_created_at = timezone.now()
+
+        # User.objects.create(username="init")
 
         cls.user = User.objects.create(username="testuser", password="password")
         cls.mac_address_type = MacAddressType.objects.create(code="NMAT")
