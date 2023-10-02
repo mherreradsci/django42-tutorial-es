@@ -1,11 +1,27 @@
-from django.test import TestCase
-from unittest.mock import Mock
 import copy
 
 from django.contrib.admin.sites import AdminSite
+from django.test import TestCase
+
 from accounts.models import User
-from devices.models import Device
 from devices.admin import DeviceAdmin
+from devices.forms import DeviceMacAddressFormset
+from devices.models import Device
+from mac_address_types.models import MacAddressType
+from mac_addresses.models import MacAddress
+
+
+class MockRequest:
+    pass
+
+
+class MockSuperUser:
+    def has_perm(self, perm, obj=None):
+        return True
+
+
+request = MockRequest()
+request.user = MockSuperUser()
 
 
 trace_on = False
@@ -28,6 +44,13 @@ class DeviceAdminTest(TestCase):
     def setUpTestData(cls):
         cls.user = User.objects.create_user(username="testuser", password="password")
 
+        cls.device = Device.objects.create(
+            code="DEV001",
+            name="Device 001",
+        )
+
+        cls.maad_type = MacAddressType.objects.create(code="MAT1", name="MAT1 Name")
+
     def test_device_admin_save_and_update_model(self):
         if trace_on:
             print(
@@ -43,26 +66,54 @@ class DeviceAdminTest(TestCase):
 
         device = Device(code="DeviceX", name="Nombre DeviceX")
         trace(device)
-        my_model_admin.save_model(
-            obj=device, request=Mock(user=self.user), form=None, change=False
-        )
+
+        request = MockRequest()
+        request.user = self.user
+
+        my_model_admin.save_model(obj=device, request=request, form=None, change=False)
         trace(device)
         self.assertTrue(device.created_by, self.user)
         self.assertTrue(device.updated_by, self.user)
 
-        # device_name_saved = device.name
         device_copy = copy.deepcopy(device)
         device_copy.name = device.name + " updated"
         # trace(device)
         my_model_admin.save_model(
-            obj=device_copy, request=Mock(user=self.user), form=None, change=True
+            obj=device_copy, request=request, form=None, change=True
         )
         trace(device)
 
         self.assertLess(device.created_at, device.updated_at)
         self.assertNotEqual(device_copy.name, device.name)
 
-        # device = my_model_admin.get_object(
-        #     request=Mock(user=self.user), object_id=str(1)
-        # )
-        # trace(device)
+        # Test DeviceAdmin active
+        self.assertEqual(my_model_admin.active(device), True)
+
+        device.active_from = device.active_until
+        self.assertEqual(my_model_admin.active(device), False)
+
+    def test_model_admin_save_formset_create(self):
+        data = {
+            "macaddress_set-TOTAL_FORMS": 1,
+            "macaddress_set-INITIAL_FORMS": 0,
+            "macaddress_set-MAX_NUM_FORMS": 1000,
+            "macaddress_set-0-address": "11-11-11-11-11-11",
+            "macaddress_set-0-maad_type": self.maad_type,
+            "macaddress_set-0-created_by": self.user,
+            "macaddress_set-0-updated_by": self.user,
+            "macaddress_set-0-id": "",
+        }
+        formset = DeviceMacAddressFormset(data, instance=self.device)
+
+        self.assertEqual(formset.is_valid(), True)
+
+        my_model_admin = DeviceAdmin(model=Device, admin_site=AdminSite())
+        request = MockRequest()
+        request.user = self.user
+
+        my_model_admin.save_formset(request, form=None, formset=formset, change=True)
+        qs = MacAddress.objects.filter(device=self.device)
+
+        count = qs.count()
+
+        self.assertEqual(count, 1)

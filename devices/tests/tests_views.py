@@ -57,34 +57,18 @@ class DeletionTests(TestCase):
 
         data = {
             "code": device.code,
-            # "name": device.name,
-            # "active": device.active,
-            # "active_from": device.active_from,
-            # "active_until": device.active_until,
-            # "created_by": self.user,
-            # "updated_by": self.user,
             "macaddress_set-TOTAL_FORMS": "1",
             "macaddress_set-INITIAL_FORMS": "1",
             "macaddress_set-MIN_NUM_FORMS": "0",
             "macaddress_set-MAX_NUM_FORMS": "1000",
             "macaddress_set-0-address": mac_address.address,
             "macaddress_set-0-maad_type": mac_address.maad_type,
-            # "macaddress_set-0-active": mac_address.active,
-            # "macaddress_set-0-active_from": mac_address.active_from,
-            # # "initial-macaddress_set-0-active_from" : timezone.now(),
-            # "macaddress_set-0-active_until": mac_address.active_until,
-            # # "macaddress_set-0-created_by": mac_address.created_by,
-            # # "macaddress_set-0-updated_by": mac_address.updated_by,
             "macaddress_set-0-DELETE": "1",
             "macaddress_set-0-id": str(mac_address.id),
             "macaddress_set-0-device": device,
         }
 
-        # formset = DeviceMacAddressFormset(data, instance=device)
-        # self.assertTrue(formset.is_valid())
-        # formset.save()
-
-        url = reverse("devices:update", kwargs={"pk": device.pk})  # args=(device.id,))
+        url = reverse("devices:update", kwargs={"pk": device.pk})
 
         response = self.client.post(path=url, data=data, follow=True)
 
@@ -163,7 +147,7 @@ class DeviceTest(TestCase):
         form_data = {
             "code": object.code,
             "name": object.name,
-            "active": object.active,
+            # "active": object.active,
             "active_from": object.active_from,
             "active_until": object.active_until,
             "created_by": self.user,
