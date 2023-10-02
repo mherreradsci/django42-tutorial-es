@@ -1,14 +1,13 @@
-from django.test import TestCase
-from unittest.mock import Mock
-
 import copy
 import time
+from unittest.mock import Mock
 
 from django.contrib.admin.sites import AdminSite
-from accounts.models import User
-from mac_address_types.models import MacAddressType
-from mac_address_types.admin import MacAddressTypeAdmin
+from django.test import TestCase
 
+from accounts.models import User
+from mac_address_types.admin import MacAddressTypeAdmin
+from mac_address_types.models import MacAddressType
 
 trace_on = False
 
@@ -73,3 +72,19 @@ class MacAddressTypeAdminTest(TestCase):
         #     request=Mock(user=self.user), object_id=str(1)
         # )
         # trace(mac_address_type)
+
+        # Test CustomerAdmin active
+
+        self.assertEqual(my_model_admin.active(mac_address_type), True)
+
+        mac_address_type_copy = copy.deepcopy(mac_address_type)
+        mac_address_type_copy.active_from = mac_address_type_copy.active_until
+        # trace(mac_address)
+        my_model_admin.save_model(
+            obj=mac_address_type_copy,
+            request=Mock(user=self.user),
+            form=None,
+            change=True,
+        )
+
+        self.assertEqual(my_model_admin.active(mac_address_type_copy), False)

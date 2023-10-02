@@ -14,15 +14,6 @@ class MockRequest:
     pass
 
 
-class MockSuperUser:
-    def has_perm(self, perm, obj=None):
-        return True
-
-
-request = MockRequest()
-request.user = MockSuperUser()
-
-
 class ModelAdminTests(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -34,25 +25,11 @@ class ModelAdminTests(TestCase):
         )
         cls.u1.save()
 
-        cls.u2 = User.objects.create_user(
-            username="user02",
-            password="passwordXrtfn123",
-            email="testclient@example.com",
-            is_active=True,
-        )
-        cls.u2.save()
-
         cls.customer = Customer.objects.create(
             code="CUST01",
             name="Name CUST01",
         )
         cls.customer.save()
-
-        cls.customer02 = Customer.objects.create(
-            code="CUST02",
-            name="Name CUST02",
-        )
-        cls.customer02.save()
 
         cls.device = Device.objects.create(
             code="DEV001",
@@ -71,29 +48,23 @@ class ModelAdminTests(TestCase):
         )
         cls.dca.save()
 
-    # def setUp(self):
-    #     self.site = AdminSite()
-
     def test_model_admin_save_formset_create(self):
-        # ma = ModelAdmin(Customer, self.site)
-        # self.assertEqual(str(ma), "customers.ModelAdmin")
         data = {
             "devicustassignment_set-TOTAL_FORMS": 1,
             "devicustassignment_set-INITIAL_FORMS": 0,
             "devicustassignment_set-MAX_NUM_FORMS": 1000,
             "devicustassignment_set-0-device": self.device02,
-            "devicustassignment_set-0-active": "1",
             "devicustassignment_set-0-created_by": self.u1,
             "devicustassignment_set-0-updated_by": self.u1,
             "devicustassignment_set-0-id": "",
         }
-        formset = DeviCustAssignmentFormset(
-            data, instance=self.customer  # , prefix="assignments"
-        )
+        formset = DeviCustAssignmentFormset(data, instance=self.customer)
 
         self.assertEqual(formset.is_valid(), True)
 
         my_model_admin = CustomerAdmin(model=Customer, admin_site=AdminSite())
+        self.assertEqual(str(my_model_admin), "customers.CustomerAdmin")
+
         request = MockRequest()
         request.user = self.u1
 
@@ -121,15 +92,12 @@ class ModelAdminTests(TestCase):
             "devicustassignment_set-INITIAL_FORMS": 1,
             "devicustassignment_set-MAX_NUM_FORMS": 1000,
             "devicustassignment_set-0-device": self.device02,
-            # "devicustassignment_set-0-active": "",
             "devicustassignment_set-0-active_from": "2400-01-01 00:00:00",
             "devicustassignment_set-0-created_by": self.u1,
             "devicustassignment_set-0-updated_by": self.u1,
             "devicustassignment_set-0-id": "1",
         }
-        formset = DeviCustAssignmentFormset(
-            data, instance=self.customer  # , prefix="assignments"
-        )
+        formset = DeviCustAssignmentFormset(data, instance=self.customer)
 
         self.assertEqual(formset.is_valid(), True)
 
@@ -147,21 +115,21 @@ class ModelAdminTests(TestCase):
         self.assertEqual(count, 1)
         self.assertEqual(qs.first().active, False)
 
+        # Test CustomerAdmin active
+        self.assertEqual(my_model_admin.active(qs.first()), False)
+
     def test_model_admin_save_formset_delete(self):
         data = {
             "devicustassignment_set-TOTAL_FORMS": 1,
             "devicustassignment_set-INITIAL_FORMS": 1,
             "devicustassignment_set-MAX_NUM_FORMS": 1000,
             "devicustassignment_set-0-device": self.device02,
-            "devicustassignment_set-0-active": "",
             "devicustassignment_set-0-created_by": self.u1,
             "devicustassignment_set-0-updated_by": self.u1,
             "devicustassignment_set-0-id": "1",
             "devicustassignment_set-0-DELETE": True,
         }
-        formset = DeviCustAssignmentFormset(
-            data, instance=self.customer  # , prefix="assignments"
-        )
+        formset = DeviCustAssignmentFormset(data, instance=self.customer)
 
         self.assertEqual(formset.is_valid(), True)
 
@@ -170,6 +138,7 @@ class ModelAdminTests(TestCase):
         request.user = self.u1
 
         my_model_admin.save_formset(request, form=None, formset=formset, change=True)
+
         qs = DeviCustAssignment.objects.filter(
             customer=self.customer, device=self.device02
         )

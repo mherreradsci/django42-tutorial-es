@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from common import models_utilities
+from common import forms_utilities, models_utilities
 from customers.models import Customer
 from devices.models import DeviCustAssignment
 
@@ -73,7 +73,7 @@ class CustomerAdmin(admin.ModelAdmin):
         models_utilities.save_model(self, request, obj, form, change)
 
     def save_formset(self, request, form, formset, change):
-        models_utilities.save_formset(self, request, form, formset, change)
+        forms_utilities.save_formset(self, request, form, formset, change)
 
 
 admin.site.register(Customer, CustomerAdmin)

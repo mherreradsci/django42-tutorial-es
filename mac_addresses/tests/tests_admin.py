@@ -79,3 +79,16 @@ class MacAddressAdminTest(TestCase):
         #     request=Mock(user=self.user), object_id=str(1)
         # )
         # trace(mac_address)
+
+        # Test CustomerAdmin active
+
+        self.assertEqual(my_model_admin.active(mac_address), True)
+
+        mac_address_copy = copy.deepcopy(mac_address)
+        mac_address_copy.active_from = mac_address_copy.active_until
+        # trace(mac_address)
+        my_model_admin.save_model(
+            obj=mac_address_copy, request=Mock(user=self.user), form=None, change=True
+        )
+
+        self.assertEqual(my_model_admin.active(mac_address_copy), False)

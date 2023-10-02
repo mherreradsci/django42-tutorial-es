@@ -1,11 +1,8 @@
-# from django.conf.locale.en import formats as en_formats
 from django.contrib import admin
 
-from common import models_utilities
+from common import forms_utilities, models_utilities
 from devices.models import Device, DeviCustAssignment
 from mac_addresses.models import MacAddress
-
-# en_formats.DATETIME_FORMAT = "d-m-Y H:i:s"
 
 
 class MacAddessInline(admin.TabularInline):
@@ -63,10 +60,6 @@ class DeviCustAssignmentInline(admin.TabularInline):
         return obj.active
 
     active.boolean = True
-
-
-class DeviCustAssignmentAdmin(admin.ModelAdmin):
-    inlines = [DeviCustAssignmentInline]
 
 
 class DeviceAdmin(admin.ModelAdmin):
@@ -127,7 +120,7 @@ class DeviceAdmin(admin.ModelAdmin):
         models_utilities.save_model(self, request, obj, form, change)
 
     def save_formset(self, request, form, formset, change):
-        models_utilities.save_formset(self, request, form, formset, change)
+        forms_utilities.save_formset(self, request, form, formset, change)
 
 
 admin.site.register(Device, DeviceAdmin)
