@@ -14,20 +14,20 @@ Automated Test for Customers Model
 
 class CustomerTestCase(TestCase):
     # fixtures = ["init_customers.json"]
-    # FIXME. Reeplazar setUp por setUpTestData donde sea necesario
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         """
-        Setup
+        setUpTestData
         """
         User.objects.create(username="init")
-        self.number_of_customers = 50
-        self.mocked_created_at = timezone.now()
+        cls.number_of_customers = 15
+        cls.mocked_created_at = timezone.now()
         # created_at and updated_at must have the same datetime when the recors
         # are created
         with mock.patch(
-            "django.utils.timezone.now", mock.Mock(return_value=self.mocked_created_at)
+            "django.utils.timezone.now", mock.Mock(return_value=cls.mocked_created_at)
         ):
-            for id in range(0, self.number_of_customers):
+            for id in range(0, cls.number_of_customers):
                 Customer.objects.create(
                     code="CR" + str(id).zfill(4), name="Cliente " + str(id).zfill(4)
                 )
