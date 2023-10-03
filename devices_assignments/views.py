@@ -74,10 +74,8 @@ class CustomerUpdateView(
             return self.render_to_response(self.get_context_data(form=form))
 
         obj = form.save(commit=False)
+
         if obj.id:
-            obj.updated_by = self.request.user
-        else:
-            obj.created_by = self.request.user
             obj.updated_by = self.request.user
 
         self.object = form.save()
