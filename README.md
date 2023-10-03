@@ -4,7 +4,7 @@
 <a href="https://github.com/mherreradsci/django42-tutorial-es/actions"><img alt="Actions Status" src="https://github.com/mherreradsci/django42-tutorial-es/workflows/Django%20CI/badge.svg"></a>
 <a><href="https://github.com/mherreradsci/django42-tutorial-es/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-indigo.svg"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
-<a href="https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml"><img alt="" src="https://img.shields.io/badge/Coverage-98%25-brightgreen.svg"></a>
+<a href="https://github.com/mherreradsci/django42-tutorial-es/actions/workflows/django.yml"><img alt="" src="https://img.shields.io/badge/Coverage-99%25-brightgreen.svg"></a>
 </p>
 
 
@@ -16,26 +16,26 @@ El objetivo de este repositorio es proponer una forma para hacer un proyecto Dja
 ### Proyecto tipo
 * Modelos: Client, Device, MAC Addresses, Types (lookup) y Modelos abstractos base
 * Navegación estandarizada
-### AJAX vía django-htmx
+### Model and Form validation examples
+### django-htmx (AJAX)
 ### Django Testing
 ### CI (Continuous Integration)
 ### Utilización de herramientas para Calidad de Código (Code Quality Tools)
 
 
 
-
 ## Pendientes:
-* Form validation
-* CD (continuous delivery)
+
+* Deploy to AWS
 * Contribución (How to)
 * Internacionalización y localización
 
 
-## Etapa actual (Stage 27)
-* Many To Many (m2m) - Devices assignments for Customers
+## Etapa actual (Stage 28)
+* Model Validation & Form Validation
 
-## Siguiente etapa (Stage 28)
-* Por definir (TBD)
+## Siguiente etapa (Stage 29)
+* Deploy to AWS
 
 ## Documentación en español Diango 4.2
 - [Documentación](https://docs.djangoproject.com/es/4.2/)

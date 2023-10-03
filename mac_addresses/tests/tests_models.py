@@ -1,5 +1,6 @@
 from unittest import mock
 
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 from django.utils import timezone
 
@@ -7,6 +8,7 @@ from accounts.models import User
 from devices.models import Device
 from mac_address_types.models import MacAddressType
 from mac_addresses.models import MacAddress
+from mac_addresses.validators import validate_mac_address
 
 """
 Automated Test for MacAddresss Model
@@ -89,10 +91,34 @@ class MacAddressTestCase(TestCase):
 
         self.assertLess(object.created_at, object.updated_at)
 
-    # def test_get_absolute_url(self):
-    #     object = MacAddress.objects.filter(
-    #         address__exact="00-00-00-00-00-00")[0]
+    def test_validators_validate_mac_address(self):
+        object = MacAddress.objects.first()
+        object.address = "x"
 
-    #     self.assertEqual(
-    #         object.get_absolute_url(), reverse("mac_address:list")
-    #     )
+        try:
+            object.full_clean()
+        except ValidationError as e:
+            self.assertTrue(e.message_dict.get("address"))
+            self.assertEqual(
+                e.message_dict["address"],
+                ["Invalid MAC Address."],  # ["Format must be XX-XX-XX-XX-XX-XX"]
+            )
+
+    def test_validators_validate_mac_address_itself(self):
+        # type error
+        try:
+            validate_mac_address(1)
+        except ValidationError as e:
+            self.assertEqual(e.message, "value must be string")
+
+        # Invalid MAC Address
+        try:
+            validate_mac_address("11")
+        except ValidationError as e:
+            self.assertEqual(e.message, "Invalid MAC Address.")
+
+        # Invalid format
+        try:
+            validate_mac_address("11:11:11:11:11:1")
+        except ValidationError as e:
+            self.assertEqual(e.message, "Format must be XX-XX-XX-XX-XX-XX")

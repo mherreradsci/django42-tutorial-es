@@ -1,9 +1,11 @@
 from django import forms
 
 from mac_addresses.models import MacAddress
+from mac_addresses.validators import validate_mac_address
 
 
 class MacAddressForm(forms.ModelForm):
+    address = forms.CharField(validators=[validate_mac_address])
     active = forms.BooleanField(initial=True, required=False)
 
     def __init__(self, *args, **kwargs):
@@ -32,7 +34,7 @@ class MacAddressForm(forms.ModelForm):
         widgets = {
             "address": forms.TextInput(
                 attrs={
-                    "placeholder": "MAC Address",
+                    "placeholder": "XX-XX-XX-XX-XX-XX",
                 }
             ),
             "active_from": forms.DateTimeInput(

@@ -32,7 +32,7 @@ class DeviceTest(TestCase):
         cls.first_device = Device.objects.order_by("id").first()
 
         cls.ma = MacAddress.objects.create(
-            address="werwerwqerqwer",
+            address="00-00-00-00-00-00",
             maad_type=cls.mac_address_type,
             device=cls.first_device,
         )
@@ -64,17 +64,14 @@ class DeviceTest(TestCase):
             "macaddress_set-INITIAL_FORMS": "1",
             "macaddress_set-MIN_NUM_FORMS": "0",
             "macaddress_set-MAX_NUM_FORMS": "",
-            "macaddress_set-0-address": "NEW MAC ADDRESS01",
+            "macaddress_set-0-address": "11-11-11-11-11-11",
             "macaddress_set-0-maad_type": "1",  # self.ma.maad_type,
             "macaddress_set-0-active": "1",
             "macaddress_set-0-active_from": timezone.now(),
-            # "initial-macaddress_set-0-active_from" : timezone.now(),
             "macaddress_set-0-active_until": timezone.now(),
             "macaddress_set-0-created_by": self.user,
             "macaddress_set-0-updated_by": self.user,
-            # "macaddress_set-0-DELETE"             :"0",
             "macaddress_set-0-id": "1",
-            # "macaddress_set-0-device"            :self.ma # :self.first_device
         }
         formset = DeviceMacAddressFormset(form_data)
 
@@ -89,6 +86,6 @@ class DeviceTest(TestCase):
 
         self.assertEqual(ma_count, 1)
 
-        self.assertEqual(self.ma.address, "NEW MAC ADDRESS01")
+        self.assertEqual(self.ma.address, "11-11-11-11-11-11")
 
         self.assertEqual(response.url, reverse("devices:list"))
