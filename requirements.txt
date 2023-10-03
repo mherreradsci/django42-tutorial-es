@@ -2,3 +2,4 @@ backports.zoneinfo==0.2.1;python_version<"3.9"
 Django==4.2.3
 django-htmx==1.14.0
 django-dotenv==1.4.2
+netaddr==0.9.0

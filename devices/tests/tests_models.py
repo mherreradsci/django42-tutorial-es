@@ -4,7 +4,8 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from devices.models import Device
+from customers.models import Customer
+from devices.models import Device, DeviCustAssignment
 
 """
 Automated Test for Devices Model
@@ -29,7 +30,7 @@ class DeviceTestCase(TestCase):
         ):
             for id in range(0, cls.number_of_devices):
                 Device.objects.create(
-                    code="DV" + str(id).zfill(4), name="Cliente " + str(id).zfill(4)
+                    code="DV" + str(id).zfill(4), name="Device " + str(id).zfill(4)
                 )
 
     def test_string_representation(self):
@@ -88,3 +89,26 @@ class DeviceTestCase(TestCase):
     def test_get_by_natural_key(self):
         device = Device.objects.get_by_natural_key(code="DV0000")
         self.assertEqual(device.id, 1)
+
+
+class DeviCustAssignmentTestCase(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        """
+        setUpTestData
+        """
+
+        cls.device = Device.objects.create(code="DV0000", name="Device 0000")
+        cls.customer = Customer.objects.create(code="CU0000", name="Customer 0000")
+        cls.dca = DeviCustAssignment.objects.create(
+            device=cls.device, customer=cls.customer
+        )
+
+    def test_string_representation(self):
+        object = DeviCustAssignment.objects.filter(device__exact=self.device.id)[0]
+        self.assertEqual(str(object), f"{object.device}")
+
+    def test_get_absolute_url(self):
+        object = DeviCustAssignment.objects.filter(device__exact=self.device.id)[0]
+
+        self.assertEqual(object.get_absolute_url(), reverse("devices:list"))

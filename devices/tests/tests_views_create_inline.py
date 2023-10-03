@@ -48,7 +48,7 @@ class DeviceTest(TestCase):
             "macaddress_set-INITIAL_FORMS": "0",
             "macaddress_set-MIN_NUM_FORMS": "0",
             "macaddress_set-MAX_NUM_FORMS": "",
-            "macaddress_set-0-address": "NEW MAC ADDRESS02",
+            "macaddress_set-0-address": "11-11-11-11-11-11",
             "macaddress_set-0-maad_type": "1",
             "macaddress_set-0-DELETE": False,
         }
@@ -62,8 +62,7 @@ class DeviceTest(TestCase):
         de = Device.objects.order_by("id").last()
         self.assertEqual(de.code, "123456")
 
-        ma_count = MacAddress.objects.count()
-
-        self.assertEqual(ma_count, 1)
+        ma = MacAddress.objects.filter(address__exact="11-11-11-11-11-11")
+        self.assertEqual(ma.count(), 1)
 
         self.assertRedirects(response, reverse("devices:list"))

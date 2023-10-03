@@ -1,11 +1,19 @@
 from django.db import models
+
 from common.models import ValidityInfo
-from mac_address_types.models import MacAddressType
 from devices.models import Device
+from mac_address_types.models import MacAddressType
+from mac_addresses.validators import validate_mac_address
 
 
 class MacAddress(ValidityInfo):
-    address = models.CharField(unique=True, max_length=17, null=False, blank=False)
+    address = models.CharField(
+        unique=True,
+        max_length=17,
+        null=False,
+        blank=False,
+        validators=[validate_mac_address],
+    )
     maad_type = models.ForeignKey(
         MacAddressType,
         on_delete=models.CASCADE,
