@@ -63,7 +63,6 @@ class DeviceTest(TestCase):
             "assignments-INITIAL_FORMS": 0,
             "assignments-MAX_NUM_FORMS": 1000,
             "assignments-0-device": self.first_device.id,
-            "assignments-0-active": "1",
             "assignments-0-active_from": timezone.now(),
             "assignments-0-active_until": timezone.now(),
             "assignments-0-created_by": "",
@@ -107,7 +106,6 @@ class DeviceTest(TestCase):
             "assignments-INITIAL_FORMS": 1,
             "assignments-MAX_NUM_FORMS": 1000,
             "assignments-0-device": self.first_device.id,
-            "assignments-0-active": "",
             "assignments-0-active_from": timezone.now(),
             "assignments-0-active_until": timezone.now(),
             "assignments-0-created_by": self.user,
@@ -145,7 +143,9 @@ class DeviceTest(TestCase):
             "assignments-TOTAL_FORMS": 1,
             "assignments-INITIAL_FORMS": 1,
             "assignments-MAX_NUM_FORMS": 1000,
-            "assignments-0-device": "XXX",
+            "assignments-0-device": "",
+            "assignments-0-active_from": "2500-01-01 00:00:00",
+            "assignments-0-active_until": "2500-01-01 00:00:00",
             "assignments-0-id": str(self.dca.id),
         }
 
@@ -154,11 +154,25 @@ class DeviceTest(TestCase):
         )
 
         self.assertFalse(formset.is_valid())
+        self.assertEqual(formset.total_error_count(), 2)
+
+        self.assertIn(
+            "This field is required.",
+            str(formset[0].errors["device"]),
+        )
 
         self.assertEqual(
-            formset.errors[0]["device"][0],
-            "Select a valid choice. That choice is not one of the available choices.",
+            formset.errors[0]["active_until"][0],
+            "active_until must be less or equal to active_from",
         )
+
+        # Test View
+        url = reverse(
+            "devices_assignments:update", kwargs={"pk": self.first_customer.pk}
+        )
+
+        response = self.client.post(path=url, data=form_data, follow=True)
+        self.assertEqual(response.status_code, 200)
 
     def test_device_update_view_formset_delete(self):
         result = self.client.login(username="testuser", password="password")
@@ -177,8 +191,7 @@ class DeviceTest(TestCase):
             "assignments-TOTAL_FORMS": 1,
             "assignments-INITIAL_FORMS": 1,
             "assignments-MAX_NUM_FORMS": 1000,
-            "assignments-0-device": self.first_device.id,
-            "assignments-0-active": "1",
+            "assignments-0-device": self.first_device,
             "assignments-0-active_from": timezone.now(),
             "assignments-0-active_until": timezone.now(),
             "assignments-0-created_by": "",

@@ -12,6 +12,7 @@
                 <th scope="col">Updated By</th>
                 <th scope="col">Update Date</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
                 <th scope="col">
                     <a href="{% url 'customers:create' %}">
                         <div class="gap-2 col-8 mx-auto justify-content-md-end">
@@ -51,6 +52,12 @@
                             <button type="button" class="btn btn-primary btn-sm">Edit</button>
                         </a>
                     </td>
+                    <td>
+                        <a href="{% url 'devices_assignments:update' customer.pk %}">
+                            <button type="button" class="btn btn-secondary btn-sm">Devices</button>
+                        </a>
+                    </td>
+
                     <td>
                         <a href="{% url 'customers:delete' customer.pk %}">
                             <button type="button" class="btn btn-danger btn-sm">Delete</button>

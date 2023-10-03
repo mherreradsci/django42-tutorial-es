@@ -54,9 +54,9 @@ class CustomerUpdateView(
                 "devices_assignments:update", kwargs={"pk": self.object.pk}
             )
         elif self.request.POST.get("_save"):
-            success_url = reverse("devices:list")
+            success_url = reverse("customers:list")
         else:
-            success_url = reverse("devices:list")
+            success_url = reverse("customers:list")
         return success_url
 
     def form_valid(self, form):
@@ -74,10 +74,8 @@ class CustomerUpdateView(
             return self.render_to_response(self.get_context_data(form=form))
 
         obj = form.save(commit=False)
+
         if obj.id:
-            obj.updated_by = self.request.user
-        else:
-            obj.created_by = self.request.user
             obj.updated_by = self.request.user
 
         self.object = form.save()

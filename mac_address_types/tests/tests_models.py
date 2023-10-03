@@ -1,5 +1,8 @@
+from unittest import mock
+
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
 from accounts.models import User
 from mac_address_types.models import MacAddressType
@@ -9,26 +12,25 @@ Automated Test for MacAddressType Model
 """
 
 
-from unittest import mock
-
-from django.utils import timezone
-
-
 class MacAddressTypeTestCase(TestCase):
-    # FIXME. Reeplazar setUp por setUpTestData donde sea necesario
-    def setUp(self):
+    """
+    MacAddressType Test Case
+    """
+
+    @classmethod
+    def setUpTestData(cls):
         """
-        Setup
+        setUpTestData
         """
         User.objects.create(username="init")
-        self.number_of_mac_address_types = 50
-        self.mocked_created_at = timezone.now()
+        cls.number_of_mac_address_types = 15
+        cls.mocked_created_at = timezone.now()
         # created_at and updated_at must have the same datetime when the recors
         # are created
         with mock.patch(
-            "django.utils.timezone.now", mock.Mock(return_value=self.mocked_created_at)
+            "django.utils.timezone.now", mock.Mock(return_value=cls.mocked_created_at)
         ):
-            for id in range(0, self.number_of_mac_address_types):
+            for id in range(0, cls.number_of_mac_address_types):
                 MacAddressType.objects.create(
                     code="MC" + str(id).zfill(4),
                     name="MAC Address Type" + str(id).zfill(4),
@@ -80,18 +82,3 @@ class MacAddressTypeTestCase(TestCase):
         object = MacAddressType.objects.filter(code__exact="MC0000")[0]
 
         self.assertEqual(object.get_absolute_url(), reverse("mac_address_types:list"))
-
-    # def test_get_macaddress(self):
-    #     object = MacAddressType.objects.filter(code__exact="DV0000")[0]
-    #     self.assertEqual(
-    #         object.get_macaddress().count(), 0)
-
-    # def test_natural_key(self):
-    #     object = MacAddressType.objects.filter(code__exact="DV0000")[0]
-    #     self.assertEqual(
-    #         object.natural_key(), "DV0000")
-
-    # def test_get_by_natural_key(self):
-    #     mac_address_type = MacAddressType.objects.get_by_natural_key(
-    #         code="DV0000")
-    #     self.assertEqual(mac_address_type.id, 1)

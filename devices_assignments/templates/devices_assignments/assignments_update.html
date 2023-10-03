@@ -108,7 +108,7 @@
         <div class="form-buttons">
             <input type="submit" value="Save" name="_save" class="btn btn-primary btn-sm" />
             <input type="submit" value="Save and continue editing" name="_continue" class="btn btn-primary btn-sm" />
-			<a href="{% url 'devices:list' %}" class="btn btn-secondary btn-sm">Cancel</a>
+			<a href="{{ object.get_absolute_url }}#{{ object.id }}" class="btn btn-secondary btn-sm">Cancel</a>
         </div>
     </form>
 {% comment %} <script src="{% static 'js/devices/macaddress_formset.js' %}"
